@@ -53,9 +53,9 @@ const AttorneyList: React.FC = () => {
     },
   ];
 
-  const expertiseOptions: string[] = [
-    ...new Set(attorneys.map((attorney) => attorney.expertise)),
-  ];
+  const expertiseOptions: string[] = Array.from(
+    new Set(attorneys.map((attorney) => attorney.expertise))
+  );
 
   const handleSearch = () => {
     const filtered = attorneys.filter((attorney) => {
