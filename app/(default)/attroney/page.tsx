@@ -51,6 +51,16 @@ const AttorneyList: React.FC = () => {
       mobile: "+44 20 7123 4567",
       image: "images.unsplash.com/photo-1580489944761-15a19d654956",
     },
+    {
+      id: 4,
+      name: "Alex Thompson",
+      country: "United Kingdom",
+      expertise: "Patent Law",
+      description: "Specialized in Intellectual Property and Patent Law",
+      email: "emma.thompson@legalfirm.com",
+      mobile: "+44 20 7123 4567",
+      image: "images.unsplash.com/photo-1580489944761-15a19d654956",
+    },
   ];
 
   const expertiseOptions: string[] = Array.from(
