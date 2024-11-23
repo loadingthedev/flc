@@ -166,7 +166,7 @@ const Navbar: React.FC = () => {
               About Us
             </a>
             <a
-              href="#"
+              href="/attroney"
               className="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
               onClick={closeMenu}
             >
