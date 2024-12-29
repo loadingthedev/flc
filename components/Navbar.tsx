@@ -38,69 +38,70 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg fixed w-full top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-white shadow-xl text-[#000000] fixed w-full top-0 z-50">
+      <div className="  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0">
+          <div className="">
             <img
-              className="h-8 w-auto"
               src="images.unsplash.com/photo-1616606103915-dea7be788566"
               alt="Logo"
+              width={"250"}
+              height={"250"}
               onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                 const target = e.target as HTMLImageElement;
-                target.src = "https://via.placeholder.com/150";
+                target.src = "/images/logo.png.png";
                 target.alt = "Fallback Logo";
               }}
             />
           </div>
 
-          <div className="hidden md:block">
+          <div className="  -text-[#000000] hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               <a
-                href="/attroney"
-                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                href="/attorney"
+                className="text-[#000000]  font-brandon font-extrabold border-b-2 border-transparent hover:text-white hover:border-[#000000] hover:bg-[#000000] px-3 py-2 rounded-md text-sm font-medium"
                 aria-label="Attorneys"
               >
                 ATTORNEYS
               </a>
               <a
-                href="#"
-                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                href="/practice-areas"
+                className="text-[#000000] font-brandon font-extrabold border-b-2 border-transparent hover:text-white hover:border-[#000000] hover:bg-[#000000] px-3 py-2 rounded-md text-sm font-medium"
                 aria-label="Practice Areas"
               >
                 PRACTICE AREAS
               </a>
               <a
                 href="#"
-                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-[#000000]   font-brandon font-extrabold border-b-2 border-transparent hover:text-white hover:border-[#000000] hover:bg-[#000000] px-3 py-2 rounded-md text-sm font-medium"
                 aria-label="Industries"
               >
                 INDUSTRIES
               </a>
               <a
                 href="#"
-                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-[#000000] font-brandon font-extrabold border-b-2 border-transparent hover:text-white hover:border-[#000000] hover:bg-[#000000] px-3 py-2 rounded-md text-sm font-medium"
                 aria-label="Team"
               >
                 TEAM
               </a>
               <a
                 href="#"
-                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-[#000000]  font-brandon font-extrabold border-b-2 border-transparent hover:text-white hover:border-[#000000] hover:bg-[#000000] px-3 py-2 rounded-md text-sm font-medium"
                 aria-label="Location"
               >
                 LOCATION
               </a>
               <a
                 href="#"
-                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-[#000000]  font-brandon font-extrabold border-b-2 border-transparent hover:text-white hover:border-[#000000] hover:bg-[#000000] px-3 py-2 rounded-md text-sm font-medium"
                 aria-label="News"
               >
                 NEWS
               </a>
               <a
                 href="#"
-                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-[#000000]  font-brandon font-extrabold border-b-2 border-transparent hover:text-white hover:border-[#000000] hover:bg-[#000000] px-3 py-2 rounded-md text-sm font-medium"
                 aria-label="Join Us"
               >
                 JOIN US
@@ -110,7 +111,7 @@ const Navbar: React.FC = () => {
                 <div key={key} className="relative inline-block text-left">
                   <button
                     onClick={() => handleDropdown(key)}
-                    className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium flex items-center"
+                    className="text-[#000000] border-b-2 border-transparent hover:text-white hover:border-[#000000] hover:bg-[#000000] px-3 py-2 rounded-md text-sm font-medium flex items-center"
                     aria-expanded={activeDropdown === key}
                     aria-haspopup="true"
                   >
@@ -129,7 +130,7 @@ const Navbar: React.FC = () => {
                           <a
                             key={item}
                             href="#"
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000]"
                             role="menuitem"
                           >
                             {item}
@@ -173,7 +174,7 @@ const Navbar: React.FC = () => {
               ATTORNEYS
             </a>
             <a
-              href="#"
+              href="/practice-areas"
               className="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
               onClick={closeMenu}
             >

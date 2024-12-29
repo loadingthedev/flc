@@ -4,7 +4,7 @@ export const metadata = {
 };
 
 import BusinessCategories from "@/components/business-categories";
-import ClientPartnerSection from "@/components/Client";
+
 import FeaturesPlanet from "@/components/features-planet";
 import Hero from "@/components/hero-home";
 import How from "@/components/How-to";
@@ -18,7 +18,6 @@ export default function Home() {
       <FeaturesPlanet />
       <LargeTestimonial />
       <How />
-      <ClientPartnerSection />
     </>
   );
 }

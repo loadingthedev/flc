@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        brandon: ['"Brandon Grotesque"', "sans-serif"],
         inter: ["Inter", "sans-serif"],
         mono: ["Roboto Mono", "monospace"],
       },
