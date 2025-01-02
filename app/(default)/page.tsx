@@ -4,19 +4,19 @@ export const metadata = {
 };
 
 import BusinessCategories from "@/components/business-categories";
+import LawFirmCarousel from "@/components/Services";
 
-import FeaturesPlanet from "@/components/features-planet";
+import ClientInformation from "@/components/client";
 import Hero from "@/components/hero-home";
 import How from "@/components/How-to";
-import LargeTestimonial from "@/components/large-testimonial";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <BusinessCategories />
-      <FeaturesPlanet />
-      <LargeTestimonial />
+      <LawFirmCarousel />
+      <ClientInformation />
       <How />
     </>
   );

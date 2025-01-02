@@ -7,6 +7,52 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          DEFAULT: "#0077B6",
+          foreground: "#FFFFFF",
+        },
+        secondary: {
+          DEFAULT: "#F0F1F3",
+          foreground: "#0f5471",
+        },
+        accent: {
+          DEFAULT: "#00B4D8",
+          foreground: "#0f5471",
+        },
+        background: "#CAF0F8",
+        foreground: "#0f5471",
+        card: {
+          DEFAULT: "#FFFFFF",
+          foreground: "#0f5471",
+        },
+        popover: {
+          DEFAULT: "#FFFFFF",
+          foreground: "#0f5471",
+        },
+        muted: {
+          DEFAULT: "#F0F1F3",
+          foreground: "#00B4D8",
+        },
+        lightGreen: {
+          DEFAULT: "#A8E6CF",
+          foreground: "#0f5471",
+        },
+        destructive: {
+          DEFAULT: "#FF4C4C",
+          foreground: "#FFFFFF",
+        },
+        border: "#E0E0E0",
+        input: "#E0E0E0",
+        ring: "#0077B6",
+        chart: {
+          1: "#FF6F61",
+          2: "#4CAF50",
+          3: "#03A9F4",
+          4: "#FFC107",
+          5: "#8E44AD",
+        },
+      },
       fontFamily: {
         brandon: ['"Brandon Grotesque"', "sans-serif"],
         inter: ["Inter", "sans-serif"],

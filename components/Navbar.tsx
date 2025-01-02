@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
               height={"250"}
               onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                 const target = e.target as HTMLImageElement;
-                target.src = "/images/logo.png.png";
+                target.src = "/images/large-fallback-logo.png";
                 target.alt = "Fallback Logo";
               }}
             />

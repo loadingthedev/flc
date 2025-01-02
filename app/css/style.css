@@ -1,11 +1,33 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
-
-/* Additional styles */
-/* Additional styles */
 @import "additional-styles/utility-patterns.css";
 @import "additional-styles/theme.css";
-
 @import "tailwindcss/utilities";
 
-/* styles.css */
+/* Global CSS Variables */
+:root {
+  --color-primary: #0077b6;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f0f1f3;
+  --color-secondary-foreground: #0f5471;
+  --color-accent: #00b4d8;
+  --color-accent-foreground: #0f5471;
+  --color-background: #ffffff;
+  --color-foreground: #0f5471;
+  --color-card: #ffffff;
+  --color-card-foreground: #0f5471;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #0f5471;
+  --color-muted: #f0f1f3;
+  --color-muted-foreground: #00b4d8;
+  --color-destructive: #ff4c4c;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #e0e0e0;
+  --color-input: #e0e0e0;
+  --color-ring: #0077b6;
+  --color-chart-1: #ff6f61;
+  --color-chart-2: #4caf50;
+  --color-chart-3: #03a9f4;
+  --color-chart-4: #ffc107;
+  --color-chart-5: #8e44ad;
+}
