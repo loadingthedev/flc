@@ -35,7 +35,7 @@ export default function How() {
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div
-          className="relative overflow-hidden rounded-2xl text-center shadow-xl before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:bg-gray-900"
+          className="relative overflow-hidden rounded-2xl text-center shadow-xl before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-2xl "
           data-aos="zoom-y-out"
         >
           {/* Glow */}
@@ -45,7 +45,7 @@ export default function How() {
           >
             <div className="h-56 w-[480px] rounded-full border-[20px] border-blue-500 blur-3xl" />
           </div>
-          {/* Stripes illustration */}
+
           <div
             className="pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/2 transform"
             aria-hidden="true"
@@ -58,8 +58,8 @@ export default function How() {
               alt="Stripes"
             />
           </div>
-          <div className="px-4 py-12 md:px-12 md:py-20">
-            <h2 className="mb-6 border-y text-3xl font-bold text-gray-200 [border-image:linear-gradient(to_right,transparent,theme(colors.slate.700/.7),transparent)1] md:mb-12 md:text-4xl">
+          <div className="px-4  md:py-12">
+            <h2 className="mb-6 border-y text-3xl text-4xl font-bold  text-foreground  [border-image:linear-gradient(to_right,transparent,theme(colors.slate.700/.7),transparent)1] md:mb-12 md:text-4xl">
               How to hire through our Agency
             </h2>
           </div>
@@ -74,7 +74,7 @@ export default function How() {
                   >
                     <div className="flex items-start">
                       <div className="flex-shrink-0 mr-4">
-                        <div className="w-12 h-12  rounded-full flex items-center justify-center shadow-lg">
+                        <div className="w-12 h-12  rounded-full flex items-center justify-center shadow-lg text-black">
                           {step.icon}
                         </div>
                         {index < steps.length - 1 && (
@@ -82,10 +82,10 @@ export default function How() {
                         )}
                       </div>
                       <div className="flex-grow">
-                        <h3 className="text-2xl font-bold text-[#3b82f6] mb-2">
+                        <h3 className="text-2xl font-bold text-primary mb-2">
                           {step.title}
                         </h3>
-                        <p className="text-lg text-purple-100">
+                        <p className="text-lg text-gray-600">
                           {step.description}
                         </p>
                       </div>

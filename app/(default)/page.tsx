@@ -4,20 +4,23 @@ export const metadata = {
 };
 
 import BusinessCategories from "@/components/business-categories";
-import LawFirmCarousel from "@/components/Services";
-
-import ClientInformation from "@/components/client";
-import Hero from "@/components/hero-home";
+import ClientInformation from "@/components/Cient";
+import ContactUs from "@/components/Contact";
+import HeroHome from "@/components/hero-home";
 import How from "@/components/How-to";
+import NewsAndInsights from "@/components/NewsLegal";
+import Services from "@/components/Services";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <HeroHome />
       <BusinessCategories />
-      <LawFirmCarousel />
-      <ClientInformation />
+      <Services />
+      <NewsAndInsights />
       <How />
+      <ClientInformation />
+      <ContactUs />
     </>
   );
 }

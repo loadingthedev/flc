@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import Typing from "./Common/Typing";
 
 const ClientInformation = () => {
   const [isPaused, setIsPaused] = useState(false);
@@ -11,7 +10,7 @@ const ClientInformation = () => {
   };
 
   useEffect(() => {
-    let animationFrame;
+    let animationFrame: number;
     const animate = () => {
       if (!isPaused) {
         setScrollPosition((prev) => (prev - 0.1) % 100);
@@ -27,10 +26,10 @@ const ClientInformation = () => {
     <div className="py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-8xl mx-auto">
         <div className="text-center mb-12">
-          <div className="flex justify-center mb-8">
-            <Typing text="OUR CLIENTS" />
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <h2 className="text-4xl font-bold text-foreground mb-6">
+            Our Clients
+          </h2>
+          {/* <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="bg-primary p-6 rounded-md shadow-md">
               <p className="text-body text-card-accent">
                 FLC offers thoughtful legal counsel across a range of industries
@@ -44,7 +43,7 @@ const ClientInformation = () => {
                 matters.
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="relative  rounded-md overflow-hidden">

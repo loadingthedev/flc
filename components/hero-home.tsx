@@ -63,7 +63,7 @@ export default function HeroHome() {
               />
             </div>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center text-4xl font-bold  text-foreground ">
             <Typing text="Simplify Your Global ‍Startup and Expansion with Expert Guidance" />
           </div>
           <div className="mx-auto max-w-3xl">

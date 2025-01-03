@@ -43,14 +43,12 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           <div className="">
             <img
-              src="images.unsplash.com/photo-1616606103915-dea7be788566"
+              src="/logo.svg"
               alt="Logo"
               width={"250"}
               height={"250"}
               onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                 const target = e.target as HTMLImageElement;
-                target.src = "/images/large-fallback-logo.png";
-                target.alt = "Fallback Logo";
               }}
             />
           </div>

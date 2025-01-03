@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import Typing from "./Common/Typing";
 
 const Services = () => {
   const testimonials = [
@@ -75,13 +74,17 @@ const Services = () => {
 
   return (
     <div
-      className="relative w-full h-screen mb-40"
+      className="relative w-full h-screen mb-10"
       onMouseDown={handleMouseDown}
     >
-      <div className="flex justify-center items-center h-1/8">
-        <Typing text="A LAW FIRM WITH A NEW PERSPECTIVE" />
+      <div className="px-4 py-12 md:px-12 md:py-12">
+        {/* <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-0 w-[20%] h-[200%] bg-accent/10 transform -rotate-45 origin-top-left"></div>
+        </div> */}
+        <h2 className=" ml-16 border-y text-4xl font-bold text-center  text-foreground  [border-image:linear-gradient(to_right,transparent,theme(colors.slate.700/.7),transparent)1]  md:text-4xl">
+          A LAW FIRM WITH A NEW PERSPECTIVE
+        </h2>
       </div>
-
       <div className="overflow-hidden relative w-full h-full rounded-2xl ">
         <div
           className="flex transition-transform duration-1000 ease-out h-full"
