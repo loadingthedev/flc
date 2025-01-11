@@ -202,7 +202,7 @@ const PracticeAreas = () => {
                   <p className="text-xl text-gray-600 leading-relaxed">
                     {practiceAreaDescriptions[area].description}
                   </p>
-                  <button className="inline-flex items-center text-blue-600 font-brandon hover:text-blue-700 transition-colors duration-200">
+                  <button className="inline-flex items-center text-blue-600 font-Jost hover:text-blue-700 transition-colors duration-200">
                     Learn More <FaArrowRight className="ml-2" />
                   </button>
                 </div>

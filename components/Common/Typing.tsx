@@ -2,6 +2,7 @@ import React from "react";
 
 interface TypingProps {
   text: string;
+  className?: string;
 }
 
 const Typing: React.FC<TypingProps> = ({ text }) => {
@@ -41,6 +42,11 @@ const Typing: React.FC<TypingProps> = ({ text }) => {
         @media (max-width: 768px) {
           h2 {
             font-size: 2rem; /* Adjust the font size for mobile screens */
+          }
+        }
+        @media (max-width: 480px) {
+          h2 {
+            font-size: 1.5rem; /* Further adjust the font size for smaller screens */
           }
         }
       `}</style>

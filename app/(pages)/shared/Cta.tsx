@@ -51,7 +51,7 @@ export default function Cta() {
           </motion.div>
         </div>
 
-        <h2 className="text-3xl font-brandon font-extrabold  mb-4">
+        <h2 className="text-3xl font-Jost font-extrabold  mb-4">
           Need Legal Assistance?
         </h2>
         <p className="text-lg mb-6 max-w-2xl mx-auto">

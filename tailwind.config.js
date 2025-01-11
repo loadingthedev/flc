@@ -54,10 +54,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        brandon: ['"Brandon Grotesque"', "sans-serif"],
+        jost: ["Jost", "sans-serif"],
         inter: ["Inter", "sans-serif"],
         mono: ["Roboto Mono", "monospace"],
-        jost: ["Jost", "sans-serif"],
       },
       fontSize: {
         xs: ["0.75rem", { lineHeight: "1.5" }],

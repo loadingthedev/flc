@@ -21,11 +21,11 @@ export default function Heading({
         transition={{ duration: 0.5 }}
         className="text-center mb-6 relative z-10"
       >
-        <h1 className="text-5xl font-brandon font-bold mb-6 mt-16 text-foreground antialiased">
+        <h1 className="text-5xl font-Jost font-bold mb-6 mt-16 text-foreground antialiased">
           {title}
         </h1>
 
-        <h2 className="text-lg mb-4 font-brandon font-bold text-foreground tracking-wide antialiased">
+        <h2 className="text-lg mb-4 font-Jost font-bold text-foreground tracking-wide antialiased">
           {subtitle}
         </h2>
       </motion.div>
@@ -35,7 +35,7 @@ export default function Heading({
         transition={{ duration: 0.5 }}
         className="text-center mb-6 relative z-10"
       >
-        <p className="text-foreground max-w-3xl mx-auto leading-relaxed font-brandon antialiased">
+        <p className="text-foreground max-w-3xl mx-auto leading-relaxed font-Jost antialiased">
           {paragraph}
         </p>
       </motion.div>
@@ -45,7 +45,7 @@ export default function Heading({
         transition={{ duration: 0.5 }}
         className="text-center mb-6 relative z-10"
       >
-        <p className="text-foreground max-w-3xl mx-auto leading-relaxed font-brandon antialiased">
+        <p className="text-foreground max-w-3xl mx-auto leading-relaxed font-Jost antialiased">
           {subparagraph}
         </p>
       </motion.div>

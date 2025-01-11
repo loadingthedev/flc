@@ -65,7 +65,10 @@ export default function HeroHome() {
           </div>
 
           <div className="flex justify-center text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
-            <Typing text="Simplify Your Global ‍Startup and Expansion with Expert Guidance" />
+            <Typing
+              text="Simplify Your Global ‍Startup and Expansion with Expert Guidance"
+              className="hidden sm:block"
+            />
           </div>
 
           <div className="mx-auto max-w-3xl text-center">
@@ -80,7 +83,7 @@ export default function HeroHome() {
             </p>
             <div className="relative before:absolute before:inset-0 before:border-y before:[border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]">
               <div
-                className="mx-auto max-w-xs sm:flex sm:max-w-none gap-2 sm:justify-center"
+                className="mx-auto max-w-xs sm:max-w-none gap-2 sm:gap-4 flex flex-row justify-center"
                 data-aos="zoom-y-out"
                 data-aos-delay={450}
               >
