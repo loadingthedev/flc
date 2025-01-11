@@ -3,7 +3,6 @@ import { ChangeEvent, MouseEvent, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import Cta from "../shared/Cta";
-import Heading from "../shared/Heading";
 
 // Define the types for the practice areas and descriptions
 type PracticeArea = {
@@ -119,11 +118,11 @@ const PracticeAreas = () => {
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
       <div className="   max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <Heading
+        {/* <Heading
           title="PRACTICE AREAS"
           subtitle="PRACTICAL. VERSATILE. COST-EFFECTIVE."
           paragraph="In each of our practice areas we help clients reach their goals in a streamlined, responsive and collaborative manner to yield great results. As a full-service law firm, we deliver legal counsel across a wide range of specialty areas and industries."
-        />
+        /> */}
 
         <div className="mb-8 max-w-3xl mx-auto relative z-10 items-start">
           <div className="flex flex-col md:flex-row gap-4">
