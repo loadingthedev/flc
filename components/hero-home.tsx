@@ -64,10 +64,10 @@ export default function HeroHome() {
             </div>
           </div>
 
-          <div className="flex justify-center text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+          <div className="flex justify-center text-8xl sm:text-4xl md:text-7xl font-bold text-foreground">
             <Typing
-              text="Simplify Your Global ‍Startup and Expansion with Expert Guidance"
-              className="hidden sm:block"
+              text="First Legal Counsel"
+              className="hidden sm:block md:text-7xl"
             />
           </div>
 
