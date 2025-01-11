@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 
 const PracticeAreaTable = () => {
@@ -53,20 +54,20 @@ const PracticeAreaTable = () => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {practiceAreas.map((area) => (
-          <div
-            key={area.id}
-            className="p-6 bg-secondary/10 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 relative group"
-          >
-            <h3 className="text-lg font-semibold text-foreground mb-2">
-              {area.area}
-            </h3>
-            <p className="text-sm text-foreground/80 mb-4">
-              {area.description}
-            </p>
-            <div className="flex justify-between items-center">
-              <BsArrowRight className="text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          //  <Link href={`/practice-areas/${area.id}`} key={area.id}></Link>
+          <Link href={`/practice-areas/area`}>
+            <div className="p-6 bg-secondary/10 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 relative group">
+              <h3 className="text-lg font-semibold text-foreground mb-2">
+                {area.area}
+              </h3>
+              <p className="text-sm text-foreground/80 mb-4">
+                {area.description}
+              </p>
+              <div className="flex justify-between items-center">
+                <BsArrowRight className="text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
