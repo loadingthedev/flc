@@ -26,7 +26,7 @@ const Search: React.FC<SearchProps> = ({
           <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <input
             type="text"
-            placeholder="Search by name, country, or description..."
+            placeholder="Search"
             className="w-[700px] pl-10 pr-4 py-2 border border-gray-300  focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             value={searchQuery}
             onChange={onSearchChange}
@@ -52,7 +52,7 @@ const Search: React.FC<SearchProps> = ({
         </div>
         <button
           onClick={() => handleSearch(searchQuery)}
-          className="bg-foreground text-white px-8 py-2 font-semibold hover:bg-blue-700 transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="bg-foreground text-white px-8 py-2 font-semibold hover:bg-muted-foreground transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           aria-label="Search"
         >
           Search

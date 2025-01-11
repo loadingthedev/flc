@@ -203,7 +203,7 @@ const AttorneyProfile: React.FC = () => {
         </div>
       </section>
 
-      <section id="practice" className="py-20">
+      <section id="practice" className="py-20 ">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-foreground mb-12 text-center">
             Practice Areas

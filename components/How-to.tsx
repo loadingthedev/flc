@@ -112,14 +112,11 @@ export default function How() {
             `}</style>
           </div>
           <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center mb-20">
-            <a
-              className="btn group  w-full bg-gradient-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] text-white shadow hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-              href="#0"
+            <button
+              className={`flex items-center gap-2 px-6 py-3 rounded-none transition-all bg-primary text-primary-foreground hover:bg-muted-foreground`}
             >
-              <span className="relative inline-flex items-center">
-                Start Free Trial{" "}
-              </span>
-            </a>
+              Learn More
+            </button>
           </div>
 
           <div className="mt-8 mb-10 flex justify-center flex-wrap gap-4">

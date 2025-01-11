@@ -83,7 +83,7 @@ const NewsAndInsights = () => {
           <div className="flex gap-4">
             <button
               onClick={() => setActiveTab("news")}
-              className={`flex items-center gap-2 px-6 py-3 rounded-none transition-all ${activeTab === "news" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
+              className={`flex items-center gap-2 px-6 py-3 rounded-none transition-all ${activeTab === "news" ? "bg-primary hover:bg-muted-foreground text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
             >
               <FaNewspaper />
               News

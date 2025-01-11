@@ -96,13 +96,15 @@ const Services = () => {
               className="w-full flex-shrink-0 flex items-center justify-between p-8 gap-8"
             >
               <div className="flex-1">
-                <h2 className="text-4xl font-bold text-black- mb-4">
+                <h2 className="text-4xl font-bold text-primary mb-4">
                   {testimonial.title}
                 </h2>
-                <p className="text-gray-600 text-xl mb-8">
+                <p className="text-primary text-xl mb-8">
                   {testimonial.description}
                 </p>
-                <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                <button
+                  className={`flex items-center gap-2 px-6 py-3 rounded-none transition-all bg-primary text-primary-foreground hover:bg-muted-foreground`}
+                >
                   Learn More
                 </button>
               </div>

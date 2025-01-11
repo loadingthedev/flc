@@ -57,49 +57,49 @@ const Navbar: React.FC = () => {
             <div className="ml-10 flex items-baseline space-x-4">
               <a
                 href="/attorney"
-                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-accent px-3 py-2  transition-colors duration-300 font-medium"
+                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Attorneys"
               >
                 ATTORNEYS
               </a>
               <a
                 href="/practice-areas"
-                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-accent px-3 py-2  transition-colors duration-300 font-medium"
+                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Practice Areas"
               >
                 PRACTICE AREAS
               </a>
               <a
                 href="#"
-                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-accent px-3 py-2  transition-colors duration-300 font-medium"
+                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Industries"
               >
                 INDUSTRIES
               </a>
               <a
                 href="#"
-                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-accent px-3 py-2  transition-colors duration-300 font-medium"
+                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Team"
               >
                 TEAM
               </a>
               <a
                 href="#"
-                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-accent px-3 py-2  transition-colors duration-300 font-medium"
+                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Location"
               >
                 LOCATION
               </a>
               <a
                 href="#"
-                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-accent px-3 py-2  transition-colors duration-300 font-medium"
+                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="News"
               >
                 NEWS
               </a>
               <a
                 href="#"
-                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-accent px-3 py-2  transition-colors duration-300 font-medium"
+                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Join Us"
               >
                 JOIN US

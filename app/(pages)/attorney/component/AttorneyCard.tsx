@@ -56,8 +56,8 @@ const AttorneyCard = ({
         />
       </div>
       <div className="flex-grow">
-        <Link href={`/attorney/profile/ `}>
-          <h2 className="attorney-name text-3xl font-bold font-heading text-primary mb-2 ">
+        <Link href={`/attorney/profile/`}>
+          <h2 className="attorney-name text-3xl font-bold font-heading text-primary mb-2 hover:text-muted-foreground">
             {name}
           </h2>
         </Link>
