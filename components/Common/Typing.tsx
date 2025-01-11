@@ -15,7 +15,7 @@ const Typing: React.FC<TypingProps> = ({ text }) => {
           whiteSpace: "nowrap",
           overflow: "hidden",
           borderRight: "0.15em solid orange",
-          animation: "typing 3.5s steps(40, end), blink-caret 0.75s  infinite",
+          animation: "typing 3.5s steps(40, end), blink-caret 0.75s infinite",
         }}
       >
         {text}
@@ -36,6 +36,11 @@ const Typing: React.FC<TypingProps> = ({ text }) => {
           }
           50% {
             border-color: orange;
+          }
+        }
+        @media (max-width: 768px) {
+          h2 {
+            font-size: 2rem; /* Adjust the font size for mobile screens */
           }
         }
       `}</style>

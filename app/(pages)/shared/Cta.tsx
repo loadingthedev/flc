@@ -6,7 +6,7 @@ export default function Cta() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="relative z-10 mt-16 bg-gradient-to-r from-blue-600 to-blue-900 rounded-2xl p-8 text-white text-center overflow-hidden"
+        className="relative z-10 mt-16 bg-gradient-to-r from-foreground to-blue-900  p-8 text-white text-center overflow-hidden"
       >
         <div className="absolute inset-0 -z-10">
           <motion.div

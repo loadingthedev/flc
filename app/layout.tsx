@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body>
-        <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
+        <div className="flex  flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
         </div>
       </body>

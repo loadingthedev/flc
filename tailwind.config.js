@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#0077B6",
+          DEFAULT: "#093145",
           foreground: "#FFFFFF",
         },
         secondary: {
@@ -57,6 +57,7 @@ module.exports = {
         brandon: ['"Brandon Grotesque"', "sans-serif"],
         inter: ["Inter", "sans-serif"],
         mono: ["Roboto Mono", "monospace"],
+        jost: ["Jost", "sans-serif"],
       },
       fontSize: {
         xs: ["0.75rem", { lineHeight: "1.5" }],

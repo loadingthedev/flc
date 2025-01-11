@@ -2,8 +2,8 @@
 import { ChangeEvent, MouseEvent, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
-import Cta from "../common/Cta";
-import Heading from "../common/Heading";
+import Cta from "../shared/Cta";
+import Heading from "../shared/Heading";
 
 // Define the types for the practice areas and descriptions
 type PracticeArea = {
