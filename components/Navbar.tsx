@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           <div className="">
             <img
-              src="/logo.svg"
+              src="/images/flc-logo.png"
               alt="Logo"
               width={"250"}
               height={"250"}
