@@ -70,14 +70,14 @@ const Navbar: React.FC = () => {
                 PRACTICE AREAS
               </a>
               <a
-                href="#"
+                href="/industries"
                 className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Industries"
               >
                 INDUSTRIES
               </a>
               <a
-                href="#"
+                href="/team"
                 className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Team"
               >
@@ -183,7 +183,7 @@ const Navbar: React.FC = () => {
               PRACTICE AREAS
             </a>
             <a
-              href="#"
+              href="/industries"
               className="text-primary hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
               onClick={closeMenu}
             >

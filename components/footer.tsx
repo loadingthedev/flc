@@ -3,14 +3,14 @@ import Link from "next/link";
 export default function Footer({ border = false }: { border?: boolean }) {
   return (
     <footer>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto bg-primary max-w-8xl text-card px-4 sm:px-6">
         {/* Top area: Blocks */}
         <div
           className={`grid gap-10 py-8 sm:grid-cols-12 md:py-12 ${border ? "border-t [border-image:linear-gradient(to_right,transparent,theme(colors.slate.200),transparent)1]" : ""}`}
         >
           {/* 1st block */}
           <div className="space-y-2 sm:col-span-12 lg:col-span-4">
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-card">
               &copy; FLC.com - All rights reserved.
             </div>
           </div>
@@ -21,7 +21,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   Features
@@ -29,7 +29,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   Integrations
@@ -37,7 +37,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   Pricing & Plans
@@ -45,7 +45,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   Changelog
@@ -53,7 +53,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   Our method
@@ -68,7 +68,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   About us
@@ -76,7 +76,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   Diversity & Inclusion
@@ -84,7 +84,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   Blog
@@ -92,7 +92,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   Careers
@@ -100,7 +100,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   Financial statements
@@ -115,7 +115,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   Community
@@ -123,7 +123,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   Terms of service
@@ -131,7 +131,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-card transition hover:text-gray-900"
                   href="#0"
                 >
                   Report a vulnerability

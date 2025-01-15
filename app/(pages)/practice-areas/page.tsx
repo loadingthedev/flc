@@ -11,19 +11,6 @@ type PracticeArea = {
   image: string;
 };
 
-const practiceAreas: string[] = [
-  "Alternate Dispute Resolution",
-  "Appellate Law",
-  "Banking & Finance",
-  "Corporate Law",
-  "Employment Law",
-  "Environmental Law",
-  "Family Law",
-  "Immigration Law",
-  "Intellectual Property",
-  "Real Estate Law",
-];
-
 const practiceAreaDescriptions: { [key: string]: PracticeArea } = {
   "Alternate Dispute Resolution": {
     description:
@@ -97,7 +84,7 @@ const PracticeAreas = () => {
       setSuggestions([]);
       return;
     }
-    const filtered = practiceAreas.filter((area) =>
+    const filtered = Object.keys(practiceAreaDescriptions).filter((area) =>
       area.toLowerCase().includes(value.toLowerCase())
     );
     setSuggestions(filtered);
@@ -110,7 +97,7 @@ const PracticeAreas = () => {
   const handleSuggestionClick = (suggestion: string) => {
     setSearchQuery(suggestion);
     setSuggestions([]);
-    const index = practiceAreas.indexOf(suggestion);
+    const index = Object.keys(practiceAreaDescriptions).indexOf(suggestion);
     if (index !== -1) {
       setActiveTab(index);
     }
@@ -126,7 +113,6 @@ const PracticeAreas = () => {
           subparagraph=""
         />
         <Search
-          practiceAreas={practiceAreas}
           handleSearch={(query) => console.log(query)}
           handleExpertiseChange={(area) => console.log(area)}
         />

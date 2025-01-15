@@ -1,9 +1,5 @@
 "use client";
-import Cta from "../../shared/Cta";
-import Heading from "../../shared/Heading";
-
-import AttorneyCard from "./AttorneyCard";
-import Search from "./Search";
+import AttorneyCard from "../component/AttorneyCard";
 
 const attorneyData = [
   {
@@ -46,18 +42,6 @@ const practiceAreas = ["Corporate Law", "Intellectual Property", "Family Law"];
 const AttorneyCardList = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <Heading
-        title="ATTORNEYS"
-        subtitle="OUR PEOPLE ARE WHAT MAKES PRACTUS, FLC A LEADING VIRTUAL LAW FIRM."
-        paragraph="FLC is composed of talented and experienced attorneys who hail from premier global law firms. Lawyers who join our team are part of a new generation of attorneys who believe it’s time to change the old, inefficient ways of practicing law to focus on what is most important: delivering greater value to our clients."
-        subparagraph=" Find one of our law partners below to further discuss your legal needs and inquiries."
-      />
-      <Search
-        practiceAreas={practiceAreas}
-        handleSearch={(query) => console.log(query)}
-        handleExpertiseChange={(area) => console.log(area)}
-      />
-
       <div className="flex flex-col gap-6">
         {attorneyData.map((attorney) => (
           <AttorneyCard
@@ -72,7 +56,6 @@ const AttorneyCardList = () => {
           />
         ))}
       </div>
-      <Cta />
     </div>
   );
 };
