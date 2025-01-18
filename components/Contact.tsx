@@ -47,14 +47,11 @@ const ContactUs = () => {
 
   return (
     <div className=" py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto ">
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           {/* Form Section */}
-          <div className="w-full lg:w-1/2">
-            <form
-              onSubmit={handleSubmit}
-              className="bg-card p-8 rounded-md shadow-md"
-            >
+          <div className="w-full lg:w-1/2 ">
+            <form onSubmit={handleSubmit} className="bg-secondary p-8  ">
               <div className="space-y-6">
                 <div>
                   <label className="flex items-center gap-2 text-foreground font-medium mb-2">
@@ -115,7 +112,7 @@ const ContactUs = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-md hover:bg-opacity-90 transition-all duration-200 font-medium"
+                  className={`flex items-center gap-2 px-6 py-3 rounded-none transition-all bg-primary text-white hover:bg-muted-foreground text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
                 >
                   Send Message
                 </button>

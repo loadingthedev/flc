@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface TeamMember {
@@ -15,9 +16,12 @@ const TeamMemberCard: React.FC<TeamMember> = ({ image, name, role }) => (
       <h3 className="text-xl font-bold text-foreground">{name}</h3>
       <p className="text-sm font-semibold text-primary mt-2">{role}</p>
       <div className="flex justify-center"></div>
-      <button className="text-accent hover:text-primary transition-colors duration-300 mt-8">
-        Read Full Bio
-      </button>
+      {/* <Link href="/team/profile" as={`/team/${name}`}> */}
+      <Link href="/team/profile" as={`/team/profile/`}>
+        <button className="text-accent hover:text-primary transition-colors duration-300 mt-8">
+          Read Full Bio
+        </button>
+      </Link>
     </div>
   </div>
 );

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaAngleDown, FaBars, FaTimes } from "react-icons/fa";
 
@@ -42,15 +43,21 @@ const Navbar: React.FC = () => {
       <div className="  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="">
-            <img
-              src="/images/flc-logo.png"
-              alt="Logo"
-              width={"250"}
-              height={"250"}
-              onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-                const target = e.target as HTMLImageElement;
-              }}
-            />
+            <Link href="/">
+              <text>
+                <img
+                  src="/images/flc-logo.png"
+                  alt="Logo"
+                  width={"250"}
+                  height={"250"}
+                  onError={(
+                    e: React.SyntheticEvent<HTMLImageElement, Event>
+                  ) => {
+                    const target = e.target as HTMLImageElement;
+                  }}
+                />
+              </text>
+            </Link>
           </div>
 
           <div className="  -text-primary hidden md:block">
@@ -83,22 +90,22 @@ const Navbar: React.FC = () => {
               >
                 TEAM
               </a>
-              <a
+              {/* <a
                 href="#"
                 className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Location"
               >
                 LOCATION
-              </a>
-              <a
+              </a> */}
+              {/* <a
                 href="#"
                 className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="News"
               >
                 NEWS
-              </a>
+              </a> */}
               <a
-                href="#"
+                href="/join-us"
                 className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Join Us"
               >

@@ -1,3 +1,4 @@
+"use client";
 import AttorneyCardList from "./component/AttorneyCardList";
 
 const Page = () => {
