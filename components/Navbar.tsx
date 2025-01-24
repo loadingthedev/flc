@@ -62,55 +62,194 @@ const Navbar: React.FC = () => {
 
           <div className="  -text-primary hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <a
+              <Link
                 href="/attorney"
                 className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Attorneys"
               >
                 ATTORNEYS
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/practice-areas"
                 className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Practice Areas"
               >
                 PRACTICE AREAS
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/industries"
                 className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Industries"
               >
                 INDUSTRIES
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/team"
                 className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Team"
               >
                 TEAM
-              </a>
-              {/* <a
-                href="#"
-                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
-                aria-label="Location"
-              >
-                LOCATION
-              </a> */}
-              {/* <a
+              </Link>
+              <div className="relative inline-block text-left">
+                <button
+                  onClick={() => handleDropdown("businessSetup")}
+                  className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-1 py-2 transition-colors duration-300 font-medium flex items-center"
+                  aria-expanded={activeDropdown === "businessSetup"}
+                  aria-haspopup="true"
+                >
+                  Business Setup
+                  {activeDropdown === "businessSetup" ? (
+                    <FaAngleDown className="ml-1 transition-transform duration-300" />
+                  ) : (
+                    <FaAngleDown className="ml-1 transform rotate-180 transition-transform duration-300" />
+                  )}
+                </button>
+                {activeDropdown === "businessSetup" && (
+                  <div className="absolute right-0 mt-2 w-[900px] h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex">
+                    <div className="w-1/3 bg-primary w-[400px] p-4 text-white flex flex-col items-center justify-center text-center">
+                      <h1 className="text-xl font-bold mb-2">
+                        Hey, We are First Legal Counsel
+                      </h1>
+                      <p className="text-3xl font-extrabold">
+                        The #1 UAE <br />
+                        Business Setup Expert
+                      </p>
+                    </div>
+                    <div className="w-1/3 w-[400px] p-4 text-primary flex flex-col items-center justify-center text-center">
+                      <h3 className="text-2xl mb-2">Free Zone</h3>
+                      <ul>
+                        <li>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+                            role="menuitem"
+                          >
+                            Option 1
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+                            role="menuitem"
+                          >
+                            Option 2
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+                            role="menuitem"
+                          >
+                            Option 3
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+                            role="menuitem"
+                          >
+                            Option 4
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+                            role="menuitem"
+                          >
+                            Option 5
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+                            role="menuitem"
+                          >
+                            Option 6
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="w-1/3 w-[400px] p-4 text-primary flex flex-col items-center justify-center text-center">
+                      <h3 className="text-2xl mb-2">MAINLAND</h3>
+                      <ul>
+                        <li>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+                            role="menuitem"
+                          >
+                            Option 1
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+                            role="menuitem"
+                          >
+                            Option 2
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+                            role="menuitem"
+                          >
+                            Option 3
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+                            role="menuitem"
+                          >
+                            Option 4
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+                            role="menuitem"
+                          >
+                            Option 5
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+                            role="menuitem"
+                          >
+                            Option 6
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
+              {/* <Link
                 href="#"
                 className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="News"
               >
                 NEWS
               </a> */}
-              <a
+              <Link
                 href="/join-us"
                 className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Join Us"
               >
                 JOIN US
-              </a>
+              </Link>
 
               {Object.keys(dropdownItems).map((key) => (
                 <div key={key} className="relative inline-block text-left">
@@ -132,14 +271,14 @@ const Navbar: React.FC = () => {
                         aria-orientation="vertical"
                       >
                         {dropdownItems[key].map((item) => (
-                          <a
+                          <Link
                             key={item}
                             href="#"
                             className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000]"
                             role="menuitem"
                           >
                             {item}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -168,55 +307,55 @@ const Navbar: React.FC = () => {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a
+            <Link
               href="#"
               className="text-primary hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
               onClick={closeMenu}
             >
               About Us
-            </a>
-            <a
+            </Link>
+            <Link
               href="/attroney"
               className="text-primary hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
               onClick={closeMenu}
             >
               ATTORNEYS
-            </a>
-            <a
+            </Link>
+            <Link
               href="/practice-areas"
               className="text-primary hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
               onClick={closeMenu}
             >
               PRACTICE AREAS
-            </a>
-            <a
+            </Link>
+            <Link
               href="/industries"
               className="text-primary hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
               onClick={closeMenu}
             >
               INDUSTRIES
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="text-primary hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
               onClick={closeMenu}
             >
               LOCATION
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="text-primary hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
               onClick={closeMenu}
             >
               NEWS
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="text-primary hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
               onClick={closeMenu}
             >
               JOIN US
-            </a>
+            </Link>
 
             {Object.keys(dropdownItems).map((key) => (
               <div key={key}>
@@ -230,14 +369,14 @@ const Navbar: React.FC = () => {
                 {activeDropdown === key && (
                   <div className="pl-4">
                     {dropdownItems[key].map((item) => (
-                      <a
+                      <Link
                         key={item}
                         href="#"
                         className="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-sm font-medium"
                         onClick={closeMenu}
                       >
                         {item}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
