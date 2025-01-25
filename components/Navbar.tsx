@@ -83,13 +83,52 @@ const Navbar: React.FC = () => {
               >
                 INDUSTRIES
               </Link>
-              <Link
-                href="/team"
-                className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
-                aria-label="Team"
-              >
-                TEAM
-              </Link>
+              <div className="relative inline-block text-left">
+                <button
+                  onClick={() => handleDropdown("tax")}
+                  className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-300 font-medium flex items-center"
+                  aria-expanded={activeDropdown === "tax"}
+                  aria-haspopup="true"
+                >
+                  TAX
+                  {activeDropdown === "tax" ? (
+                    <FaAngleDown className="ml-1 transition-transform duration-300" />
+                  ) : (
+                    <FaAngleDown className="ml-1 transform rotate-180 transition-transform duration-300" />
+                  )}
+                </button>
+                {activeDropdown === "tax" && (
+                  <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                    <div
+                      className="py-1"
+                      role="menu"
+                      aria-orientation="vertical"
+                    >
+                      <Link
+                        href="#"
+                        className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000]"
+                        role="menuitem"
+                      >
+                        Accounting & Services
+                      </Link>
+                      <Link
+                        href="#"
+                        className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000]"
+                        role="menuitem"
+                      >
+                        Vat & Tax Consultancy
+                      </Link>
+                      <Link
+                        href="#"
+                        className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000]"
+                        role="menuitem"
+                      >
+                        Corporate Tax
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
               <div className="relative inline-block text-left">
                 <button
                   onClick={() => handleDropdown("businessSetup")}
@@ -105,7 +144,7 @@ const Navbar: React.FC = () => {
                   )}
                 </button>
                 {activeDropdown === "businessSetup" && (
-                  <div className="absolute right-0 mt-2 w-[900px] h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex">
+                  <div className="absolute right-0 mt-2 w-[1000px] h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex">
                     <div className="w-1/3 bg-primary w-[400px] p-4 text-white flex flex-col items-center justify-center text-center">
                       <h1 className="text-xl font-bold mb-2">
                         Hey, We are First Legal Counsel
@@ -115,120 +154,108 @@ const Navbar: React.FC = () => {
                         Business Setup Expert
                       </p>
                     </div>
-                    <div className="w-1/3 w-[400px] p-4 text-primary flex flex-col items-center justify-center text-center">
-                      <h3 className="text-2xl mb-2">Free Zone</h3>
-                      <ul>
-                        <li>
+                    <div className="w-1/3 w-[500px] p-4 text-primary text-justify flex flex-col items-center justify-center text-center">
+                      <ul className="text-justify">
+                        <li className="block px-5 py-2 mt-4 text-3xl text-[#000000]  transition-colors duration-300">
+                          Free Zone
+                        </li>
+                        <li className="pl-2">
                           <Link
                             href="#"
                             className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
                             role="menuitem"
                           >
-                            Option 1
+                            Overview
                           </Link>
                         </li>
-                        <li>
+                        <li className="pl-2">
                           <Link
                             href="#"
                             className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
                             role="menuitem"
                           >
-                            Option 2
+                            Business Activities
                           </Link>
                         </li>
-                        <li>
+                        <li className="pl-2">
                           <Link
                             href="#"
                             className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
                             role="menuitem"
                           >
-                            Option 3
+                            Free Zone License Locations and Pricing
                           </Link>
                         </li>
-                        <li>
+                        <li className="pl-2">
                           <Link
                             href="#"
                             className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
                             role="menuitem"
                           >
-                            Option 4
+                            UAE Residence Visa
                           </Link>
                         </li>
-                        <li>
+                        <li className="pl-2">
                           <Link
                             href="#"
                             className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
                             role="menuitem"
                           >
-                            Option 5
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="#"
-                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
-                            role="menuitem"
-                          >
-                            Option 6
+                            Our Solution
                           </Link>
                         </li>
                       </ul>
                     </div>
-                    <div className="w-1/3 w-[400px] p-4 text-primary flex flex-col items-center justify-center text-center">
-                      <h3 className="text-2xl mb-2">MAINLAND</h3>
-                      <ul>
-                        <li>
+                    <div className="w-1/3 w-[500px] p-4 text-primary text-justify flex flex-col items-center justify-center text-center">
+                      <h3 className="text-3xl mb-4 px-32 text-justify"></h3>
+                      <ul className="text-left">
+                        <li className="block px-5 py-2 text-3xl text-[#000000]  transition-colors duration-300">
+                          MainLand
+                        </li>
+
+                        <li className="pl-2">
                           <Link
                             href="#"
-                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
                             role="menuitem"
+                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
                           >
-                            Option 1
+                            Overview
                           </Link>
                         </li>
-                        <li>
+                        <li className="pl-2">
                           <Link
                             href="#"
                             className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
                             role="menuitem"
                           >
-                            Option 2
+                            Sponsorship
                           </Link>
                         </li>
-                        <li>
+                        <li className="pl-2">
                           <Link
                             href="#"
                             className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
                             role="menuitem"
                           >
-                            Option 3
+                            Dubai MainLand License
                           </Link>
                         </li>
-                        <li>
+                        <li className="pl-2">
                           <Link
                             href="#"
                             className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
                             role="menuitem"
                           >
-                            Option 4
+                            Business Activities
                           </Link>
                         </li>
-                        <li>
+                        <li className="pl-2">
                           <Link
                             href="#"
                             className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
                             role="menuitem"
                           >
-                            Option 5
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="#"
-                            className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
-                            role="menuitem"
-                          >
-                            Option 6
+                            MainLand Visas
                           </Link>
                         </li>
                       </ul>

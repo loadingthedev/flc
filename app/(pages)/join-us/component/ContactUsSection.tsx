@@ -88,7 +88,7 @@ const ContactUsSection = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  rows="4"
+                  rows={4}
                   className="w-full px-4 py-2 rounded-md border border-input focus:outline-none focus:ring-2 focus:ring-accent"
                   required
                 ></textarea>
