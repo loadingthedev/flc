@@ -90,7 +90,7 @@ const Navbar: React.FC = () => {
                   aria-expanded={activeDropdown === "tax"}
                   aria-haspopup="true"
                 >
-                  TAX
+                  Tax
                   {activeDropdown === "tax" ? (
                     <FaAngleDown className="ml-1 transition-transform duration-300" />
                   ) : (
@@ -161,7 +161,7 @@ const Navbar: React.FC = () => {
                         </li>
                         <li className="pl-2">
                           <Link
-                            href="#"
+                            href="/overview"
                             className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
                             role="menuitem"
                           >
@@ -275,7 +275,7 @@ const Navbar: React.FC = () => {
                 className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2  transition-colors duration-300 font-medium"
                 aria-label="Join Us"
               >
-                JOIN US
+                Join Us
               </Link>
 
               {Object.keys(dropdownItems).map((key) => (

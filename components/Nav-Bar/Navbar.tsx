@@ -59,13 +59,13 @@ const Navbar: React.FC = () => {
               />
 
               <DropdownMenu
-                label="Business Setup"
+                label="BUSINESS SETUP"
                 isActive={activeDropdown === "businessSetup"}
                 onToggle={() => handleDropdown("businessSetup")}
                 menuType="businessSetup"
               />
               <DropdownMenu
-                label="Services"
+                label="SERVICE"
                 isActive={activeDropdown === "serviceSetup"}
                 onToggle={() => handleDropdown("serviceSetup")}
                 menuType="serviceSetup"

@@ -62,8 +62,8 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </li>
           <li className="pl-2">
             <Link
-              href="#"
-              className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+              href="/overview"
+              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
               role="menuitem"
             >
               Overview
