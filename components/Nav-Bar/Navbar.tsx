@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {navigationItems.map((item) => (
+              {navigationItems.slice(0, -1).map((item) => (
                 <NavLink key={item.label} {...item} />
               ))}
 
@@ -70,6 +70,8 @@ const Navbar: React.FC = () => {
                 onToggle={() => handleDropdown("serviceSetup")}
                 menuType="serviceSetup"
               />
+
+              <NavLink key="join-us" href="/join-us" label="JOIN US" />
             </div>
           </div>
 
