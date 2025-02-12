@@ -1,4 +1,4 @@
-import { FaCheckCircle } from "react-icons/fa";
+import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
 import FreeZoneAdvantages from "../free-zone/component/Advantages";
 
 const BusinessActivities = () => {
@@ -37,7 +37,6 @@ const BusinessActivities = () => {
           />
         </div>
       </div>
-
       {/* Your UAE Free Zone Company Starts Here Section */}
       <div className="max-w-7xl mx-auto my-20">
         <div className="flex flex-col md:flex-row items-center my-10 gap-10">
@@ -199,120 +198,152 @@ const BusinessActivities = () => {
           </div>
         </div>
       </div>
-
       {/* Advantages of Setting up in a Free Zone Section */}
       <div className="my-30 flex justify-center">
         <FreeZoneAdvantages />
       </div>
 
-      {/* Contact Us Form */}
-      <div className="my-10 py-20 max-w-4xl mx-auto">
-        <div className="bg-gray-100 p-6 shadow-md rounded">
-          <h2 className="text-4xl font-bold mb-4 text-start text-primary mb-8">
-            Contact Us
-          </h2>
-          <form>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="mb-4">
-                <label
-                  htmlFor="firstName"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="lastName"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  id="lastName"
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="nationality"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Nationality
-                </label>
-                <input
-                  type="text"
-                  id="nationality"
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="help"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  How Can We Help You
-                </label>
-                <select
-                  id="help"
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-                >
-                  <option value="">Select an option</option>
-                  <option value="company-setup">Business Setup</option>
+      {/* // Business Activities Section */}
 
-                  <option value="legal-advice">Corporate Service</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
+      <div className="max-w-6xl  mx-auto  bg-gray-100  rounded-lg shadow-md p-12 my-20">
+        <h2 className="text-3xl font-bold  text-primary mb-8">
+          Business Activities
+        </h2>
+        <div className="flex flex-wrap gap-8">
+          <div className="flex items-center">
+            <FaCheckCircle className="text-green-500 mr-2" />
+            <span className="text-lg">Trading Activities</span>
+          </div>
+          <div className="flex items-center">
+            <FaCheckCircle className="text-green-500 mr-2" />
+            <span className="text-lg">Professional Services</span>
+          </div>
+          <div className="flex items-center">
+            <FaCheckCircle className="text-green-500 mr-2" />
+            <span className="text-lg">Manufacturing</span>
+          </div>
+          <div className="flex items-center">
+            <FaCheckCircle className="text-green-500 mr-2" />
+            <span className="text-lg">Retail Services</span>
+          </div>
+          <div className="flex items-center">
+            <FaCheckCircle className="text-green-500 mr-2" />
+            <span className="text-lg">Financial Services</span>
+          </div>
+          <div className="flex items-center">
+            <FaCheckCircle className="text-green-500 mr-2" />
+            <span className="text-lg">Technology and Innovation</span>
+          </div>
+          <div className="flex items-center">
+            <FaCheckCircle className="text-green-500 mr-2" />
+            <span className="text-lg">Media and Creative Services</span>
+          </div>
+          <div className="flex items-center">
+            <FaCheckCircle className="text-green-500 mr-2" />
+            <span className="text-lg">Manufacturing</span>
+          </div>
+          <div className="flex items-center">
+            <FaCheckCircle className="text-green-500 mr-2" />
+            <span className="text-lg">E-commerce</span>
+          </div>
+        </div>
+      </div>
+
+      {/* // How */}
+      <div className="max-w-6xl mx-auto bg-black text-white py-20 mb-20 rounded-lg shadow-md">
+        <div className="px-8">
+          <h2 className="text-3xl font-bold text-start mb-12 ml-5">
+            How It Works:
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ml-5">
+            <div className="flex flex-col">
+              <h3 className="text-xl font-bold flex items-center textalign-start ">
+                Step 1 <FaArrowRight className="ml-auto text-blue-500" />
+              </h3>
+              <p className="text-start">
+                <a href="#step1" className="underline text-blue-500">
+                  Speak with one of our experts.
+                </a>{" "}
+                - We’ll guide you through the entire process and answer all your
+                questions.
+              </p>
             </div>
-            <div className="mb-4">
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-              ></textarea>
+
+            <div className="flex flex-col ">
+              <h3 className="text-xl font-bold flex items-center textalign-start ">
+                Step 2 <FaArrowRight className="ml-auto text-blue-500" />
+              </h3>
+              <p className="text-start">
+                <a href="#step1" className="underline text-blue-500">
+                  Submit Your Documents
+                </a>{" "}
+                - Our team will handle the paperwork and get things moving
+                quickly.
+              </p>
             </div>
-            <button className="flex items-center gap-2 px-12 py-4 my-16 border-2 border-white rounded-none transition-all text-white bg-primary hover:bg-muted-foreground hover:text-primary-foreground">
-              Get Started
-            </button>
-          </form>
+            <div className="flex flex-col">
+              <h3 className="text-xl font-bold textalign-start "> Step 3</h3>
+              <p className="text-start">
+                <a href="#step1" className="underline text-blue-500">
+                  Receive your trade license, visa, and Emirates ID
+                </a>{" "}
+                - With everything in place, your business setup is complete, and
+                you’re ready to operate in Dubai.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* // Chat */}
+      <div className="max-w-6xl mx-auto bg-primary text-white py-20 mb-20 rounded-lg shadow-md">
+        <div className="px-4">
+          <h2 className="text-3xl font-bold text-start mb-12 ml-5">
+            Ready to get started? Let's chat!
+          </h2>
+          <div className="grid  gap-8 ml-5">
+            <p>
+              We’re here to make your business journey smooth and successful.
+              Reach out to our team today for a free, <br /> no-obligation
+              consultation to learn how we can help with your business setup.
+            </p>
+          </div>
+          <button className="flex items-center  gap-2 px-8 py-4  mt-20  ml-5 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
+            Talk to an expert
+          </button>
+        </div>
+      </div>
+      {/* // grid box */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-4 my-20">
+        <div className="bg-gray-300 text-black p-6  shadow-md rounded-lg">
+          <h3 className="text-xl font-bold">
+            <span className="text-primary text-4xl"> 15+</span> <br /> Years in
+            the Business
+          </h3>
+        </div>
+        <div className="bg-gray-300 text-black p-6 shadow-md rounded-lg">
+          <h3 className="text-xl font-bold">
+            <span className="text-primary text-4xl"> 80,000+ </span>
+            <br /> Happy Customer
+          </h3>
+        </div>
+        <div className="bg-gray-300 text-black p-6 r shadow-md rounded-lg">
+          <h3 className="text-xl font-bold">
+            <span className="text-primary text-4xl">250+ </span>
+            <br /> team members
+          </h3>
+        </div>
+        <div className="bg-gray-300 text-black p-6  shadow-md rounded-lg">
+          <h3 className="text-xl font-bold">
+            <span className="text-primary text-4xl"> 40+ </span>
+            <br /> languages spoken
+          </h3>
+        </div>
+        <div className="bg-gray-300 text-black p-6  shadow-md rounded-lg">
+          <h3 className="text-xl font-bold">
+            {" "}
+            <span className="text-primary text-4xl "> 20+ </span> <br />{" "}
+            industry awards{" "}
+          </h3>
         </div>
       </div>
     </div>

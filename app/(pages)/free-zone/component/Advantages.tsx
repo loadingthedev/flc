@@ -1,105 +1,93 @@
+import { FaArrowRight } from "react-icons/fa";
+
 const freeZoneAdvantages = [
   {
-    title: "Broadcast Management",
-    description:
-      "Activities supported include radio broadcasting, TV broadcasting, and web streaming. Authority approval is required and only certain packages support this activity.",
-    image: "/path/to/image1.jpg",
+    logo: "https://go.virtuzone.com/wp-content/uploads/2024/12/dubai-world-trade-centre-vector-logo.svg",
+    title: "Dubai World Trade Centre (DWTC) Free Zone",
+    description: "Starting from AED 35,000.",
+    link: "#",
   },
   {
-    title: "Consultancy",
-    description:
-      "Consultancy covers a wide range of consulting activities including business consultancy, lifestyle consultancy, investment consultancy, legal consultancy, and human resource consultancy.",
-    image: "/path/to/image2.jpg",
+    logo: "https://go.virtuzone.com/wp-content/uploads/2024/12/cc.png.webp",
+    title: "Fujairah Creative City Free zone (FCC)",
+    description: "Starting from AED 17,850.",
+    link: "#",
   },
   {
-    title: "Education and Training",
-    description:
-      "A wide range of activities fall under the education and training categories, but please note these are only available under packages with visa eligibility.",
-    image: "/path/to/image3.jpg",
+    logo: "https://go.virtuzone.com/wp-content/uploads/2024/12/dmcc-1-1.svg",
+    title: "Dubai Multi Commodities Centre Free Zone",
+    description: "Starting from: 50,000 AED",
+    link: "#",
+  },
+
+  {
+    logo: "https://go.virtuzone.com/wp-content/uploads/2024/12/mobile-rak-logo.svg",
+    title: "Ras Al Khaimah Economic Free Zone (RAKEZ)",
+    description: "Starting from AED 11,500",
+    link: "#",
   },
   {
-    title: "Event Management",
-    description:
-      "Event management covers many activities, from conference organization to theatre production and more.",
-    image: "/path/to/image4.jpg",
+    logo: "https://go.virtuzone.com/wp-content/uploads/2024/12/logo.svg",
+    title: "Ajman Free Zone (AFZ)",
+    description: "Starting from AED 11,000.",
+    link: "#",
   },
   {
-    title: "Film, Production and Post-Production",
-    description:
-      "This category covers licences for activities including film, art, and video production, as well as post-production.",
-    image: "/path/to/image4.jpg",
+    logo: "https://go.virtuzone.com/wp-content/uploads/2024/12/jafza.png",
+    title: "Jebel Ali Free Zone (JAFZA)",
+    description: "Starting from AED 50,000",
+    link: "#",
   },
   {
-    title: "Industrial",
-    description:
-      "Industrial licences cover manufacturing and the processing of raw goods. These activities often coincide with warehousing requirements.",
-    image: "/path/to/image4.jpg",
+    logo: "https://go.virtuzone.com/wp-content/uploads/2024/12/Yo4cnqftF7.png.webp",
+    title: "Sharjah Media City Shams Free Zone",
+    description: "Starting from AED 11,500",
+    link: "#",
   },
   {
-    title: "IT Services",
-    description:
-      "IT services covers a range of activities within the information and communications technology sector, including e-commerce.",
-    image: "/path/to/image4.jpg",
+    logo: "https://go.virtuzone.com/wp-content/uploads/2024/12/DIFC.png",
+    title: "Dubai Multi Commodities Centre Free Zone",
+    description: "Starting from AED 36,000",
+    link: "#",
   },
   {
-    title: "Media and Marketing Services",
-    description:
-      "This category covers an array of activities including advertising, public relations, research, and much more.",
-    image: "/path/to/image4.jpg",
-  },
-  {
-    title: "Music and Entertainment",
-    description:
-      "This specifically relates to music production and recording, music promotion and management, music rights as well as theme parks management.",
-    image: "/path/to/image4.jpg",
-  },
-  {
-    title: "New Media",
-    description:
-      "New media covers activities such as photography, web design, and broader digital media services including the creation and management of mobile phone applications.",
-    image: "/path/to/image4.jpg",
-  },
-  {
-    title: "Publishing",
-    description:
-      "Activities such as publishing of directories and guides, education and consumer books, magazines, online and electronic content, and much more. Special approval from authorities will be required.",
-    image:
-      "https://plus.unsplash.com/premium_photo-1677187301660-5e557d9c0724?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Ym9va3N8ZW58MHx8MHx8fDA%3D",
-  },
-  {
-    title: "Trading",
-    description:
-      "Trading activities can be related to any import or export related transactions.",
-    image: "/path/to/image4.jpg",
+    logo: "https://go.virtuzone.com/wp-content/uploads/2024/12/ADGM-Logo.png.webp",
+    title: "Abu Dhabi Global Market Free Zone",
+    description: "Starting from AED 16,000",
+    link: "#",
   },
 ];
 
 const FreeZoneAdvantages = () => {
   return (
-    <div className="my-30 flex justify-center">
+    <div className="max-w-6xl my-30 flex justify-center bg-gray-100 py-8 px-12 rounded-lg shadow-md">
       <div className="max-w-7xl">
-        <h2 className="text-3xl font-bold mb-4 text-center text-primary">
-          Advantages of Setting up in a Free Zone
+        <h2 className="text-3xl font-bold mb-4 mt-8 text-start text-primary">
+          Location and Pricing
         </h2>
-        <p className="text-xl mb-8 text-center text-primary">
-          What are the main benefits to starting your company in a free zone and
-          how do they each operate?
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-20">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-20 gap-8">
           {freeZoneAdvantages.map((advantage, index) => (
             <div
               key={index}
-              className="bg-white p-6 shadow-md rounded text-justify max-w-lg max-h-md mx-auto"
+              className="bg-white p-6  shadow-md rounded text-justify mx-auto flex flex-col justify-between h-full"
+              style={{ width: "350px", height: "350px" }}
             >
               <img
-                src={advantage.image}
-                alt={advantage.title}
-                className="w-16 h-16 rounded-full mx-auto mb-4"
+                src={advantage.logo}
+                alt="Company Logo"
+                className="w-28 h-18 mb-2"
               />
-              <p className="text-2xl text-primary font-bold">
-                {advantage.title}
-              </p>
-              <p className="text-justify mt-8">{advantage.description}</p>
+              <div className="flex-grow">
+                <p className="text-xl text-primary mt-8">{advantage.title}</p>
+                <p className="text-justify mt-4">{advantage.description}</p>
+              </div>
+              <a
+                href={advantage.link}
+                className="flex gap-2 text-blue-500 hover:underline mt-4 inline-block"
+              >
+                Get Started <FaArrowRight className="mt-1" />
+              </a>
             </div>
           ))}
         </div>
