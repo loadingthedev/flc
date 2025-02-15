@@ -125,7 +125,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </li>
           <li className="pl-2">
             <Link
-              href="#"
+              href="mainland/overview"
               className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
               role="menuitem"
             >
@@ -165,7 +165,16 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
               className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
               role="menuitem"
             >
-              MainLand Visas
+              Mainland Visas
+            </Link>
+          </li>
+          <li className="pl-2">
+            <Link
+              href="#"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+              role="menuitem"
+            >
+              VirtuFit
             </Link>
           </li>
         </ul>
