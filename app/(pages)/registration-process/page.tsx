@@ -1,4 +1,4 @@
-import ContactUs from "../shared/ContactUs";
+import ContactUs from "..//shared/ContactUs";
 import Business from "./component/Business";
 import Guide from "./component/Guide";
 import Header from "./component/Header";

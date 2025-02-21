@@ -31,19 +31,9 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const navigationItems: {
-    href?: string;
-    label: string;
-    type?: "link" | "dropdown";
-    menuType?: "tax" | "businessSetup" | "serviceSetup";
-  }[] = [
-    { href: "/attorney", label: "ATTORNEYS", type: "link" },
-    { href: "/practice-areas", label: "PRACTICE AREAS", type: "link" },
-    { href: "/industries", label: "INDUSTRIES", type: "link" },
-    { label: "TAX", type: "dropdown", menuType: "tax" },
-    { label: "BUSINESS SETUP", type: "dropdown", menuType: "businessSetup" },
-    { label: "SERVICE", type: "dropdown", menuType: "serviceSetup" },
-    { href: "/join-us", label: "JOIN US", type: "link" },
+  const navigationItems = [
+    { href: "/industries", label: "INDUSTRIES" },
+    { href: "/join-us", label: "JOIN US" },
   ];
 
   return (
@@ -54,15 +44,9 @@ const Navbar: React.FC = () => {
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {navigationItems
-                .filter((item) => item.type === "link")
-                .map((item) => (
-                  <NavLink
-                    key={item.label}
-                    href={item.href!}
-                    label={item.label}
-                  />
-                ))}
+              {navigationItems.slice(0, -1).map((item) => (
+                <NavLink key={item.label} {...item} />
+              ))}
 
               <DropdownMenu
                 label="TAX"
@@ -77,7 +61,6 @@ const Navbar: React.FC = () => {
                 onToggle={() => handleDropdown("businessSetup")}
                 menuType="businessSetup"
               />
-
               <DropdownMenu
                 label="SERVICE"
                 isActive={activeDropdown === "serviceSetup"}
