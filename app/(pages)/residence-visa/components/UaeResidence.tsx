@@ -1,7 +1,7 @@
 const UAEResidence = () => {
   return (
-    <div className="max-w-7xl mx-auto p-4   justify-center ">
-      <h1 className="text-4xl font-bold mb-4 my-20">
+    <div className="max-w-7xl mx-auto p-4 justify-center">
+      <h1 className="text-2xl md:text-4xl font-bold mb-4 my-10 md:my-20">
         How Can I Become a UAE Resident?
       </h1>
       <p>
@@ -16,7 +16,7 @@ const UAEResidence = () => {
         </a>
         . These include:
       </p>
-      <ul className="list-disc ml-6 mb-4">
+      <ul className="list-disc ml-4 md:ml-6 mb-4">
         <li>Obtaining a job in the UAE</li>
         <li>Opening a business in the UAE</li>
         <li>
@@ -37,7 +37,7 @@ const UAEResidence = () => {
         the fastest way to get a visa.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         Where Can I Live With a UAE Residence Visa?
       </h2>
       <p>
@@ -51,7 +51,7 @@ const UAEResidence = () => {
         There are no restrictions on where in the UAE you’re allowed to live.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         The Process of Getting a Residence Visa in UAE
       </h2>
       <p>
@@ -62,7 +62,7 @@ const UAEResidence = () => {
         </a>{" "}
         you’ll need to follow this process:
       </p>
-      <ol className="list-decimal ml-6 mb-4">
+      <ol className="list-decimal ml-4 md:ml-6 mb-4">
         <li>Register your company</li>
         <li>Get an establishment card</li>
         <li>Receive your entry permit</li>
@@ -76,7 +76,7 @@ const UAEResidence = () => {
         <li>Stamp your passport with your UAE visa</li>
       </ol>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         How Much Does It Cost to Become a UAE Resident?
       </h2>
       <p>
@@ -96,7 +96,7 @@ const UAEResidence = () => {
         registration costs as well as mandatory health insurance coverage.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         What are the Benefits of Getting a UAE Residence Visa?
       </h2>
       <p>
@@ -118,7 +118,7 @@ const UAEResidence = () => {
         looking to expand operations to the UAE.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         How Do I Maintain My UAE Residence Visa?
       </h2>
       <p>
@@ -128,7 +128,7 @@ const UAEResidence = () => {
         requirement, you’ll be required to reapply for a visa.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         How Do I Renew a UAE Residence Visa?
       </h2>
       <p>
@@ -144,7 +144,7 @@ const UAEResidence = () => {
         passport and you’ll be able to stay in the UAE for another period!
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         How Can I Get a Long-Term Residence Visa in the UAE?
       </h2>
       <p>
@@ -156,12 +156,12 @@ const UAEResidence = () => {
         able to apply for either a 5-year or 10-year visa. To get a longer-term
         residence visa, you’ll need to fall into one of two categories:
       </p>
-      <ul className="list-disc ml-6 mb-4">
+      <ul className="list-disc ml-4 md:ml-6 mb-4">
         <li>A high-value investor</li>
         <li>Talented researchers or professionals</li>
       </ul>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         What if I Want to Cancel My UAE Residence Visa?
       </h2>
       <p>
@@ -173,7 +173,7 @@ const UAEResidence = () => {
         Typically, to initiate the visa cancellation process, your visa sponsor
         will need to apply for cancellation. Your sponsor could be:
       </p>
-      <ul className="list-disc ml-6 mb-4">
+      <ul className="list-disc ml-4 md:ml-6 mb-4">
         <li>Your business</li>
         <li>Your employer</li>
         <li>Your parent</li>
@@ -186,7 +186,7 @@ const UAEResidence = () => {
         health and salary benefits.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         Cancelling a Visa in the UAE
       </h2>
       <p>
@@ -197,7 +197,7 @@ const UAEResidence = () => {
         to a few weeks.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         Cancelling a Visa Outside the UAE
       </h2>
       <p>
@@ -216,7 +216,7 @@ const UAEResidence = () => {
         You can also hire a company to help you navigate the process.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         How Do I Cancel a UAE Residence Visa?
       </h2>
       <p>
@@ -228,7 +228,7 @@ const UAEResidence = () => {
         There are a few different authorities that issue visas. These
         authorities include:
       </p>
-      <ul className="list-disc ml-6 mb-4">
+      <ul className="list-disc ml-4 md:ml-6 mb-4">
         <li>Free Zones</li>
         <li>GDRFAD for Dubai Mainland Visas</li>
       </ul>
@@ -237,20 +237,20 @@ const UAEResidence = () => {
         you have three different options for how to go about the process. These
         methods include:
       </p>
-      <ul className="list-disc ml-6 mb-4">
+      <ul className="list-disc ml-4 md:ml-6 mb-4">
         <li>Using the ICA or GDRFAD online services</li>
         <li>Visiting an approved typing centre</li>
         <li>Using the GDRFAD or ICA mobile app</li>
       </ul>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         What Documents Do I Need to Cancel a UAE Residence Visa?
       </h2>
       <p>
         If you do decide you want to cancel your UAE residence visa, you’ll need
         a few documents:
       </p>
-      <ul className="list-disc ml-6 mb-4">
+      <ul className="list-disc ml-4 md:ml-6 mb-4">
         <li>A signed copy of your cancellation paper</li>
         <li>
           Your labour card and{" "}
@@ -268,7 +268,7 @@ const UAEResidence = () => {
         </li>
       </ul>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         Can I Sponsor My Sister For A Residence Visa In The UAE?
       </h2>
       <p>
@@ -289,7 +289,7 @@ const UAEResidence = () => {
         process.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold mt-6 mb-2">
         Get Your UAE Residence Visa Today
       </h2>
       <p>

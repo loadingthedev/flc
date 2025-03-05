@@ -1,5 +1,5 @@
-import FreeZoneAdvantages from "../free-zone/component/Advantages";
 import ContactUs from "../shared/ContactUs";
+import FreeZoneAdvantages from "./component/Advantages";
 import Business from "./component/BusinessActivities";
 import Header from "./component/Header";
 

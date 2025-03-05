@@ -60,7 +60,7 @@ const freeZoneAdvantages = [
 
 const FreeZoneAdvantages = () => {
   return (
-    <div className="max-w-6xl my-30 flex justify-center bg-gray-100 py-8 px-12 rounded-lg shadow-md">
+    <div className="max-w-6xl my-30 flex justify-center bg-gray-100 py-8 px-4 md:px-12 rounded-lg shadow-md">
       <div className="max-w-7xl">
         <h2 className="text-3xl font-bold mb-4 mt-8 text-start text-primary">
           Location and Pricing
@@ -70,13 +70,13 @@ const FreeZoneAdvantages = () => {
           {freeZoneAdvantages.map((advantage, index) => (
             <div
               key={index}
-              className="bg-white p-6  shadow-md rounded text-justify mx-auto flex flex-col justify-between h-full"
-              style={{ width: "350px", height: "350px" }}
+              className="bg-white p-6 shadow-md rounded text-justify mx-auto flex flex-col justify-between h-full"
+              style={{ width: "100%", maxWidth: "350px", height: "350px" }}
             >
               <img
                 src={advantage.logo}
                 alt="Company Logo"
-                className="w-28 h-18 mb-2"
+                className="w-28 h-18 mb-2 mx-auto"
               />
               <div className="flex-grow">
                 <p className="text-xl text-primary mt-8">{advantage.title}</p>

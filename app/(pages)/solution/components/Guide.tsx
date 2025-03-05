@@ -12,12 +12,12 @@ const Guide = () => {
         <h2 className="text-3xl text-center font-bold text-primary mb-4 mt-8">
           The Best Business Setup Consultants in Dubai
         </h2>
-        <p className="text-lg text-center mb-8">
+        <p className="text-lg text-center md:mb-8 ">
           Our process is both straightforward and transparent. We’ll guide you
           through every step of the way.
         </p>
-        <div className="flex flex-col md:flex-row items-center  mt-20 ">
-          <div className="md:w-1/2 mt-8 md:mt-30 ">
+        <div className="flex flex-col md:flex-row items-center  p-10  ">
+          <div className="md:w-1/2  md:mt-30 flex flex-col items-center md:items-start">
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-2">1. Simple</h3>
               <ul className="list-disc list-inside">

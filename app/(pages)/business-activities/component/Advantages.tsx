@@ -76,7 +76,7 @@ const freeZoneAdvantages = [
 
 const FreeZoneAdvantages = () => {
   return (
-    <div className="my-30 flex justify-center">
+    <div className="my-30 flex justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl">
         <h2 className="text-3xl font-bold mb-4 text-center text-primary">
           Advantages of Setting up in a Free Zone
@@ -85,11 +85,11 @@ const FreeZoneAdvantages = () => {
           What are the main benefits to starting your company in a free zone and
           how do they each operate?
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-20">
           {freeZoneAdvantages.map((advantage, index) => (
             <div
               key={index}
-              className="bg-white p-6 shadow-md rounded text-justify max-w-lg max-h-md mx-auto"
+              className="bg-white p-6 shadow-md rounded text-justify max-w-lg mx-auto"
             >
               <img
                 src={advantage.image}
