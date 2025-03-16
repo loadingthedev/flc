@@ -29,7 +29,7 @@ const Header = () => {
               location, price, business type, flexi-desk or office space
               options, auditing and bookkeeping and share capital requirements,
               and much more. <br /> <br />
-              That’s where the Virtuzone team comes in, walking you through it
+              That’s where the FLC team comes in, walking you through it
               step-by-step, steering you in the right direction, saving you
               money, and ultimately making the entire experience a stress-free
               one.

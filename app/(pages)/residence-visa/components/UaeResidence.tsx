@@ -284,7 +284,7 @@ const UAEResidence = () => {
         Additionally, you may need to provide proof of accommodation, medical
         insurance, and other necessary documents to support the application. It
         is advisable to consult with the General Directorate of Residency and
-        Foreigners Affairs (GDRFA) or legal experts like Virtuzone to ensure all
+        Foreigners Affairs (GDRFA) or legal experts like FLC to ensure all
         criteria are met and to get the most up-to-date information on the
         process.
       </p>

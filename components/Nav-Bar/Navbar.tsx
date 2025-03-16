@@ -6,7 +6,7 @@ import Logo from "./Logo";
 import MobileMenu from "./MobileMenu";
 import NavLink from "./NavLink";
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
@@ -36,8 +36,17 @@ const Navbar: React.FC = () => {
     { href: "/join-us", label: "JOIN US" },
   ];
 
+  const dropdownItems: {
+    label: string;
+    menuType: "tax" | "businessSetup" | "serviceSetup";
+  }[] = [
+    { label: "TAX", menuType: "tax" },
+    { label: "BUSINESS SETUP", menuType: "businessSetup" },
+    { label: "SERVICE", menuType: "serviceSetup" },
+  ];
+
   return (
-    <nav className="bg-white shadow-xl text-[#000000] fixed w-full top-0 z-50">
+    <nav className="bg-gray-900 shadow-xl text-white fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Logo />
@@ -48,25 +57,15 @@ const Navbar: React.FC = () => {
                 <NavLink key={item.label} {...item} />
               ))}
 
-              <DropdownMenu
-                label="TAX"
-                isActive={activeDropdown === "tax"}
-                onToggle={() => handleDropdown("tax")}
-                menuType="tax"
-              />
-
-              <DropdownMenu
-                label="BUSINESS SETUP"
-                isActive={activeDropdown === "businessSetup"}
-                onToggle={() => handleDropdown("businessSetup")}
-                menuType="businessSetup"
-              />
-              <DropdownMenu
-                label="SERVICE"
-                isActive={activeDropdown === "serviceSetup"}
-                onToggle={() => handleDropdown("serviceSetup")}
-                menuType="serviceSetup"
-              />
+              {dropdownItems.map((item) => (
+                <DropdownMenu
+                  key={item.menuType}
+                  label={item.label}
+                  isActive={activeDropdown === item.menuType}
+                  onToggle={() => handleDropdown(item.menuType)}
+                  menuType={item.menuType}
+                />
+              ))}
 
               <NavLink key="join-us" href="/join-us" label="JOIN US" />
             </div>
@@ -92,6 +91,7 @@ const Navbar: React.FC = () => {
         isOpen={isMenuOpen}
         onClose={closeMenu}
         navigationItems={navigationItems}
+        dropdownItems={dropdownItems}
       />
     </nav>
   );

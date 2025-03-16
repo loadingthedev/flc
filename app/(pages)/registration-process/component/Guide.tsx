@@ -41,9 +41,9 @@ const Guide = () => {
             </p>
             <p className="px-4 md:px-0">
               There are many pros and cons to consider when choosing where to
-              set up your company in Dubai. Our expert team at Virtuzone will
-              guide you to making the right decision that suits you and your
-              business activity.
+              set up your company in Dubai. Our expert team at FLC will guide
+              you to making the right decision that suits you and your business
+              activity.
             </p>
             <h2 className="text-3xl mt-4 mb-4 font-bold px-4 md:px-0">
               The company registration process
@@ -75,9 +75,9 @@ const Guide = () => {
               the relevant information about your company and we’ll do the rest.
             </p>
             <p className="px-4 md:px-0">
-              With Virtuzone as your <a href="">company setup partner,</a> the
-              company registration process in UAE is easy. The entire process
-              can take as little as seven working days.
+              With FLC as your <a href="">company setup partner,</a> the company
+              registration process in UAE is easy. The entire process can take
+              as little as seven working days.
             </p>
             <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
               Get Started

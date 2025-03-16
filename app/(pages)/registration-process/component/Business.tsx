@@ -38,8 +38,7 @@ const Business = () => {
             </p>
 
             <p className="text-lg mb-8">
-              Virtuzone covers all of the technical and administrative aspects
-              of{" "}
+              FLC covers all of the technical and administrative aspects of{" "}
               <a href="" className="text-blue-500">
                 business setup in Dubai
               </a>
@@ -51,8 +50,8 @@ const Business = () => {
             </p>
 
             <p className="text-lg mb-4 border-l-4 border-primary pl-4 mt-4">
-              It is this multi-layered service that has made Virtuzone one of
-              the leading company formation specialists in the region and is the
+              It is this multi-layered service that has made FLC one of the
+              leading company formation specialists in the region and is the
               reason why thousands of entrepreneurs have turned to us for
               support and guidance with{" "}
               <a href="" className="text-blue-500">

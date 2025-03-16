@@ -40,11 +40,11 @@ const Guide = () => {
             <p>
               We’ll do all the heavy lifting—that’s what makes us the premier
               business <br />
-              setup consultants in Dubai and the UAE. Virtuzone is a
-              one-stop-shop for <br /> company formation. We manage the process
-              from start to finish, meaning <br /> you don’t have to meet with
-              countless government department authorities to <br /> get your
-              business up and running.
+              setup consultants in Dubai and the UAE. FLC is a one-stop-shop for{" "}
+              <br /> company formation. We manage the process from start to
+              finish, meaning <br /> you don’t have to meet with countless
+              government department authorities to <br /> get your business up
+              and running.
             </p>
             <h2 className="text-3xl mt-4  font-bold text-primary ">
               3. In-depth proactive contracts

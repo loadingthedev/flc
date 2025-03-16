@@ -198,8 +198,8 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </li>
           <li className="pl-2">
             <Link
-              href="#"
-              className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+              href="/accounting-services"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary  transition-colors duration-300"
               role="menuitem"
             >
               Accounting Services
@@ -207,17 +207,17 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </li>
           <li className="pl-2">
             <Link
-              href="#"
-              className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+              href="/compliance-services"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary  transition-colors duration-300"
               role="menuitem"
             >
-              Complainnce Services
+              Complaince Services
             </Link>
           </li>
           <li className="pl-2">
             <Link
-              href="#"
-              className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000] transition-colors duration-300"
+              href="health-insurance"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary  transition-colors duration-300"
               role="menuitem"
             >
               Health Insurance
@@ -347,7 +347,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
     <div className="relative inline-block text-left">
       <button
         onClick={onToggle}
-        className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-300 font-medium flex items-center"
+        className="text-white font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-300 font-medium flex items-center"
         aria-expanded={isActive}
         aria-haspopup="true"
       >

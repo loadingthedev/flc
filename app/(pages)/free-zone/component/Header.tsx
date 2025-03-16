@@ -10,7 +10,7 @@ export default function Header() {
           With over 40 free zone jurisdictions in the UAE, selecting the right{" "}
           <br className="hidden md:block" />
           one for your business can seem overwhelming. That’s where{" "}
-          <br className="hidden md:block" /> Virtuzone makes a difference.
+          <br className="hidden md:block" /> FLC makes a difference.
         </p>
 
         <p className="text-white text-lg md:text-xl mb-8">

@@ -51,7 +51,7 @@ export default function Business() {
               space, and legal requirements.
             </p>
             <p>
-              Virtuzone simplifies this. Our team offers expert advice, ensures
+              FLC simplifies this. Our team offers expert advice, ensures
               compliance, saves money, and makes your company incorporation
               journey smooth and stress-free.
             </p>

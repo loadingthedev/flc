@@ -2,7 +2,7 @@ import Business from "./components/BusinessActivities";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 
-export default function page() {
+const page = () => {
   return (
     <div>
       <Hero />
@@ -10,4 +10,6 @@ export default function page() {
       <Business />
     </div>
   );
-}
+};
+
+export default page;

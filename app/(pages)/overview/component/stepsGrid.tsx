@@ -39,8 +39,8 @@ export default function Steps() {
           <FaBuilding color="#0f5471" size={"80"} />
           <p className="mt-8">
             While the entire process can take as little as seven working days,
-            Virtuzone is doing a lot behind the scenes to ensure your UAE free
-            zone company setup is a complete success.
+            FLC is doing a lot behind the scenes to ensure your UAE free zone
+            company setup is a complete success.
           </p>
         </div>
       </div>

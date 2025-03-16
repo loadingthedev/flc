@@ -40,8 +40,8 @@ const Business = () => {
                 required.
               </p>
               <h2 className="text-2xl text-justify font-bold text-primary mb-4 mt-8">
-                If your business does require a local sponsor, Virtuzone is on
-                hand to help.
+                If your business does require a local sponsor, FLC is on hand to
+                help.
               </h2>
               <p className="text-lg mb-8">
                 First, you’ll need to establish a mainland{" "}
