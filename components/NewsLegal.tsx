@@ -1,6 +1,6 @@
 "use client";
-import Stripes from "@/public/images/stripes-dark.svg";
-import Image from "next/image";
+// import Stripes from "@/public/images/stripes-dark.svg";
+// import Image from "next/image";
 import { useState } from "react";
 import {
   FaBrain,
@@ -74,23 +74,23 @@ const NewsAndInsights = () => {
   ];
 
   return (
-    <div className="relative w-full   p-8 overflow-hidden  mb-10">
+    <div className="relative w-full p-4 md:p-8 overflow-hidden mb-10">
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="mb-6 border-y text-3xl text-4xl font-bold  text-foreground  [border-image:linear-gradient(to_right,transparent,theme(colors.slate.700/.7),transparent)1] md:mb-12 md:text-4xl">
+        <div className="flex flex-col md:flex-row items-center md:items-center justify-between mb-8">
+          <h2 className="mb-4 md:mb-0 border-y text-2xl md:text-4xl font-bold mt-8 text-foreground [border-image:linear-gradient(to_right,transparent,theme(colors.slate.700/.7),transparent)1]">
             News and Legal Insights
           </h2>
-          <div className="flex gap-4">
+          <div className="flex gap-2 md:gap-4">
             <button
               onClick={() => setActiveTab("news")}
-              className={`flex items-center gap-2 px-6 py-3 rounded-none transition-all ${activeTab === "news" ? "bg-primary hover:bg-muted-foreground text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
+              className={`flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 rounded-none transition-all ${activeTab === "news" ? "bg-primary hover:bg-muted-foreground text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
             >
               <FaNewspaper />
               News
             </button>
             <button
               onClick={() => setActiveTab("insights")}
-              className={`flex items-center gap-2 px-6 py-3 rounded-none transition-all ${activeTab === "insights" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
+              className={`flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 rounded-none transition-all ${activeTab === "insights" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
             >
               <FaLightbulb />
               Insights
@@ -98,7 +98,7 @@ const NewsAndInsights = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {activeTab === "news"
             ? newsData.map((news) => (
                 <div
@@ -108,22 +108,22 @@ const NewsAndInsights = () => {
                   <img
                     src={news.image}
                     alt={news.title}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-40 md:h-48 object-cover"
                   />
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="bg-accent/20 text-accent px-3 py-1 rounded-none text-sm">
+                  <div className="p-4 md:p-6">
+                    <div className="flex items-center justify-between mb-2 md:mb-4">
+                      <span className="bg-accent/20 text-accent px-2 py-1 rounded-none text-xs md:text-sm">
                         {news.category}
                       </span>
-                      <div className="flex items-center text-muted-foreground text-sm">
-                        <FaRegClock className="mr-2" />
+                      <div className="flex items-center text-muted-foreground text-xs md:text-sm">
+                        <FaRegClock className="mr-1 md:mr-2" />
                         {new Date(news.date).toISOString().split("T")[0]}
                       </div>
                     </div>
-                    <h3 className="text-xl font-heading text-foreground mb-3">
+                    <h3 className="text-lg md:text-xl font-heading text-foreground mb-2 md:mb-3">
                       {news.title}
                     </h3>
-                    <p className="text-body text-muted-foreground">
+                    <p className="text-body text-muted-foreground text-sm md:text-base">
                       {news.description}
                     </p>
                   </div>
@@ -132,28 +132,30 @@ const NewsAndInsights = () => {
             : insightsData.map((insight) => (
                 <div
                   key={insight.id}
-                  className="bg-card rounded-none shadow-md p-6 hover:shadow-lg transition-shadow"
+                  className="bg-card rounded-none shadow-md p-4 md:p-6 hover:shadow-lg transition-shadow"
                 >
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="text-2xl text-accent">{insight.icon}</div>
-                    <span className="bg-accent/20 text-accent px-3 py-1 rounded-none text-sm">
+                  <div className="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
+                    <div className="text-xl md:text-2xl text-accent">
+                      {insight.icon}
+                    </div>
+                    <span className="bg-accent/20 text-accent px-2 py-1 rounded-none text-xs md:text-sm">
                       {insight.category}
                     </span>
                   </div>
-                  <h3 className="text-xl font-heading text-foreground mb-3">
+                  <h3 className="text-lg md:text-xl font-heading text-foreground mb-2 md:mb-3">
                     {insight.title}
                   </h3>
-                  <p className="text-body text-muted-foreground mb-4">
+                  <p className="text-body text-muted-foreground text-sm md:text-base mb-2 md:mb-4">
                     {insight.description}
                   </p>
-                  <div className="flex items-center text-muted-foreground text-sm">
+                  <div className="flex items-center text-muted-foreground text-xs md:text-sm">
                     <span>By {insight.author}</span>
                   </div>
                 </div>
               ))}
         </div>
       </div>
-      <div
+      {/* <div
         className="pointer-events-none absolute left-1/2 top-[0] -z-10 -translate-x-1/2 transform"
         aria-hidden="true"
       >
@@ -164,7 +166,7 @@ const NewsAndInsights = () => {
           height={432}
           alt="Stripes"
         />
-      </div>
+      </div> */}
     </div>
   );
 };

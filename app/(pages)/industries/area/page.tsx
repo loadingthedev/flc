@@ -6,7 +6,7 @@ import {
   FaRegClock,
   FaShieldAlt,
 } from "react-icons/fa";
-import Cta from "../../../shared/Cta";
+import Cta from "../../shared/Cta";
 import AttorneyCardList from "../component/AttorneyCardList";
 
 const PracticeAreaDetail = () => {

@@ -23,11 +23,11 @@ const Header = () => {
             <div className="flex flex-wrap gap-6">
               <div className="flex  gap-6">
                 <div className="flex flex-col justify-center  ">
-                  <div className="flex items-center mb-2 border-b-2 pb-4 bg-primary">
+                  <div className="flex items-center mb-2 border-b-2 pb-4 bg-muted-foreground">
                     <img
                       src="https://virtuzone.com/wp-content/uploads/2022/02/Comprehensive-coverage.svg"
                       alt="Comprehensive coverage"
-                      className="w-full h-auto rounded-md mb-4 p-8"
+                      className="w-full h-auto rounded-md mb-4 p-12"
                     />
                   </div>
                   <h2 className="text-lg font-bold mt-4">
@@ -44,11 +44,11 @@ const Header = () => {
 
             <div className="flex  gap-6">
               <div className="flex flex-col justify-center  ">
-                <div className="flex items-center mb-2 border-b-2 pb-4 bg-primary">
+                <div className="flex items-center mb-2 border-b-2 pb-4 bg-muted-foreground">
                   <img
                     src="https://virtuzone.com/wp-content/uploads/2022/02/Excellent-healthcare-services.svg"
                     alt="Comprehensive coverage"
-                    className="w-full h-auto rounded-md mb-4 p-8"
+                    className="w-full h-auto rounded-md mb-4 p-12"
                   />
                 </div>
                 <h2 className="text-lg font-bold mt-4">
@@ -63,11 +63,11 @@ const Header = () => {
             </div>
             <div className="flex  gap-6">
               <div className="flex flex-col justify-center  ">
-                <div className="flex items-center mb-2 border-b-2 pb-4 bg-primary">
+                <div className="flex items-center mb-2 border-b-2 pb-4 bg-muted-foreground">
                   <img
                     src="https://virtuzone.com/wp-content/uploads/2022/02/Tailored-to-your-needs.svg"
                     alt="Comprehensive coverage"
-                    className="w-full h-auto rounded-md mb-4 p-8"
+                    className="w-full h-auto rounded-md mb-4 p-12"
                   />
                 </div>
                 <h2 className="text-lg font-bold mt-4">
