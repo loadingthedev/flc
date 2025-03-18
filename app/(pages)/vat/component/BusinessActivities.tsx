@@ -2,12 +2,12 @@ import Contact from "../../shared/Contact";
 
 const Business = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="flex flex-col md:flex-row items-start my-16">
+    <div className="max-w-7xl mx-auto ">
+      <div className="flex flex-col md:flex-row items-start md:my-16">
         <div className="w-full md:w-1/2 h-full overflow-y-auto">
           <div className="p-4 md:ml-12 text-justify ">
             <div>
-              <h2 className="text-3xl font-bold text-primary mt-8 mb-8 ">
+              <h2 className="md:text-3xl text-xl  font-bold text-primary  mb-8 ">
                 A Guide to VAT Compliance in Dubai and the UAE
               </h2>
               <p className="mb-4">
@@ -29,7 +29,7 @@ const Business = () => {
               </p>
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-primary  mt-8 mb-4">
+              <h2 className="md:text-3xl text-xl font-bold text-primary  mt-8 mb-4">
                 Why Should You Consider Starting a Business in Dubai?
               </h2>
               <p className="mb-4">
@@ -48,7 +48,7 @@ const Business = () => {
                 and income tax rate, no customs duties and you have the option
                 to repatriate 100% of the profits from the business.
               </p>
-              <h2 className="text-3xl font-bold text-primary  mt-8 mb-4">
+              <h2 className="md:text-3xl text-xl font-bold text-primary  mt-8 mb-4">
                 What Does Value-Added Tax Mean?
               </h2>
               <p className="mb-4">
@@ -69,7 +69,7 @@ const Business = () => {
                 countries, including European Union members, Canada and New
                 Zealand, have implemented VAT.
               </p>
-              <h2 className="text-3xl font-bold text-primary  mt-8 mb-4">
+              <h2 className="md:text-3xl text-xl font-bold text-primary  mt-8 mb-4">
                 History of VAT
               </h2>
               <p className="mb-4">
@@ -90,7 +90,7 @@ const Business = () => {
                 vision behind implementing VAT was to reduce its dependence on
                 income derived from oil.
               </p>
-              <h2 className="text-3xl font-bold text-primary  mt-8 mb-4">
+              <h2 className="md:text-3xl text-xl font-bold text-primary  mt-8 mb-4">
                 7 Things to Know About VAT in Dubai
               </h2>
               <p className="mb-4">
@@ -109,7 +109,7 @@ const Business = () => {
 
               <ul>
                 <li className="mb-4">
-                  <h3 className="text-2xl font-bold text-primary mb-2">
+                  <h3 className="md:text-2xl text-md  font-bold text-primary mb-2">
                     1. VAT in Dubai Is Levied at a Rate of 5%
                   </h3>
                   <p>
@@ -130,38 +130,38 @@ const Business = () => {
                   </p>
                 </li>
                 <li className="mb-4">
-                  <h3 className="text-2xl font-bold text-primary mb-2">
+                  <h3 className="md:text-2xl text-md font-bold text-primary mb-2">
                     2. Certain Services Have 0% VAT
                   </h3>
-                  <p>
+                  <p className="mb-4">
                     If you’re wondering whether the 5% VAT applies to you, you
                     first need to determine whether any of your supplies are 0%
                     VAT or exempt supplies.
                   </p>
-                  <p>
+                  <p className="mb-4">
                     Even if you have a taxable supply, certain services have a
                     0% VAT rate. These businesses must include zero value in
                     their invoices.
                   </p>
-                  <p>
+                  <p className="mb-4">
                     The 0% VAT applies to goods and services that are exported
                     outside the Gulf Cooperation Council (GCC) member states.
                     GCC member states include Bahrain, Kuwait, Oman, Qatar,
                     Saudi and the UAE.
                   </p>
-                  <p>
+                  <p className="mb-4">
                     Zero-rated VAT also applies to international transportation
                     and the supply of crude oil or natural gas. Supply of
                     investment-grade precious metals such as silver and gold
                     with 99% purity. Certain areas like health care and
                     education also benefit from the 0% VAT rate.
                   </p>
-                  <p>
+                  <p className="mb-4">
                     Newly constructed residential properties will also be
                     subject to 0% VAT if they are supplied for the first time
                     within 3 years of their construction.
                   </p>
-                  <p>
+                  <p className="mb-4">
                     You may also be subject to a 0% VAT if you are considered
                     “outside of the state”. A person is “outside of the state”
                     if:
@@ -181,7 +181,7 @@ const Business = () => {
                   </p>
                 </li>
                 <li className="mb-4">
-                  <h3 className="text-2xl font-bold text-primary mb-2">
+                  <h3 className="md:text-2xl text-md font-bold text-primary mb-2">
                     3. Certain Services Are Exempt From VAT
                   </h3>
                   <p className="mb-4">
@@ -220,7 +220,7 @@ const Business = () => {
                   </p>
                 </li>
                 <li className="mb-4">
-                  <h3 className="text-2xl font-bold text-primary mb-2">
+                  <h3 className="md:text-2xl text-md font-bold text-primary mb-2">
                     4. VAT Applies to Businesses With Income of AED 375,000
                     Annually
                   </h3>
@@ -247,7 +247,7 @@ const Business = () => {
                   </p>
                 </li>
                 <li className="mb-4">
-                  <h3 className="text-2xl font-bold text-primary mb-2">
+                  <h3 className="md:text-2xl text-md font-bold text-primary mb-2">
                     5. You Can Get Some of Your VAT Paid Back
                   </h3>
                   <p className="mb-4">
@@ -280,7 +280,7 @@ const Business = () => {
                   </p>
                 </li>
                 <li className="mb-4">
-                  <h3 className="text-2xl font-bold text-primary mb-2">
+                  <h3 className="md:text-2xl text-xl font-bold text-primary mb-2">
                     6. You Need to Register for VAT
                   </h3>
                   <p className="mb-4">
@@ -333,7 +333,7 @@ const Business = () => {
                 a more cost-effective alternative than hiring permanent
                 employees.
               </p>
-              <h3 className="text-3xl font-bold text-primary  mt-8 mb-4">
+              <h3 className="md:text-2xl text-md font-bold text-primary  mt-8 mb-4">
                 7. You Can Pay Online
               </h3>
 
@@ -374,7 +374,7 @@ const Business = () => {
                 allows you to pay your VAT easily and conveniently.
               </p>
 
-              <h3 className="text-3xl font-bold text-primary  mt-8 mb-4">
+              <h3 className="md:text-2xl text-lg  font-bold text-primary  mt-8 mb-4">
                 Ready to Start Your Business in Dubai?
               </h3>
               <p className="mb-4">

@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
-    <div className="bg-muted-foreground  w-full min-h-screen h-auto flex flex-col md:flex-row justify-between items-center px-4 md:px-20">
-      <div className="text-center md:text-left">
+    <div className="bg-muted-foreground  w-full   h-auto flex flex-col md:flex-row justify-between items-center px-4 md:px-20">
+      <div className="text-center md:text-left mt-20 md:mt-0">
         <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white">
           UAE VAT Registration Assistance & Tax Consultancy
         </h1>
@@ -24,7 +24,7 @@ export default function Hero() {
         <img
           src="https://virtuzone.com/wp-content/uploads/2022/02/VAT-Tax-Consultancy.png.webp"
           alt="UAE Free Zone"
-          className="w-full h-auto"
+          className="w-full h-auto md:mt-auto"
         />
       </div>
     </div>
