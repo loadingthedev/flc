@@ -19,14 +19,14 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       <div className="py-1" role="menu" aria-orientation="vertical">
         <Link
           href="vat"
-          className="block px-4 py-2 text-md text-[#000000] hover:text-primary "
+          className="block px-4 py-2 text-sm text-[#000000] hover:text-primary "
           role="menuitem"
         >
           Vat & Tax Consultancy
         </Link>
         <Link
           href="#"
-          className="block px-4 py-2 text-md text-[#000000] hover:text-white hover:bg-[#000000]"
+          className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000]"
           role="menuitem"
         >
           Corporate Tax
@@ -36,8 +36,8 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   );
 
   const renderBusinessSetupMenu = () => (
-    <div className="absolute right-0 mt-3 w-[1000px] h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex">
-      <div className="w-1/3 bg-primary w-[500px] p-4 text-white flex flex-col items-center justify-center text-center">
+    <div className="absolute right-0 mt-3 w-full md:w-[1000px] h-auto md:h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex flex-col md:flex-row">
+      <div className="hidden md:flex w-full md:w-1/3 bg-primary p-4 text-white flex-col items-center justify-center text-center">
         <h1 className="text-xl font-bold mb-2">
           Hey, We are First Legal Counsel
         </h1>
@@ -47,7 +47,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
         </p>
       </div>
 
-      <div className="w-1/3 w-[600px] p-4 text-primary text-justify flex flex-col items-center justify-center text-center">
+      <div className="w-full md:w-1/3 p-4 text-primary text-justify flex flex-col items-center justify-center text-center md:overflow-auto overflow-auto">
         <ul className="text-justify">
           <li className="block px-5 py-2 mt-4 text-3xl text-primary transition-colors duration-300">
             Free Zone
@@ -55,7 +55,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="/overview"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Overview
@@ -64,7 +64,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="/business-activities"
-              className="block px-4 py-2 text-md text-[#000000]  hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Business Activities
@@ -73,7 +73,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="/free-zone"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Free Zone License Locations and Pricing
@@ -82,7 +82,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="/residence-visa"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               UAE Residence Visa
@@ -91,7 +91,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="/registration-process"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Registration Process
@@ -100,7 +100,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="/solution"
-              className="block px-4 py-2 text-md text-[#000000]  hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Our Solution
@@ -109,7 +109,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
         </ul>
       </div>
 
-      <div className="w-1/3 w-[600px] p-4 text-primary text-justify flex flex-col items-center justify-center text-center">
+      <div className="w-full md:w-1/3 p-4 text-primary text-justify flex flex-col items-center justify-center text-center">
         <h3 className="text-3xl mb-4 px-32 text-justify"></h3>
         <ul className="text-left">
           <li className="block px-5 py-2 text-3xl text-primary transition-colors duration-300">
@@ -118,7 +118,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="mainland-overview"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary   transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Overview
@@ -127,7 +127,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="/mainland-sponsorship"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary   transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Sponsorship
@@ -136,7 +136,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="/mainland-license"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Dubai MainLand License
@@ -145,7 +145,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="tags/business-activities"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Business Activities
@@ -154,7 +154,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="mainland-visas"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Mainland Visas
@@ -163,7 +163,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="mainland-virtuefit"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary   transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               VirtuFit
@@ -183,7 +183,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="/bank-account-opening"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary  transition-colors duration-300"
               role="menuitem"
             >
               Bank Account Opening in UAE
@@ -192,7 +192,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="/accounting-services"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary  transition-colors duration-300"
               role="menuitem"
             >
               Accounting Services
@@ -201,7 +201,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="/compliance-services"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary  transition-colors duration-300"
               role="menuitem"
             >
               Complaince Services
@@ -210,7 +210,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="health-insurance"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary  transition-colors duration-300"
               role="menuitem"
             >
               Health Insurance
@@ -228,7 +228,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="legal-services"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary  transition-colors duration-300"
               role="menuitem"
             >
               Legal Services
@@ -237,7 +237,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="mail-management"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary  transition-colors duration-300"
               role="menuitem"
             >
               Mail Management
@@ -246,7 +246,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="virtual-receptionist"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary  transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary  transition-colors duration-300"
               role="menuitem"
             >
               Virtual Receptionist
@@ -263,7 +263,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="tourist-visa"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Tourist Visa Services
@@ -272,7 +272,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="/golden-visa"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Golden Visa UAE
@@ -282,7 +282,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="#"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Pro Services
@@ -291,7 +291,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="#"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               Will Prepration Services
@@ -300,7 +300,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <li className="pl-2">
             <Link
               href="#"
-              className="block px-4 py-2 text-md text-[#000000] hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
               TradeMark & CopyRight Registration

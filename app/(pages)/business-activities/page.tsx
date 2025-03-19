@@ -6,17 +6,12 @@ import Header from "./component/Header";
 const BusinessActivities = () => {
   return (
     <div>
-      {/* Heading and Get Started Button */}
       <Header />
-      {/* Your UAE Free Zone Company Starts Here Section */}
 
       <Business />
-      {/* Advantages of Setting up in a Free Zone Section */}
-      <div className="my-30 flex justify-center">
-        <FreeZoneAdvantages />
-      </div>
 
-      {/* Contact Us Form */}
+      <FreeZoneAdvantages />
+
       <ContactUs />
     </div>
   );

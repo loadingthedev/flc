@@ -1,8 +1,8 @@
 const Header = () => {
   return (
-    <div className="bg-muted-foreground py-20 w-full h-auto flex flex-col md:flex-row justify-between items-center px-4 md:px-10">
+    <div className="bg-muted-foreground  w-full h-auto flex flex-col md:flex-row justify-between items-center px-8 md:px-10  md:mt-10 ">
       <div className="text-center md:text-left">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white mt-20">
           FREE ZONE BUSINESS ACTIVITIES
         </h1>
         <p className="text-xl md:text-3xl font-bold text-white mt-4 mb-8">
@@ -19,11 +19,11 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <div className="w-full md:w-1/2 mt-10 ml-8 md:mt-0 md:pl-10 flex justify-center md:justify-end">
+      <div className="w-full md:w-1/2 mt-8 md:mt-0 md:pl-10 ml-10 ">
         <img
           src="https://virtuzone.com/wp-content/uploads/2021/10/1.-Business-Activities-1.png.webp"
           alt="UAE Free Zone"
-          className="w-full md:w-[650px] h-auto "
+          className="w-full h-auto mx-auto mt-10"
         />
       </div>
     </div>
