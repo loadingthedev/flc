@@ -1,10 +1,10 @@
 const UAEResidence = () => {
   return (
     <div className="max-w-7xl mx-auto p-4 justify-center">
-      <h1 className="text-2xl md:text-4xl font-bold mb-4 my-10 md:my-20">
+      <h1 className="text-2xl md:text-4xl font-bold mb-4 my-10 md:my-20 text-primary">
         How Can I Become a UAE Resident?
       </h1>
-      <p>
+      <p className="mb-4">
         There are a{" "}
         <a href="" className="text-blue-500">
           few different ways

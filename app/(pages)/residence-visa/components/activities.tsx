@@ -38,7 +38,7 @@ export default function Activities() {
               how to obtain this type of Visa. Keep reading to learn everything
               to know about this type of Visa.
             </p>
-            <strong className="text-3xl mt-4 px-4 md:px-0">
+            <strong className="md:text-3xl text-2xl mt-4 px-4 md:px-0 text-primary">
               What is a UAE Residence Visa?
             </strong>
             <p className=" px-4 md:px-0">

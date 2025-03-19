@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <div className="bg-muted-foreground w-full h-auto flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 p-5 md:p-10">
+    <div className="bg-muted-foreground  w-full   h-auto flex flex-col md:flex-row justify-between items-center px-8 md:px-40 mt-16 md:mt-0">
       <div className="text-center md:text-start">
         <h1 className="text-2xl md:text-3xl text-primary font-bold mb-2">
           Your complete guide to {""}
@@ -14,10 +14,11 @@ export default function Header() {
           through a fast, <br className="hidden md:block" />
           stress-free and proven process.
         </p>
-
-        <button className="flex items-center bg-white text-black gap-2 mt-8 px-8 md:px-12 py-3 md:py-4 border-2 border-white rounded-none transition-all hover:bg-primary hover:text-primary-foreground">
-          Get Started
-        </button>
+        <div className="flex justify-center md:justify-start">
+          <button className="flex items-center bg-white text-black gap-2 mt-8 px-8 md:px-12 py-3 md:py-4 border-2 border-white rounded-none transition-all hover:bg-primary hover:text-primary-foreground">
+            Get Started
+          </button>
+        </div>
       </div>
       <div>
         <img
