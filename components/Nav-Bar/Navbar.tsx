@@ -13,7 +13,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, label }) => {
   return (
     <Link
       href={href}
-      className="text-white font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-300 font-medium"
+      className="text-primary font-Jost text-base border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-300 font-bold"
       aria-label={label}
     >
       {label}
@@ -34,8 +34,19 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   onToggle,
   menuType,
 }) => {
+  let closeTimeout: NodeJS.Timeout;
+
+  const handleMouseEnter = () => {
+    clearTimeout(closeTimeout);
+    onToggle();
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeout = setTimeout(onToggle, 300); // 300ms delay before closing
+  };
+
   const renderTaxMenu = () => (
-    <div className="absolute right-0 mt-3 w-48 shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+    <div className="absolute right-0 mt-[-2] w-48 shadow-lg bg-white ring-1 ring-black ring-opacity-5">
       <div className="py-1" role="menu" aria-orientation="vertical">
         <Link
           href="vat"
@@ -56,7 +67,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   );
 
   const renderBusinessSetupMenu = () => (
-    <div className="absolute right-0 mt-3 w-full md:w-[1000px] h-auto md:h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex flex-col md:flex-row">
+    <div className="absolute right-0 mt-[-2] w-full md:w-[1000px] h-auto md:h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex flex-col md:flex-row">
       <div className="hidden md:flex w-full md:w-1/3 bg-primary p-4 text-white flex-col items-center justify-center text-center">
         <h1 className="text-xl font-bold mb-2">
           Hey, We are First Legal Counsel
@@ -195,7 +206,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   );
 
   const renderServiceSetupMenu = () => (
-    <div className="absolute right-0 mt-3 w-[1000px] h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex">
+    <div className="absolute right-0 mt-[-2] w-[1000px] h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex">
       <div className="w-1/3 w-[333px] p-4 text-white flex flex-col items-center justify-top text-center">
         <ul className="text-justify">
           <li className="block px-5 py-2 mt-4 text-3xl text-primary transition-colors duration-300">
@@ -333,10 +344,13 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   );
 
   return (
-    <div className="relative inline-block text-left cursor-pointer">
+    <div
+      className="relative inline-block text-left cursor-pointer"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div
-        onClick={onToggle}
-        className="text-white font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-700 font-lg flex items-center"
+        className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-700 font-lg flex items-center"
         aria-expanded={isActive}
         aria-haspopup="true"
       >
@@ -504,7 +518,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           <Link
             key={item.label}
             href={item.href}
-            className="text-primary hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
+            className="text-primary hover:bg-blue-700 block px-3 py-2 rounded-md  text-bold"
             onClick={onClose}
           >
             {item.label}
@@ -513,10 +527,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 
         {dropdownItems.map((item) => (
           <div key={item.menuType}>
-            <div
-              className="text-primary hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium cursor-pointer"
-              onClick={() => handleDropdown(item.menuType)}
-            >
+            <div onClick={() => handleDropdown(item.menuType)}>
               {item.label}
             </div>
             {activeDropdown === item.menuType &&
@@ -565,20 +576,21 @@ const Navbar = () => {
   const dropdownItems: {
     label: string;
     menuType: "tax" | "businessSetup" | "serviceSetup";
+    color?: string;
   }[] = [
-    { label: "TAX", menuType: "tax" },
-    { label: "BUSINESS SETUP", menuType: "businessSetup" },
-    { label: "SERVICE", menuType: "serviceSetup" },
+    { label: "TAX", menuType: "tax", color: "primary" },
+    { label: "BUSINESS SETUP", menuType: "businessSetup", color: "primary" },
+    { label: "SERVICE", menuType: "serviceSetup", color: "primary" },
   ];
 
   return (
-    <nav className="bg-gray-900 shadow-xl text-white fixed w-full top-0 z-50">
+    <nav className="bg-white shadow-xl  fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Logo />
 
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-center space-x-6 text-primary ">
               {navigationItems.slice(0, -1).map((item) => (
                 <NavLink key={item.label} {...item} />
               ))}
@@ -613,13 +625,14 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
-      <MobileMenu
-        isOpen={isMenuOpen}
-        onClose={closeMenu}
-        navigationItems={navigationItems}
-        dropdownItems={dropdownItems}
-      />
+      <div className="md:hidden">
+        <MobileMenu
+          isOpen={isMenuOpen}
+          onClose={closeMenu}
+          navigationItems={navigationItems}
+          dropdownItems={dropdownItems}
+        />
+      </div>
     </nav>
   );
 };
