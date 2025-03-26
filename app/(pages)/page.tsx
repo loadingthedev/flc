@@ -1,7 +1,4 @@
-export const metadata = {
-  title: "Home - FLC",
-  description: "Page description",
-};
+"use client";
 
 import BusinessCategories from "@/components/business-categories";
 import ClientInformation from "@/components/Cient";

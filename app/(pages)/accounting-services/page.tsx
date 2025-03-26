@@ -2,7 +2,7 @@ import Business from "./component/BusinessActivities";
 import Header from "./component/Header";
 import Hero from "./component/Hero";
 
-export default function page() {
+const Accounting = () => {
   return (
     <div>
       <Hero />
@@ -10,4 +10,6 @@ export default function page() {
       <Business />
     </div>
   );
-}
+};
+
+export default Accounting;

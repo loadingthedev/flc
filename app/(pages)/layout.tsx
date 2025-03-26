@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 import AOS from "aos";
@@ -13,6 +14,8 @@ export default function DefaultLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
   useEffect(() => {
     AOS.init({
       once: true,
@@ -20,15 +23,16 @@ export default function DefaultLayout({
       duration: 700,
       easing: "ease-out-cubic",
     });
-  });
+  }, []);
+
+  const isAdminPage = pathname.startsWith("/admin");
 
   return (
     <>
-      <Navbar />
-
+      {!isAdminPage && <Navbar />}
+      {/* Show Navbar only if NOT on admin pages */}
       <main className="grow">{children}</main>
-
-      <Footer border={true} />
+      {!isAdminPage && <Footer />}{" "}
     </>
   );
 }
