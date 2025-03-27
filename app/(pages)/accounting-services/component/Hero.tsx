@@ -28,7 +28,7 @@ export default function Hero() {
   return (
     <div className="bg-muted-foreground w-full h-auto flex flex-col md:flex-row justify-between items-center px-4 md:px-20">
       <div className="text-center md:text-left">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mt-0 mt-24 text-white">
           {heroData.title}
         </h1>
         <p className="text-xl md:text-3xl font-bold text-white mt-4 mb-8">
