@@ -37,13 +37,13 @@ const Business = () => {
               <h2 className="text-2xl font-bold text-primary mt-8 mb-8 text-justify">
                 {data.title}
               </h2>
-              {data.content.map((paragraph, index) => (
+              {data.content?.map((paragraph, index) => (
                 <p className="mb-2" key={index}>
                   {paragraph}
                 </p>
               ))}
             </div>
-            {data.sections.map((section, index) => (
+            {data.sections?.map((section, index) => (
               <div key={index} id={section.id}>
                 <h2 className="text-xl font-bold text-primary mt-8 mb-4">
                   {section.title}

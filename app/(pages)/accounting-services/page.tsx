@@ -1,5 +1,6 @@
 // import Business from "./component/BusinessActivities";
 // import Business from "./component/BusinessActivities";
+import Business from "./component/BusinessActivities";
 import Header from "./component/Header";
 import Hero from "./component/Hero";
 
@@ -10,7 +11,7 @@ const Accounting = () => {
     <div>
       <Hero />
       <Header />
-      {/* <Business /> */}
+      <Business />
     </div>
   );
 };
