@@ -1,97 +1,83 @@
 import { NextResponse } from "next/server";
+import AccountingService from "../../../lib/accounting-service/businessdata";
+import { connectToDatabase } from "../../../models/mongodb";
 
-// Define types
-interface Section {
-  id: string;
-  title: string;
-  content: string[];
+// Get accounting service data
+export async function GET() {
+  try {
+    await connectToDatabase();
+    const accountingService = await AccountingService.findOne();
+    return NextResponse.json({ accountingService });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch data" },
+      { status: 500 }
+    );
+  }
 }
 
-interface BusinessData {
-  title: string;
-  content: string[];
-  sections: Section[];
+// Create a new accounting service entry
+export async function POST(request: Request) {
+  try {
+    await connectToDatabase();
+    const body = await request.json();
+    const newAccountingService = await AccountingService.create(body);
+    return NextResponse.json({ newAccountingService }, { status: 201 });
+  } catch (error) {
+    console.error("Error creating data:", error);
+    return NextResponse.json(
+      { error: "Failed to create data" },
+      { status: 500 }
+    );
+  }
 }
 
-// Dummy data
-let businessData: BusinessData = {
-  title: "The Ultimate Guide to Business Accounting Services in Dubai",
-  content: [
-    "",
-    "Are your accounting practices compliant with UAE accounting standards     How accurate are your business financial records and statement Are your accounting practices compliant with UAE accounting standards? Do you file your VAT and other taxes correctly?",
-    "What are the key financial metrics you should be tracking?",
-    "How can you optimize your tax liabilities?",
-    "What are the benefits of outsourcing your accounting services?",
-  ],
-  sections: [
-    {
-      id: "benefits",
-      title: "Accounting and Bookkeeping Policies in Dubai",
-      content: [
-        "The UAE has its own set of GAAP accounting principles.",
-        "Businesses must maintain accurate and up-to-date financial records.",
-        "Compliance with local tax regulations is mandatory.",
-        "Regular audits are required to ensure financial accuracy.",
-      ],
-    },
-    {
-      id: "services",
-      title: "Types of Accounting Services Available",
-      content: [
-        "Bookkeeping and financial reporting.",
-        "Tax preparation and planning.",
-        "Payroll processing and management.",
-        "Financial consulting and advisory services.",
-      ],
-    },
-    {
-      id: "advantages",
-      title: "Advantages of Professional Accounting Services",
-      content: [
-        "Improved financial accuracy and compliance.",
-        "Time and cost savings.",
-        "Access to expert financial advice.",
-        "Enhanced decision-making capabilities.",
-      ],
-    },
-    {
-      id: "faq",
-      title: "Frequently Asked Questions",
-      content: [
-        "What is the cost of accounting services in Dubai?",
-        "How do I choose the right accounting firm?",
-        "What are the common accounting challenges faced by businesses?",
-        "How can accounting services help in business growth?",
-      ],
-    },
-  ],
-};
+// Update accounting service data
+export async function PUT(request: Request) {
+  try {
+    await connectToDatabase();
+    const body = await request.json();
+    const { id, ...updateData } = body;
 
-// Get business data
-export async function GET(): Promise<NextResponse> {
-  return NextResponse.json(businessData);
+    const updatedAccountingService = await AccountingService.findByIdAndUpdate(
+      id,
+      updateData,
+      { new: true }
+    );
+
+    if (!updatedAccountingService) {
+      return NextResponse.json({ error: "Data not found" }, { status: 404 });
+    }
+
+    return NextResponse.json({ updatedAccountingService });
+  } catch (error) {
+    console.error("Error updating data:", error);
+    return NextResponse.json(
+      { error: "Failed to update data" },
+      { status: 500 }
+    );
+  }
 }
 
-// Create business data
-export async function POST(req: Request): Promise<NextResponse> {
-  const newBusinessData: BusinessData = await req.json();
-  businessData = newBusinessData;
-  return NextResponse.json(businessData, { status: 201 });
-}
+// Delete accounting service data
+export async function DELETE(request: Request) {
+  try {
+    await connectToDatabase();
+    const { id } = await request.json();
 
-// Update business data
-export async function PUT(req: Request): Promise<NextResponse> {
-  const updatedBusinessData: BusinessData = await req.json();
-  businessData = updatedBusinessData;
-  return NextResponse.json(businessData);
-}
+    const deletedAccountingService =
+      await AccountingService.findByIdAndDelete(id);
+    if (!deletedAccountingService) {
+      return NextResponse.json({ error: "Data not found" }, { status: 404 });
+    }
 
-// Delete business data
-export async function DELETE(): Promise<NextResponse> {
-  businessData = {
-    title: "",
-    content: [],
-    sections: [],
-  };
-  return NextResponse.json(null, { status: 204 });
+    return NextResponse.json({ message: "Data deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting data:", error);
+    return NextResponse.json(
+      { error: "Failed to delete data" },
+      { status: 500 }
+    );
+  }
 }

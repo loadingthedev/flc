@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import Hero from "../../../lib/accounting-service/Hero";
 import { connectToDatabase } from "../../../models/mongodb";
 
+// Force dynamic rendering to prevent caching
+export const dynamic = "force-dynamic";
+
 // GET: Fetch hero data
 export async function GET() {
   try {

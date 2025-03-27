@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { HeaderContent, Service } from "../../../lib/accounting-service/header";
 import { connectToDatabase } from "../../../models/mongodb";
+export const dynamic = "force-dynamic";
 
 // Connect to MongoDB
 export async function GET() {
