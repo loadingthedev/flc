@@ -1,287 +1,217 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-interface Section {
-  id: string;
+type Section = {
+  _id?: string; // `_id` is optional for new sections
   title: string;
   content: string[];
-}
+};
 
-interface BusinessData {
+type BusinessData = {
+  _id?: string;
   title: string;
   content: string[];
   sections: Section[];
-}
+};
 
-const AdminForm: React.FC = () => {
-  const [businessData, setBusinessData] = useState<BusinessData>({
-    title: "",
-    content: [],
-    sections: [],
-  });
-
+const AdminPanel = () => {
+  const [businessData, setBusinessData] = useState<BusinessData | null>(null);
   const [editData, setEditData] = useState<BusinessData | null>(null);
-  const [editSectionIndex, setEditSectionIndex] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch existing business data
     fetch("/api/accounting-service/business")
       .then((response) => response.json())
-      .then((data) => setBusinessData(data));
+      .then((data) => {
+        console.log("API Response:", data);
+        if (data?.accounting) {
+          setBusinessData(data.accounting);
+          setEditData(data.accounting);
+        }
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
   }, []);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  const handleChange = (
+    field: keyof BusinessData,
+    value: string | string[],
+    index?: number
   ) => {
-    const { name, value } = e.target;
-    setEditData(
-      (prevState) =>
-        ({
-          ...prevState,
-          [name]: value,
-        }) as BusinessData
-    );
+    if (!editData) return;
+
+    if (
+      field === "content" &&
+      typeof value === "string" &&
+      index !== undefined
+    ) {
+      const updatedContent = [...editData.content]; // Create a copy of the content array
+      updatedContent[index] = value; // Update only the specific index
+
+      setEditData({ ...editData, content: updatedContent }); // Set updated array
+    } else {
+      setEditData({ ...editData, [field]: value });
+    }
   };
 
   const handleSectionChange = (
     index: number,
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    key: keyof Section,
+    value: string,
+    contentIndex?: number
   ) => {
-    const { name, value } = e.target;
-    const updatedSections = [...(editData?.sections || [])];
+    if (!editData) return;
 
-    if (name === "content") {
-      updatedSections[index] = {
-        ...updatedSections[index],
-        content: value.split("\n"),
-      };
+    const updatedSections = [...editData.sections];
+
+    if (key === "content" && contentIndex !== undefined) {
+      updatedSections[index].content[contentIndex] = value;
     } else {
-      updatedSections[index] = {
-        ...updatedSections[index],
-        [name]: value,
-      };
+      updatedSections[index] = { ...updatedSections[index], [key]: value };
     }
 
-    setEditData(
-      (prevState) =>
-        ({
-          ...prevState,
-          sections: updatedSections,
-        }) as BusinessData
-    );
-  };
-
-  const handleAddSection = () => {
-    setEditData((prevState) => {
-      const newEditData = prevState ?? businessData;
-      const newSection = { id: "", title: "", content: [""] };
-      return {
-        ...newEditData,
-        sections: [...newEditData.sections, newSection],
-      };
-    });
-    setEditSectionIndex(editData?.sections.length ?? 0);
-  };
-
-  const handleDeleteSection = (index: number) => {
-    const updatedSections = [...(editData?.sections || [])];
-    updatedSections.splice(index, 1);
-    setEditData(
-      (prevState) =>
-        ({
-          ...prevState,
-          sections: updatedSections,
-        }) as BusinessData
-    );
+    setEditData({ ...editData, sections: updatedSections });
   };
 
   const handleSubmit = async () => {
-    const method = editData?.title ? "PUT" : "POST";
-    const response = await fetch("/api/accounting-service/business", {
-      method,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(editData),
-    });
-    const data = await response.json();
-    setBusinessData(data);
-    setEditData(null);
-    setEditSectionIndex(null);
+    if (!editData || !editData._id) {
+      console.error("Missing _id in editData");
+      return;
+    }
+
+    console.log("Submitting Data:", JSON.stringify(editData, null, 2)); // Debugging
+
+    try {
+      const response = await fetch("/api/accounting-service/business", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(editData), // Send the entire updated object
+      });
+
+      const data = await response.json();
+      console.log("Updated Data from API:", data);
+
+      if (response.ok) {
+        setBusinessData(data.updatedAccountingService);
+        setEditData(data.updatedAccountingService);
+      } else {
+        console.error("Failed to update:", data.error);
+      }
+    } catch (error) {
+      console.error("Error updating:", error);
+    }
   };
 
-  const handleDelete = async () => {
-    await fetch("/api/accounting-service/business", { method: "DELETE" });
-    setBusinessData({
+  const handleNewBusinessData = () => {
+    setEditData({
       title: "",
-      content: [],
-      sections: [],
+      content: [""],
+      sections: [{ title: "", content: [""] }],
     });
+  };
+
+  const handleEditBusinessData = () => {
+    setEditData(businessData);
   };
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-4">
       <details>
-        <summary className="text-2xl font-bold mb-4 cursor-pointer text-primary hover:underline focus:outline-none ">
-          Business activities
+        <summary className="text-2xl font-bold mb-4 cursor-pointer text-primary hover:underline focus:outline-none">
+          Header Section
         </summary>
+        {loading ? (
+          <p>Loading...</p>
+        ) : businessData ? (
+          <div>
+            <h2 className="text-xl font-bold">Admin Panel</h2>
 
-        <div className="mb-4 border p-4">
-          <h2 className="text-xl font-semibold mb-4">Existing Data</h2>
-          <div className="mb-4 text-justify ">
-            <div className="mb-4 border p-4">
-              <h1 className="text-xl font-semibold ">{businessData.title}</h1>
-              {businessData.content.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
-            </div>
+            <button
+              onClick={handleNewBusinessData}
+              className="bg-green-500 text-white px-4 py-2 mt-4"
+            >
+              Add New Business Data
+            </button>
+            <button
+              onClick={handleEditBusinessData}
+              className="bg-yellow-500 text-white px-4 py-2 mt-4 ml-2"
+            >
+              Edit Existing Business Data
+            </button>
+            <button
+              onClick={async () => {
+                await handleSubmit();
+                alert("Changes saved");
+              }}
+              className="bg-blue-500 text-white px-4 py-2 mt-4 ml-2"
+            >
+              Save Changes
+            </button>
 
-            {businessData.sections.map((section, index) => (
-              <div
+            {/* Title Input */}
+            <label className="block my-2">Title:</label>
+            <input
+              type="text"
+              value={editData?.title || ""}
+              onChange={(e) => handleChange("title", e.target.value)}
+              className="border p-2 w-full"
+            />
+
+            {/* Content Array */}
+            <h3 className="mt-4 font-semibold">Content</h3>
+            {editData?.content.map((text, index) => (
+              <input
                 key={index}
-                className="mb-4 text-justify border p-4 flex justify-between items-center"
-              >
-                {editSectionIndex === index ? (
-                  <div>
-                    <label className="block mb-2">Section Title</label>
-                    <input
-                      type="text"
-                      name="title"
-                      value={section.title}
-                      onChange={(e) => handleSectionChange(index, e)}
-                      className="border p-2 w-full"
-                    />
+                type="text"
+                value={text}
+                onChange={(e) => handleChange("content", e.target.value, index)}
+                className="border p-2 w-full my-1"
+              />
+            ))}
 
-                    <label className="block mb-2">Section Content</label>
-                    <textarea
-                      name="content"
-                      value={
-                        Array.isArray(section.content)
-                          ? section.content.join("\n")
-                          : ""
-                      }
-                      onChange={(e) => handleSectionChange(index, e)}
-                      className="border p-2 w-full"
-                    />
+            {/* Sections */}
+            <h3 className="mt-4 font-semibold">Sections</h3>
+            {editData?.sections.map((section, index) => (
+              <div key={index} className="border p-2 my-2">
+                <label className="block">Section Title:</label>
+                <input
+                  type="text"
+                  value={section.title}
+                  onChange={(e) =>
+                    handleSectionChange(index, "title", e.target.value)
+                  }
+                  className="border p-2 w-full"
+                />
 
-                    <button
-                      className="bg-red-500 text-white px-4 py-2 mt-2"
-                      onClick={() => handleDeleteSection(index)}
-                    >
-                      Delete Section
-                    </button>
-                  </div>
-                ) : (
-                  <div>
-                    <h3 className="font-semibold">{section.title}</h3>
-                    {section.content.map((paragraph, idx) => (
-                      <p key={idx}>{paragraph}</p>
-                    ))}
-                  </div>
-                )}
-                <button
-                  className="bg-blue-500 text-white px-4 py-2 ml-2"
-                  onClick={() => {
-                    setEditData(businessData);
-                    setEditSectionIndex(index);
-                  }}
-                >
-                  Edit
-                </button>
+                <h4 className="mt-2 font-medium">Section Content</h4>
+                {section.content.map((content, contentIndex) => (
+                  <input
+                    key={contentIndex}
+                    type="text"
+                    value={content}
+                    onChange={(e) =>
+                      handleSectionChange(
+                        index,
+                        "content",
+                        e.target.value,
+                        contentIndex
+                      )
+                    }
+                    className="border p-2 w-full my-1"
+                  />
+                ))}
               </div>
             ))}
           </div>
-
-          {/* Add Section Button Always Visible */}
-          <button
-            className="bg-green-500 text-white px-4 py-2 mt-2"
-            onClick={handleAddSection}
-          >
-            Add Section
-          </button>
-
-          <button
-            className="bg-red-500 text-white px-4 py-2 mt-2 ml-2"
-            onClick={handleDelete}
-          >
-            Delete
-          </button>
-        </div>
-
-        {editData && editSectionIndex === null && (
-          <div>
-            <h2 className="text-xl font-semibold border-b-2 border-black pb-2 mb-4">
-              {editData.title ? "Edit Data" : "Create Data"}
-            </h2>
-
-            <div className="mb-4">
-              <label className="block mb-2">Title</label>
-              <input
-                type="text"
-                name="title"
-                value={editData.title}
-                onChange={handleInputChange}
-                className="border p-2 w-full"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label className="block mb-2">Content</label>
-              <textarea
-                name="content"
-                value={editData.content.join("\n")}
-                onChange={handleInputChange}
-                className="border p-2 w-full"
-              />
-            </div>
-
-            <button
-              className="bg-blue-500 text-white px-4 py-2 mt-2"
-              onClick={handleSubmit}
-            >
-              Save
-            </button>
-          </div>
-        )}
-
-        {editData && editSectionIndex !== null && (
-          <div>
-            <h2 className="text-xl font-semibold border-b-2 border-black pb-2 mb-4">
-              {editSectionIndex === editData.sections.length - 1
-                ? "Add New Section"
-                : "Edit Section"}
-            </h2>
-
-            <div className="mb-4">
-              <label className="block mb-2">Section Title</label>
-              <input
-                type="text"
-                name="title"
-                value={editData.sections[editSectionIndex].title}
-                onChange={(e) => handleSectionChange(editSectionIndex, e)}
-                className="border p-2 w-full"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label className="block mb-2">Section Content</label>
-              <textarea
-                name="content"
-                value={editData.sections[editSectionIndex].content.join("\n")}
-                onChange={(e) => handleSectionChange(editSectionIndex, e)}
-                className="border p-2 w-full"
-              />
-            </div>
-
-            <button
-              className="bg-blue-500 text-white px-4 py-2 mt-2"
-              onClick={handleSubmit}
-            >
-              Save
-            </button>
-          </div>
+        ) : (
+          <p>No data available.</p>
         )}
       </details>
     </div>
   );
 };
 
-export default AdminForm;
+export default AdminPanel;

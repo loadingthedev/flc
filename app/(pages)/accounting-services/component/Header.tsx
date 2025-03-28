@@ -36,8 +36,12 @@ const Header = () => {
     fetch("/api/accounting-service/header")
       .then((response) => response.json())
       .then((data: ApiResponse) => {
-        setHeaderContent(data.headerContent.text);
-        setServices(data.services);
+        if (data.headerContent?.text) {
+          setHeaderContent(data.headerContent.text);
+        }
+        if (data.services) {
+          setServices(data.services);
+        }
       });
   }, []);
 

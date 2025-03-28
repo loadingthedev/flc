@@ -1,17 +1,20 @@
 import { NextResponse } from "next/server";
-import AccountingService from "../../../lib/accounting-service/businessdata";
+import Accounting from "../../../lib/accounting-service/businessdata";
 import { connectToDatabase } from "../../../models/mongodb";
 
 // Get accounting service data
 export async function GET() {
   try {
     await connectToDatabase();
-    const accountingService = await AccountingService.findOne();
-    return NextResponse.json({ accountingService });
+    const accounting = await Accounting.findOne().lean();
+    if (!accounting) {
+      return NextResponse.json({ error: "No data found" }, { status: 404 });
+    }
+    return NextResponse.json({ accounting });
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error(error);
     return NextResponse.json(
-      { error: "Failed to fetch data" },
+      { error: (error as Error).message },
       { status: 500 }
     );
   }
@@ -22,12 +25,20 @@ export async function POST(request: Request) {
   try {
     await connectToDatabase();
     const body = await request.json();
-    const newAccountingService = await AccountingService.create(body);
+
+    if (!body.title || !body.content || !body.sections) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      );
+    }
+
+    const newAccountingService = await Accounting.create(body);
     return NextResponse.json({ newAccountingService }, { status: 201 });
   } catch (error) {
-    console.error("Error creating data:", error);
+    console.error(error);
     return NextResponse.json(
-      { error: "Failed to create data" },
+      { error: (error as Error).message },
       { status: 500 }
     );
   }
@@ -38,13 +49,17 @@ export async function PUT(request: Request) {
   try {
     await connectToDatabase();
     const body = await request.json();
-    const { id, ...updateData } = body;
+    const { _id, ...updateData } = body;
 
-    const updatedAccountingService = await AccountingService.findByIdAndUpdate(
-      id,
+    if (!_id) {
+      return NextResponse.json({ error: "ID is required" }, { status: 400 });
+    }
+
+    const updatedAccountingService = await Accounting.findByIdAndUpdate(
+      _id,
       updateData,
       { new: true }
-    );
+    ).lean();
 
     if (!updatedAccountingService) {
       return NextResponse.json({ error: "Data not found" }, { status: 404 });
@@ -52,9 +67,9 @@ export async function PUT(request: Request) {
 
     return NextResponse.json({ updatedAccountingService });
   } catch (error) {
-    console.error("Error updating data:", error);
+    console.error(error);
     return NextResponse.json(
-      { error: "Failed to update data" },
+      { error: (error as Error).message },
       { status: 500 }
     );
   }
@@ -64,19 +79,22 @@ export async function PUT(request: Request) {
 export async function DELETE(request: Request) {
   try {
     await connectToDatabase();
-    const { id } = await request.json();
+    const { _id } = await request.json();
 
-    const deletedAccountingService =
-      await AccountingService.findByIdAndDelete(id);
+    if (!_id) {
+      return NextResponse.json({ error: "ID is required" }, { status: 400 });
+    }
+
+    const deletedAccountingService = await Accounting.findByIdAndDelete(_id);
     if (!deletedAccountingService) {
       return NextResponse.json({ error: "Data not found" }, { status: 404 });
     }
 
     return NextResponse.json({ message: "Data deleted successfully" });
   } catch (error) {
-    console.error("Error deleting data:", error);
+    console.error(error);
     return NextResponse.json(
-      { error: "Failed to delete data" },
+      { error: (error as Error).message },
       { status: 500 }
     );
   }

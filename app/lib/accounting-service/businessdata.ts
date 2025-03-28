@@ -1,28 +1,28 @@
-import { Document, model, models, Schema } from "mongoose";
+import { Document, model, models, Schema, Types } from "mongoose";
 
 interface Section {
-  id: string;
+  _id: Types.ObjectId;
   title: string;
   content: string[];
 }
 
-interface AccountingService extends Document {
+interface Accounting extends Document {
   title: string;
   content: string[];
   sections: Section[];
 }
 
 const SectionSchema = new Schema<Section>({
-  id: { type: String, required: true },
+  // _id: { type: Schema.Types.ObjectId, auto: true },
   title: { type: String, required: true },
   content: { type: [String], required: true },
 });
 
-const AccountingServiceSchema = new Schema<AccountingService>({
+const AccountingSchema = new Schema<Accounting>({
   title: { type: String, required: true },
   content: { type: [String], required: true },
   sections: { type: [SectionSchema], required: true },
 });
 
-export default models.AccountingService ||
-  model<AccountingService>("AccountingService", AccountingServiceSchema);
+export default models.Accounting ||
+  model<Accounting>("Accounting", AccountingSchema);
