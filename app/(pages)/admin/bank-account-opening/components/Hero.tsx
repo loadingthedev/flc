@@ -20,7 +20,7 @@ export default function Hero() {
     const fetchHeroData = async () => {
       try {
         const res = await fetch(
-          "/api/bank-account-opening/hero?id=67e82e84766394f0465b8b15"
+          "/api/bank-account/hero?id=67e82e84766394f0465b8b15"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch hero data");
