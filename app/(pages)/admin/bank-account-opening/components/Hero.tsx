@@ -45,7 +45,7 @@ export default function Hero() {
     e.preventDefault();
 
     try {
-      const res = await fetch("/api/bank-account-opening/hero", {
+      const res = await fetch("/api/bank-account/hero", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
