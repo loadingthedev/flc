@@ -19,7 +19,9 @@ export default function Hero() {
   useEffect(() => {
     const fetchHeroData = async () => {
       try {
-        const res = await fetch("/api/bank-account-opening/hero");
+        const res = await fetch(
+          "/api/bank-account-opening/hero?id=67e82e84766394f0465b8b15"
+        );
         if (!res.ok) {
           throw new Error("Failed to fetch hero data");
         }
