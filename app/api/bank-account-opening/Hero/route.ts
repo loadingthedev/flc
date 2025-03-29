@@ -1,13 +1,22 @@
 import { NextResponse } from "next/server";
-import Header from "../../../lib/bank-account-opening/Hero";
+import Hero from "../../../lib/accounting-service/Hero";
 import { connectToDatabase } from "../../../models/mongodb";
 
-// GET: Fetch Header data
+// Force dynamic rendering to prevent caching
+export const dynamic = "force-dynamic";
+
+const HERO_ID = "67e82e84766394f0465b8b15";
+
 export async function GET() {
   try {
     await connectToDatabase();
-    const HeroData = await Header.findOne();
-    return NextResponse.json(HeroData || {});
+    const heroData = await Hero.findById(HERO_ID);
+
+    if (!heroData) {
+      return NextResponse.json({ error: "Hero not found" }, { status: 404 });
+    }
+
+    return NextResponse.json(heroData);
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to fetch data" },
@@ -16,22 +25,21 @@ export async function GET() {
   }
 }
 
-// PUT: Update Header data
+// PUT: Update specific hero data
 export async function PUT(req: Request) {
   try {
     await connectToDatabase();
     const body = await req.json();
-    let HeroData = await Header.findOne();
+    let heroData = await Hero.findById(HERO_ID);
 
-    if (!HeroData) {
-      HeroData = new Header(body);
-    } else {
-      Object.assign(HeroData, body);
+    if (!heroData) {
+      return NextResponse.json({ error: "Hero not found" }, { status: 404 });
     }
 
-    await HeroData.save();
+    Object.assign(heroData, body);
+    await heroData.save();
 
-    return NextResponse.json({ message: "Updated successfully", HeroData });
+    return NextResponse.json({ message: "Updated successfully", heroData });
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to update data" },

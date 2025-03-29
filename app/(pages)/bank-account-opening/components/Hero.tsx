@@ -14,14 +14,12 @@ export default function Hero() {
       .then((data) => setHeroData(data))
       .catch((err) => {
         console.error("Error fetching hero data:", err);
-        setHeroData({
-          title: "Default Title",
-          subtitle: "Default Subtitle",
-          description: "Default Description",
-          buttonText: "Default Button Text",
-        });
       });
   }, []);
+  if (!heroData.title) {
+    return null;
+  }
+
   return (
     <div className="bg-muted-foreground  w-full h-auto flex flex-col md:flex-row justify-between items-center px-4 md:px-20">
       <div className="text-center md:text-left">

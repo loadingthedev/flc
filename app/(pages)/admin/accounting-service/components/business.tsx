@@ -121,7 +121,7 @@ const AdminPanel = () => {
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-4">
       <details>
         <summary className="text-2xl font-bold mb-4 cursor-pointer text-primary hover:underline focus:outline-none">
-          Header Section
+          Business Section
         </summary>
         {loading ? (
           <p>Loading...</p>
