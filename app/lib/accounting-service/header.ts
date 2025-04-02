@@ -23,7 +23,6 @@ const serviceSchema: Schema = new Schema({
   icon: { type: String, required: true },
 });
 
-// Define Mongoose models
 const HeaderContent =
   mongoose.models.HeaderContent ||
   mongoose.model<IHeaderContent>("HeaderContent", headerContentSchema);

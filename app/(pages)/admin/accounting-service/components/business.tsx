@@ -48,10 +48,10 @@ const AdminPanel = () => {
       typeof value === "string" &&
       index !== undefined
     ) {
-      const updatedContent = [...editData.content]; // Create a copy of the content array
-      updatedContent[index] = value; // Update only the specific index
+      const updatedContent = [...editData.content];
+      updatedContent[index] = value;
 
-      setEditData({ ...editData, content: updatedContent }); // Set updated array
+      setEditData({ ...editData, content: updatedContent });
     } else {
       setEditData({ ...editData, [field]: value });
     }
@@ -88,7 +88,7 @@ const AdminPanel = () => {
       const response = await fetch("/api/accounting-service/business", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(editData), // Send the entire updated object
+        body: JSON.stringify(editData),
       });
 
       const data = await response.json();
@@ -121,7 +121,7 @@ const AdminPanel = () => {
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-4">
       <details>
         <summary className="text-2xl font-bold mb-4 cursor-pointer text-primary hover:underline focus:outline-none">
-          Business Section
+          Business Activities
         </summary>
         {loading ? (
           <p>Loading...</p>
@@ -162,7 +162,7 @@ const AdminPanel = () => {
 
             {/* Content Array */}
             <h3 className="mt-4 font-semibold">Content</h3>
-            {editData?.content.map((text, index) => (
+            {editData?.content?.map((text, index) => (
               <input
                 key={index}
                 type="text"
@@ -174,7 +174,7 @@ const AdminPanel = () => {
 
             {/* Sections */}
             <h3 className="mt-4 font-semibold">Sections</h3>
-            {editData?.sections.map((section, index) => (
+            {editData?.sections?.map((section, index) => (
               <div key={index} className="border p-2 my-2">
                 <label className="block">Section Title:</label>
                 <input

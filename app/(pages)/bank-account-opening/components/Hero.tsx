@@ -9,7 +9,7 @@ export default function Hero() {
   });
 
   useEffect(() => {
-    fetch("/api/bank-account-opening/hero")
+    fetch("/api/bank-account/hero")
       .then((res) => res.json())
       .then((data) => setHeroData(data))
       .catch((err) => {

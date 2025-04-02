@@ -1,106 +1,104 @@
+"use client";
+import { useEffect, useState } from "react";
+import { IconType } from "react-icons";
 import { FaBookOpen, FaDonate } from "react-icons/fa";
 
+interface ServiceInfo {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+interface HeaderData {
+  introText: string;
+  mustKnow: string[];
+  services: ServiceInfo[];
+}
+
 const Header = () => {
+  const [headerData, setHeaderData] = useState<HeaderData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/bank-account/header");
+        const result = await response.json();
+
+        if (result && result.bankHeaderData) {
+          setHeaderData(result.bankHeaderData);
+        } else {
+          console.error("Invalid API Response Structure:", result);
+        }
+      } catch (error) {
+        console.error("Error fetching header data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log("Rendering Component with Data:", headerData);
+
+  if (loading) return <div>Loading...</div>;
+  if (!headerData) return <div>Failed to load data.</div>;
+
+  const iconMap: Record<string, IconType> = {
+    FaBookOpen,
+    FaDonate,
+  };
+
   return (
     <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p
-          className="text-md md:text-xl md:mt-16 mt-8 text-center"
-          style={{
-            textAlign: "justify",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          Opening a business bank account in the UAE can be a challenging
-          process, as you need to go through several strict compliance
-          procedures mandated by the UAE Central Bank. With our bank account
-          opening service, this doesn’t have to be the case. Our team will
-          assist you in opening a bank account, guiding you through each stage
-          and ensuring you have a hassle-free experience.
+        <p className="text-md md:text-xl md:mt-16 mt-8 text-justify">
+          {headerData.introText}
         </p>
-        <div className="max-w-8xl mx-auto  md:mt-4 mt-10 py-12">
-          <h2 className="text-4xl font-extrabold md:mb-12 flex md:justify-start justify-center  mb-8">
+
+        <div className="max-w-8xl mx-auto md:mt-4 mt-10 py-12">
+          <h2 className="text-4xl font-extrabold md:mb-12 flex md:justify-start justify-center mb-8">
             Must Know
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
-            <div className="flex justify-center bg-gray-100 border-2 border-gray-200 rounded-md p-4 h-auto">
-              Your physical presence will be required during the application, so
-              you can meet the bank representative, sign the application form
-              and submit the required documents.
-            </div>
-            <div className="flex justify-center bg-gray-100 border-2 border-gray-200 rounded-md p-4 h-auto">
-              Online application: If you are outside of the UAE, you can
-              initiate your bank account opening through an online process. Your
-              presence will still be required either via a phone call or an
-              online meeting. Once the application is approved, you will be
-              required by the bank to come to the UAE to sign the account
-              opening form.
-            </div>
-            <div className="flex justify-center bg-gray-100 border-2 border-gray-200 rounded-md p-4 h-auto">
-              The standard processing time can take 14 days for digital
-              applications or 25 working days or more for in-person
-              applications, depending on the complexity of the application.
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {headerData.mustKnow.map((item, index) => (
+              <div
+                key={index}
+                className="flex justify-center bg-gray-100 border-2 border-gray-200 rounded-md p-4 h-auto"
+              >
+                {item}
+              </div>
+            ))}
           </div>
         </div>
       </div>
+
       <div className="max-w-7xl mx-auto md:py-0 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto py-12">
-          <h2 className="md:text-4xl text-2xl font-extrabold flex  md:justify-start justify-center mb-4">
+          <h2 className="md:text-4xl text-2xl font-extrabold flex md:justify-start justify-center mb-4">
             Our Bank Account Opening in UAE
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-gray-100 border-2 border-gray-200 rounded-md p-4 h-auto items-center justify-center">
-            <div className="flex items-center">
-              <FaBookOpen className="text-6xl mr-4 text-primary" />
-              <h2 className="text-3xl">Client assessment</h2>
-            </div>
-            <p className="text-md md:mt-6">
-              Our team will assess your company’s activities, operations,
-              expected annual turnover and initial funds available for opening
-              the account. Based on this information, our team will recommend
-              the most suitable bank for your business.
-            </p>
-          </div>
-          <div className="bg-gray-100 border-2 border-gray-200 rounded-md p-4 h-auto items-center justify-center">
-            <div className="flex items-center">
-              <FaDonate className="text-6xl mr-4 text-primary" />
-              <h2 className="text-3xl">Liaising with the bank</h2>
-            </div>
-            <p className="text-md md:mt-6">
-              In case the bank requires further information or processes, we
-              will communicate with them and assist you in completing the
-              additional requirements. In some instances, if you are not
-              available to meet the Contact Point Verification Agent, we can
-              also act as your representative.
-            </p>
-          </div>
-          <div className="bg-gray-100 border-2 border-gray-200 rounded-md p-4 h-auto items-center justify-center">
-            <div className="flex items-center">
-              <FaDonate className="text-6xl mr-4 text-primary" />
-              <h2 className="text-3xl">Documentation</h2>
-            </div>
-            <p className="text-md md:mt-6">
-              We will assist you in collecting and preparing the documents
-              required by the bank. These could include:
-              <ul className="list-disc list-inside">
-                <li>Certified company incorporation documents</li>
-                <li>Company profile</li>
-                <li>Valid passport copies of all shareholders</li>
-                <li>Personal profiles (CVs) of all shareholders</li>
-                <li>
-                  6 months personal/business bank statements of all shareholders
-                </li>
-                <li>
-                  Emirates ID and residence visa copy of at least the signatory
-                </li>
-                <li>A copy of your Ejari/proof of UAE residential address</li>
-              </ul>
-            </p>
-          </div>
+          {headerData.services.map((service, index) => {
+            const IconComponent =
+              iconMap[service.icon as keyof typeof iconMap] || FaBookOpen;
+
+            return (
+              <div
+                key={index}
+                className="bg-gray-100 border-2 border-gray-200 rounded-md p-4 h-auto items-center justify-center"
+              >
+                <div className="flex items-center">
+                  <IconComponent className="text-6xl mr-4 text-primary" />
+                  <h2 className="text-3xl">{service.title}</h2>
+                </div>
+                <p className="text-md md:mt-6">{service.description}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>

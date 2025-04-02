@@ -15,7 +15,7 @@ export async function connectToDatabase() {
   cached.promise =
     cached.promise ||
     mongoose.connect(MONGODB_URI, {
-      dbName: "flc", // Change to your database name
+      dbName: "flc",
     });
 
   cached.conn = await cached.promise;

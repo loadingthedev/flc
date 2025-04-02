@@ -34,7 +34,7 @@ const Business = () => {
   }, []);
 
   if (loading) {
-    return <div className="text-center text-lg font-bold">Loading...</div>;
+    return <div className="text-center text-lg font-bold">Loading....</div>;
   }
 
   if (!data) {
@@ -49,13 +49,13 @@ const Business = () => {
             <h2 className="text-2xl font-bold text-primary mt-8 mb-8">
               {data.title}
             </h2>
-            {data.content?.map((paragraph, index) => (
+            {/* {data.content?.map((paragraph, index) => (
               <p className="mb-2" key={index}>
                 {paragraph}
               </p>
-            ))}
+            ))} */}
 
-            {data.sections?.map((section) => (
+            {/* {data.sections?.map((section) => (
               <div key={section._id} id={section._id}>
                 <h2 className="text-xl font-bold text-primary mt-8 mb-4">
                   {section.title}
@@ -66,7 +66,7 @@ const Business = () => {
                   </p>
                 ))}
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
         <Contact title="Get Business Accounting Services" />
