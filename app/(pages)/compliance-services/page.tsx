@@ -1,3 +1,4 @@
+// import Business from "./components/BusinessActivities";
 import Business from "./components/BusinessActivities";
 import Header from "./components/Header";
 import Hero from "./components/Hero";

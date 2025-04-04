@@ -1,8 +1,14 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { FaPiggyBank } from "react-icons/fa";
-import { FiBarChart2, FiMenu, FiUserCheck, FiX } from "react-icons/fi";
+import {
+  FiBarChart2,
+  FiDollarSign,
+  FiFolder,
+  FiMenu,
+  FiUserCheck,
+  FiX,
+} from "react-icons/fi";
 
 type AdminLayoutProps = {
   children: React.ReactNode;
@@ -54,9 +60,15 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
             isSidebarOpen={isSidebarOpen}
           />
           <NavItem
-            icon={<FaPiggyBank size={24} />}
+            icon={<FiDollarSign size={24} />}
             text="Bank Accounts Opening in UAE"
             href="/admin/bank-account-opening"
+            isSidebarOpen={isSidebarOpen}
+          />
+          <NavItem
+            icon={<FiFolder size={24} />}
+            text="Compliance Services"
+            href="/admin/compliance-services"
             isSidebarOpen={isSidebarOpen}
           />
         </nav>
