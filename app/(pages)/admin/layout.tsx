@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { BsFillHospitalFill } from "react-icons/bs";
 import {
   FiBarChart2,
   FiDollarSign,
@@ -69,6 +70,12 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
             icon={<FiFolder size={24} />}
             text="Compliance Services"
             href="/admin/compliance-services"
+            isSidebarOpen={isSidebarOpen}
+          />
+          <NavItem
+            icon={<BsFillHospitalFill size={24} />}
+            text="Health Insurance"
+            href="/admin/health-insurance"
             isSidebarOpen={isSidebarOpen}
           />
         </nav>
