@@ -1,4 +1,41 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+interface Feature {
+  title: string;
+  description: string;
+  image: string;
+}
+
+interface CTA {
+  title: string;
+  description: string;
+}
+
+interface HealthInsuranceData {
+  intro: string;
+  heading: string;
+  features: Feature[];
+  cta: CTA;
+}
+
 const Header = () => {
+  const [data, setData] = useState<HealthInsuranceData | null>(null);
+  useEffect(() => {
+    fetch("/api/health-insurance/header")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Fetched data:", data); // should contain healthInsuranceheader key
+        setData(data.healthInsuranceheader); // <- updated here
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  if (!data) return <div>Loading...</div>;
+
   return (
     <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -10,90 +47,38 @@ const Header = () => {
             justifyContent: "center",
           }}
         >
-          Get access to an extensive range of health insurance packages with the
-          most affordable rates in the market. Whether you are looking for a
-          basic health insurance for your visa application, or a comprehensive
-          insurance package for your family or employees, we’ve got you covered.
+          {data.intro}
         </p>
-        <div className="max-w-8xl mx-auto md:mt-4 mt-12 py-12">
-          <h2 className="text-4xl font-extrabold md:mb-12 flex md:justify-start justify-center  text-primary mb-8">
-            Our Health Insurance
-          </h2>
-          <div className="flex  gap-6">
-            <div className="flex flex-wrap gap-6">
-              <div className="flex  gap-6">
-                <div className="flex flex-col justify-center  ">
-                  <div className="flex items-center mb-2 border-b-2 pb-4 bg-muted-foreground">
-                    <img
-                      src="https://virtuzone.com/wp-content/uploads/2022/02/Comprehensive-coverage.svg"
-                      alt="Comprehensive coverage"
-                      className="w-full h-auto rounded-md mb-4 p-12"
-                    />
-                  </div>
-                  <h2 className="text-lg font-bold mt-4">
-                    Comprehensive coverage
-                  </h2>
-                  <p>
-                    Our health insurance packages offer you extensive in-patient
-                    and out-patient coverage, giving you peace of mind that your
-                    medical needs will be taken care of.
-                  </p>
-                </div>
-              </div>
-            </div>
 
-            <div className="flex  gap-6">
-              <div className="flex flex-col justify-center  ">
+        <div className="max-w-8xl mx-auto md:mt-4 mt-12 py-12">
+          <h2 className="text-4xl font-extrabold md:mb-12 flex md:justify-start justify-center text-primary mb-8">
+            {data.heading}
+          </h2>
+
+          <div className="flex flex-wrap gap-6 justify-center">
+            {data.features?.map((item, idx) => (
+              <div key={idx} className="flex flex-col justify-center max-w-sm">
                 <div className="flex items-center mb-2 border-b-2 pb-4 bg-muted-foreground">
                   <img
-                    src="https://virtuzone.com/wp-content/uploads/2022/02/Excellent-healthcare-services.svg"
-                    alt="Comprehensive coverage"
+                    src={item.image}
+                    alt={item.title}
                     className="w-full h-auto rounded-md mb-4 p-12"
                   />
                 </div>
-                <h2 className="text-lg font-bold mt-4">
-                  Excellent healthcare services
-                </h2>
-                <p>
-                  Our network includes only the most reputable names in the
-                  healthcare industry, ensuring you get to enjoy the highest
-                  level of healthcare services, at all times.
-                </p>
+                <h2 className="text-lg font-bold mt-4">{item.title}</h2>
+                <p>{item.description}</p>
               </div>
-            </div>
-            <div className="flex  gap-6">
-              <div className="flex flex-col justify-center  ">
-                <div className="flex items-center mb-2 border-b-2 pb-4 bg-muted-foreground">
-                  <img
-                    src="https://virtuzone.com/wp-content/uploads/2022/02/Tailored-to-your-needs.svg"
-                    alt="Comprehensive coverage"
-                    className="w-full h-auto rounded-md mb-4 p-12"
-                  />
-                </div>
-                <h2 className="text-lg font-bold mt-4">
-                  Tailored to your needs
-                </h2>
-                <p>
-                  Our team will help you find and choose a health insurance
-                  package that suits your unique needs, whether you are looking
-                  for insurance for your family or your team.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
-      <div className="bg-muted-foreground w-full py-8 ">
-        <h2 className="text-3xl text-white bg-primary text-justify  py-8  mx-auto px-4 sm:px-6 lg:px-8 font-bold">
-          Get your health insurance quote in only 30 seconds
+
+      <div className="bg-muted-foreground w-full py-8">
+        <h2 className="text-3xl text-white bg-primary text-justify py-8 mx-auto px-4 sm:px-6 lg:px-8 font-bold">
+          {data.cta?.title}
         </h2>
-        <p className="text-white text-base md:text-xl  mt-12 max-w-7xl bg-primary mx-auto px-4 sm:px-6 lg:px-8 text-justify py-12 mb-8">
-          Safeguard your health and your future. Choose a health insurance
-          package that meets your unique needs. Ready to see all the options
-          available to you? Visit virtuzone.insured.ae or scan the QR code to
-          get an instant health insurance quote. You can also compare various
-          insurance packages from leading insurance companies in the industry
-          and filter your search based on your more specific requirements.
+        <p className="text-white text-base md:text-xl mt-12 max-w-7xl bg-primary mx-auto px-4 sm:px-6 lg:px-8 text-justify py-12 mb-8">
+          {data.cta?.description || "No description available"}
         </p>
       </div>
     </>

@@ -1,6 +1,7 @@
 import Business from "./components/business";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+export const dynamic = "force-dynamic";
 
 const Compliance = () => {
   return (

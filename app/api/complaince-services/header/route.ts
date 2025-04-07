@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import Compliance from "../../../lib/compliance-services/header";
 import { connectToDatabase } from "../../../models/mongodb";
+export const dynamic = "force-dynamic";
 
 // Fetch all compliance services
 export async function GET() {

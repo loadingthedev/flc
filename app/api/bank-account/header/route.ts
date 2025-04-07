@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import BankHeaderData from "../../../lib/bank-account/header";
+import Bankaccountheader from "../../../lib/bank-account/header";
 import { connectToDatabase } from "../../../models/mongodb";
 export const dynamic = "force-dynamic";
 
@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     await connectToDatabase();
-    const bankHeaderData = await BankHeaderData.findOne();
+    const bankHeaderData = await Bankaccountheader.findOne();
     return NextResponse.json({ bankHeaderData });
   } catch (error) {
     return NextResponse.json(
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
   try {
     const { introText, mustKnow, services } = await req.json();
     await connectToDatabase();
-    const newBankHeaderData = new BankHeaderData({
+    const newBankHeaderData = new Bankaccountheader({
       introText,
       mustKnow,
       services,
@@ -43,7 +43,7 @@ export async function PUT(req: Request) {
     const { id, introText, mustKnow, services } = await req.json();
     await connectToDatabase();
 
-    const updatedBankHeaderData = await BankHeaderData.findByIdAndUpdate(
+    const updatedBankHeaderData = await Bankaccountheader.findByIdAndUpdate(
       id,
       { introText, mustKnow, services },
       { new: true }
@@ -74,7 +74,7 @@ export async function DELETE(req: Request) {
     const { id } = await req.json();
     await connectToDatabase();
 
-    const deletedBankHeaderData = await BankHeaderData.findByIdAndDelete(id);
+    const deletedBankHeaderData = await Bankaccountheader.findByIdAndDelete(id);
 
     if (!deletedBankHeaderData) {
       return NextResponse.json(

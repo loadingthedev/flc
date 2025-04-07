@@ -24,8 +24,8 @@ const HeaderDataSchema: Schema<IHeaderData> = new Schema({
   services: { type: [ServiceInfoSchema], required: true },
 });
 
-const BankHeaderData: Model<IHeaderData> =
-  mongoose.models.BankHeaderData ||
-  mongoose.model<IHeaderData>("BankHeaderData", HeaderDataSchema);
+const Bankaccountheader: Model<IHeaderData> =
+  mongoose.models.Bankaccountheader ||
+  mongoose.model<IHeaderData>("Bankaccountheader", HeaderDataSchema);
 
-export default BankHeaderData;
+export default Bankaccountheader;

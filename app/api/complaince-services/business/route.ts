@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import ComplianceBusiness from "../../../lib/compliance-services/business";
 import { connectToDatabase } from "../../../models/mongodb";
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   await connectToDatabase();
