@@ -22,5 +22,8 @@ const ComplianceSchema = new Schema<IComplianceBusiness>({
   ],
 });
 
-export default mongoose.models.ComplianceBusiness ||
-  mongoose.model<IComplianceBusiness>("ComplianceBusiness", ComplianceSchema);
+export default mongoose.models.ComplianceServicesBusiness ||
+  mongoose.model<IComplianceBusiness>(
+    "ComplianceServicesBusiness",
+    ComplianceSchema
+  );

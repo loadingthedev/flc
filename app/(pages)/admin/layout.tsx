@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { BsFillHospitalFill } from "react-icons/bs";
+import { FaCcVisa, FaMailBulk, FaServicestack } from "react-icons/fa";
 import {
   FiBarChart2,
   FiDollarSign,
@@ -76,6 +77,30 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
             icon={<BsFillHospitalFill size={24} />}
             text="Health Insurance"
             href="/admin/health-insurance"
+            isSidebarOpen={isSidebarOpen}
+          />
+          <NavItem
+            icon={<FaServicestack size={24} />}
+            text="Legal Services"
+            href="/admin/legal-services"
+            isSidebarOpen={isSidebarOpen}
+          />
+          <NavItem
+            icon={<FaMailBulk size={24} />}
+            text="Mail Management"
+            href="/admin/mail-management"
+            isSidebarOpen={isSidebarOpen}
+          />
+          <NavItem
+            icon={<FaMailBulk size={24} />}
+            text="Virtual Receptionist"
+            href="/admin/virtual-receptionist"
+            isSidebarOpen={isSidebarOpen}
+          />
+          <NavItem
+            icon={<FaCcVisa size={24} />}
+            text="Tourist Visa Services"
+            href="/admin/tourist-visa-services"
             isSidebarOpen={isSidebarOpen}
           />
         </nav>

@@ -20,7 +20,10 @@ const Business = () => {
   useEffect(() => {
     fetch("/api/complaince-services/business")
       .then((res) => res.json())
-      .then((json) => setData(json[0]))
+      .then((data) => {
+        console.log("API Response:", data);
+        setData(data.complianceServicesBusiness);
+      })
       .catch((err) => console.error("Error fetching data", err));
   }, []);
 
@@ -38,7 +41,7 @@ const Business = () => {
 
           {data.sections.map((section, index) => (
             <div key={index} className="mt-8">
-              <h3 className="text-3xl font-bold text-primary">
+              <h3 className="text-3xl font-bold text-primary mb-8">
                 {section.title}
               </h3>
               {section.content.map((paragraph, i) => (

@@ -1,41 +1,60 @@
 "use client";
 import { useEffect, useState } from "react";
+import { IconType } from "react-icons";
+import { FaBookOpen, FaDonate } from "react-icons/fa";
 
 interface ServiceInfo {
-  _id: string;
+  _id?: string;
   title: string;
   description: string;
   icon: string;
 }
 
 interface HeaderData {
-  _id: string;
+  _id?: string;
   introText: string;
   mustKnow: string[];
   services: ServiceInfo[];
 }
 
-const BankHeader = () => {
+const iconMap: Record<string, IconType> = {
+  FaBookOpen,
+  FaDonate,
+};
+
+const Header = () => {
   const [headerData, setHeaderData] = useState<HeaderData | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [editedData, setEditedData] = useState<HeaderData | null>(null);
-  const [editingIntro, setEditingIntro] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [editingServiceIndex, setEditingServiceIndex] = useState<number | null>(
+    null
+  );
+  const [editableService, setEditableService] = useState<ServiceInfo | null>(
+    null
+  );
+  const [editingTitle, setEditingTitle] = useState(false);
+  const [editedTitle, setEditedTitle] = useState("");
   const [editingMustKnowIndex, setEditingMustKnowIndex] = useState<
     number | null
   >(null);
-  const [editingServiceId, setEditingServiceId] = useState<string | null>(null);
+  const [editedMustKnow, setEditedMustKnow] = useState("");
+  const [newMustKnow, setNewMustKnow] = useState("");
+  const [newService, setNewService] = useState<ServiceInfo>({
+    title: "",
+    description: "",
+    icon: "FaBookOpen",
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/bank-account/header");
-        const result = await response.json();
-        if (result?.bankHeaderData) {
-          setHeaderData(result.bankHeaderData);
-          setEditedData(result.bankHeaderData);
+        const res = await fetch("/api/bank-account/header");
+        const data = await res.json();
+        if (data?.bankHeaderData) {
+          setHeaderData(data.bankHeaderData);
+          setEditedTitle(data.bankHeaderData.introText);
         }
-      } catch (error) {
-        console.error("Error fetching data:", error);
+      } catch (err) {
+        console.error("Error:", err);
       } finally {
         setLoading(false);
       }
@@ -43,372 +62,339 @@ const BankHeader = () => {
     fetchData();
   }, []);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    field: string
-  ) => {
-    if (!editedData) return;
-    setEditedData({ ...editedData, [field]: e.target.value });
-  };
-
-  const handleUpdate = async () => {
-    if (!editedData) {
-      console.error("No data to update");
-      return;
-    }
-
+  const updateHeaderData = async (updated: HeaderData) => {
     try {
-      const response = await fetch("/api/bank-account/header", {
+      const res = await fetch("/api/bank-account/header", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          id: editedData._id,
-          introText: editedData.introText || "",
-          mustKnow: editedData.mustKnow || [],
-          services: editedData.services || [],
+          id: updated._id,
+          introText: updated.introText,
+          mustKnow: updated.mustKnow,
+          services: updated.services,
         }),
       });
 
-      if (!response.ok) {
-        const errorResult = await response.json();
-        console.error(
-          "Error updating data:",
-          errorResult.error || "Unknown error"
-        );
-        return;
-      }
-
-      const result = await response.json();
-      if (result?.updatedBankHeaderData) {
-        setHeaderData(result.updatedBankHeaderData);
-        setEditingIntro(false);
+      if (res.ok) {
+        setHeaderData(updated);
+        setEditingServiceIndex(null);
+        setEditableService(null);
         setEditingMustKnowIndex(null);
-        setEditingServiceId(null);
+        setEditingTitle(false);
+        setNewMustKnow("");
+        setNewService({ title: "", description: "", icon: "FaBookOpen" });
       } else {
-        console.error("Invalid response format:", result);
+        console.error("Failed to update.");
       }
     } catch (error) {
-      console.error("Update failed:", error);
+      console.error("Update error:", error);
     }
   };
 
-  const handleServiceUpdate = async (serviceId: string) => {
-    if (!editedData) {
-      console.error("No data to update");
+  const handleTitleSave = () => {
+    if (!headerData) return;
+    updateHeaderData({ ...headerData, introText: editedTitle });
+  };
+
+  const handleServiceEdit = (index: number) => {
+    setEditingServiceIndex(index);
+    setEditableService({ ...headerData!.services[index] });
+  };
+
+  const handleServiceDelete = (index: number) => {
+    if (!headerData) return;
+    const updatedServices = [...headerData.services];
+    updatedServices.splice(index, 1);
+    updateHeaderData({ ...headerData, services: updatedServices });
+  };
+
+  const saveService = () => {
+    if (!headerData || editingServiceIndex === null || !editableService) return;
+    const updatedServices = [...headerData.services];
+    updatedServices[editingServiceIndex] = editableService;
+    updateHeaderData({ ...headerData, services: updatedServices });
+  };
+
+  const handleMustKnowEdit = (index: number) => {
+    setEditingMustKnowIndex(index);
+    setEditedMustKnow(headerData!.mustKnow[index]);
+  };
+
+  const handleMustKnowDelete = (index: number) => {
+    if (!headerData) return;
+    const updatedMustKnow = [...headerData.mustKnow];
+    updatedMustKnow.splice(index, 1);
+    updateHeaderData({ ...headerData, mustKnow: updatedMustKnow });
+  };
+
+  const saveMustKnow = () => {
+    if (editingMustKnowIndex === null || !headerData) return;
+    const updatedMustKnows = [...headerData.mustKnow];
+    updatedMustKnows[editingMustKnowIndex] = editedMustKnow;
+    updateHeaderData({ ...headerData, mustKnow: updatedMustKnows });
+  };
+
+  const addNewMustKnow = () => {
+    if (!headerData || !newMustKnow.trim()) return;
+    const updatedMustKnows = [...headerData.mustKnow, newMustKnow.trim()];
+    updateHeaderData({ ...headerData, mustKnow: updatedMustKnows });
+  };
+
+  const addNewService = () => {
+    if (
+      !headerData ||
+      !newService.title.trim() ||
+      !newService.description.trim()
+    )
       return;
-    }
-
-    const updatedService = editedData.services.find(
-      (service) => service._id === serviceId
-    );
-
-    if (!updatedService) {
-      console.error("Service not found");
-      return;
-    }
-
-    try {
-      const response = await fetch(`/api/bank-account/header/service`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: editedData._id,
-          service: updatedService,
-        }),
-      });
-
-      if (!response.ok) {
-        const errorResult = await response.json();
-        console.error(
-          "Error updating service:",
-          errorResult.error || "Unknown error"
-        );
-        return;
-      }
-
-      const result = await response.json();
-      if (result?.updatedBankHeaderData) {
-        setHeaderData(result.updatedBankHeaderData);
-        setEditingServiceId(null);
-      } else {
-        console.error("Invalid response format:", result);
-      }
-    } catch (error) {
-      console.error("Service update failed:", error);
-    }
-  };
-
-  const handleDeleteMustKnow = async (index: number) => {
-    if (!editedData) return;
-
-    const updatedMustKnow = editedData.mustKnow.filter((_, i) => i !== index);
-
-    try {
-      const response = await fetch(`/api/bank-account/header`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: editedData._id,
-          mustKnow: updatedMustKnow,
-        }),
-      });
-
-      if (response.ok) {
-        setEditedData({ ...editedData, mustKnow: updatedMustKnow });
-      } else {
-        console.error("Error deleting must-know point");
-      }
-    } catch (error) {
-      console.error("Delete failed:", error);
-    }
-  };
-
-  const handleDeleteService = async (id: string) => {
-    if (!editedData) return;
-    const updatedServices =
-      editedData?.services.filter((service) => service._id !== id) || [];
-
-    try {
-      const response = await fetch(`/api/bank-account/header`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: editedData._id,
-          services: updatedServices,
-        }),
-      });
-
-      if (response.ok) {
-        setEditedData({ ...editedData, services: updatedServices });
-      } else {
-        console.error("Error deleting service");
-      }
-    } catch (error) {
-      console.error("Delete failed:", error);
-    }
-  };
-
-  const handleAddNewService = () => {
-    if (!editedData) return;
-
-    const newService: ServiceInfo = {
-      _id: new Date().toISOString(),
-      title: "",
-      description: "",
-      icon: "",
-    };
-
-    const updatedServices = [...editedData.services, newService];
-    setEditedData({ ...editedData, services: updatedServices });
-    setEditingServiceId(newService._id);
+    const updatedServices = [...headerData.services, newService];
+    updateHeaderData({ ...headerData, services: updatedServices });
   };
 
   if (loading) return <div>Loading...</div>;
-  if (!headerData) return <div>No data available.</div>;
+  if (!headerData) return <div>Failed to load data.</div>;
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-4 ">
-      <details>
-        <summary className="text-2xl font-bold mb-4 cursor-pointer text-primary hover:underline focus:outline-none ">
-          Header section
-        </summary>
-
-        {/* Intro Text Section */}
-        {editingIntro ? (
-          <>
-            <div className="mb-4 display-flex flex-col">
-              <textarea
-                className="w-full p-2 border rounded mb-2"
-                value={editedData?.introText}
-                onChange={(e) => handleInputChange(e, "introText")}
-              />
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Editable Title */}
+      <div className="mt-8">
+        {editingTitle ? (
+          <div className="flex flex-col gap-2">
+            <textarea
+              className="w-full border border-gray-300 p-2 rounded"
+              value={editedTitle}
+              onChange={(e) => setEditedTitle(e.target.value)}
+            />
+            <div className="flex gap-2">
               <button
-                className="bg-green-600 text-white px-4 py-2 rounded mr-2"
-                onClick={handleUpdate}
+                onClick={handleTitleSave}
+                className="bg-green-500 text-white px-3 py-1 rounded"
               >
                 Save
               </button>
               <button
-                className="bg-gray-500 text-white px-4 py-2 rounded"
-                onClick={() => setEditingIntro(false)}
+                onClick={() => setEditingTitle(false)}
+                className="bg-red-500 text-white px-3 py-1 rounded"
               >
                 Cancel
               </button>
             </div>
-          </>
+          </div>
         ) : (
-          <>
-            <p className="mb-4">{headerData.introText}</p>
+          <div className="flex justify-between items-start gap-4">
+            <p className="text-md md:text-xl text-justify">
+              {headerData.introText}
+            </p>
             <button
-              className="bg-blue-600 text-white px-4 py-2 rounded mr-2"
-              onClick={() => setEditingIntro(true)}
+              onClick={() => setEditingTitle(true)}
+              className="bg-yellow-500 text-white px-3 py-1 rounded"
             >
               Edit
             </button>
-          </>
+          </div>
         )}
+      </div>
 
-        {/* <button className="bg-green-600 text-white px-4 py-2 rounded mr-4 ">
-          Add New HeaderData
-        </button> */}
-        {/* Must-Know Section */}
-        <h3 className="text-xl font-semibold mt-6">Must-Know Points</h3>
-        <ul className="list-disc list-inside mt-2">
-          {editedData?.mustKnow.map((point, index) => (
-            <li
+      {/* Must Know Points */}
+      <div className="py-12">
+        <h2 className="text-4xl font-extrabold mb-6">Must Know</h2>
+
+        {/* Add New Must Know */}
+        <div className="mb-6 flex gap-2">
+          <input
+            value={newMustKnow}
+            onChange={(e) => setNewMustKnow(e.target.value)}
+            placeholder="Add a new point..."
+            className="w-full border border-gray-300 p-2 rounded"
+          />
+          <button
+            onClick={addNewMustKnow}
+            className="bg-blue-600 text-white px-3 py-2 rounded"
+          >
+            Add
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {headerData.mustKnow.map((item, index) => (
+            <div
               key={index}
-              className="flex justify-between items-center bg-gray-100 p-2 rounded my-2"
+              className="bg-gray-100 p-4 rounded-md border border-gray-300"
             >
               {editingMustKnowIndex === index ? (
-                <input
-                  type="text"
-                  className="w-full p-1 border rounded"
-                  value={editedData.mustKnow[index]}
-                  onChange={(e) => {
-                    const newMustKnow = [...editedData.mustKnow];
-                    newMustKnow[index] = e.target.value;
-                    setEditedData({
-                      ...editedData,
-                      mustKnow: newMustKnow,
-                      _id: editedData._id,
-                    });
-                  }}
-                />
-              ) : (
-                <span>{point}</span>
-              )}
-              <div className="flex items-center">
-                {editingMustKnowIndex === index ? (
-                  <button
-                    className="bg-green-600 text-white px-2 py-1 rounded mr-2"
-                    onClick={handleUpdate}
-                  >
-                    Save
-                  </button>
-                ) : (
-                  <button
-                    className="bg-blue-600 text-white px-2 py-1 rounded mr-2"
-                    onClick={() => setEditingMustKnowIndex(index)}
-                  >
-                    Edit
-                  </button>
-                )}
-                <button
-                  className="bg-red-500 text-white px-2 py-1 rounded"
-                  onClick={() => handleDeleteMustKnow(index)}
-                >
-                  Delete
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <button
-          className="bg-green-600 text-white px-4 py-2 rounded mr-4 ml-2"
-          onClick={() => {
-            const newMustKnow = [...(editedData?.mustKnow || []), ""];
-            if (editedData) {
-              setEditedData({
-                ...editedData,
-                mustKnow: newMustKnow,
-                _id: editedData._id,
-                introText: editedData.introText || "",
-                services: editedData.services || [],
-              });
-            }
-          }}
-        >
-          Add New Must-Know Point
-        </button>
-        {/* Services Section */}
-        <h3 className="text-xl font-semibold mt-6">Services</h3>
-        <div className="mt-2">
-          {editedData?.services.map((service) => (
-            <div
-              key={service._id}
-              className="flex justify-between items-center bg-gray-100 p-4 rounded my-2"
-            >
-              {editingServiceId === service._id ? (
-                <div className="w-full ">
-                  <input
-                    type="text"
-                    className="w-full p-1 border rounded mb-2"
-                    value={service.title}
-                    onChange={(e) => {
-                      const updatedServices = editedData.services.map((s) =>
-                        s._id === service._id
-                          ? { ...s, title: e.target.value }
-                          : s
-                      );
-                      setEditedData({
-                        ...editedData,
-                        services: updatedServices,
-                      });
-                    }}
-                  />
+                <>
                   <textarea
-                    className="w-full p-1 border rounded"
-                    value={service.description}
-                    onChange={(e) => {
-                      const updatedServices = editedData.services.map((s) =>
-                        s._id === service._id
-                          ? { ...s, description: e.target.value }
-                          : s
-                      );
-                      setEditedData({
-                        ...editedData,
-                        services: updatedServices,
-                      });
-                    }}
+                    value={editedMustKnow}
+                    onChange={(e) => setEditedMustKnow(e.target.value)}
+                    className="w-full border border-gray-300 p-2 rounded"
                   />
-                </div>
+                  <div className="mt-2 flex gap-2">
+                    <button
+                      onClick={saveMustKnow}
+                      className="bg-green-500 text-white px-2 py-1 rounded"
+                    >
+                      Save
+                    </button>
+                    <button
+                      onClick={() => setEditingMustKnowIndex(null)}
+                      className="bg-red-500 text-white px-2 py-1 rounded"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </>
               ) : (
-                <div>
-                  <h4 className="font-semibold">{service.title}</h4>
-                  <p className="text-sm">{service.description}</p>
+                <div className="flex flex-col gap-2">
+                  <p>{item}</p>
+                  <div className="flex gap-2 mt-2">
+                    <button
+                      onClick={() => handleMustKnowEdit(index)}
+                      className="bg-yellow-500 text-white px-2 py-1 rounded text-sm"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleMustKnowDelete(index)}
+                      className="bg-red-500 text-white px-2 py-1 rounded text-sm"
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
               )}
-              <div className="flex items-center">
-                {editingServiceId === service._id ? (
-                  <button
-                    className="bg-green-600 text-white px-2 py-1 rounded mr-2"
-                    onClick={() => handleServiceUpdate(service._id)}
-                  >
-                    Save
-                  </button>
-                ) : (
-                  <button
-                    className="bg-blue-600 text-white px-2 py-1 rounded mr-2"
-                    onClick={() => setEditingServiceId(service._id)}
-                  >
-                    Edit
-                  </button>
-                )}
-                <button
-                  className="bg-red-500 text-white px-2 py-1 rounded"
-                  onClick={() => {
-                    if (service._id) {
-                      handleDeleteService(service._id);
-                    } else {
-                      console.error("Service ID is undefined");
-                    }
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
             </div>
           ))}
         </div>
-        <button
-          className="bg-green-600 text-white px-4 py-2 rounded mr-4 ml-2"
-          onClick={handleAddNewService}
-        >
-          Add New Service
-        </button>
-      </details>
+      </div>
+
+      {/* Services */}
+      <div className="py-12">
+        <h2 className="text-4xl font-extrabold mb-6">
+          Our Bank Account Opening in UAE
+        </h2>
+
+        {/* Add New Service */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <input
+            value={newService.title}
+            onChange={(e) =>
+              setNewService({ ...newService, title: e.target.value })
+            }
+            placeholder="Service Title"
+            className="border border-gray-300 p-2 rounded"
+          />
+          <input
+            value={newService.description}
+            onChange={(e) =>
+              setNewService({ ...newService, description: e.target.value })
+            }
+            placeholder="Service Description"
+            className="border border-gray-300 p-2 rounded"
+          />
+          <input
+            value={newService.icon}
+            onChange={(e) =>
+              setNewService({ ...newService, icon: e.target.value })
+            }
+            placeholder="Icon Name (e.g., FaBookOpen)"
+            className="border border-gray-300 p-2 rounded"
+          />
+          <button
+            onClick={addNewService}
+            className="bg-blue-600 text-white px-4 py-2 rounded"
+          >
+            Add Service
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {headerData.services.map((service, index) => {
+            const IconComponent =
+              iconMap[service.icon as keyof typeof iconMap] || FaBookOpen;
+            const isEditing = editingServiceIndex === index;
+            const current = isEditing ? editableService! : service;
+
+            return (
+              <div
+                key={index}
+                className="bg-gray-100 p-4 rounded-md border border-gray-300"
+              >
+                <div className="flex justify-between items-center mb-2">
+                  <IconComponent className="text-3xl text-primary" />
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => handleServiceEdit(index)}
+                      className="bg-yellow-400 text-white px-2 py-1 rounded text-sm"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleServiceDelete(index)}
+                      className="bg-red-500 text-white px-2 py-1 rounded text-sm"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+
+                {isEditing ? (
+                  <>
+                    <input
+                      value={current.title}
+                      onChange={(e) =>
+                        setEditableService({
+                          ...current,
+                          title: e.target.value,
+                        })
+                      }
+                      className="w-full mb-2 border p-1 rounded"
+                    />
+                    <textarea
+                      value={current.description}
+                      onChange={(e) =>
+                        setEditableService({
+                          ...current,
+                          description: e.target.value,
+                        })
+                      }
+                      className="w-full mb-2 border p-1 rounded"
+                    />
+                    <input
+                      value={current.icon}
+                      onChange={(e) =>
+                        setEditableService({ ...current, icon: e.target.value })
+                      }
+                      className="w-full mb-2 border p-1 rounded"
+                    />
+                    <div className="flex gap-2">
+                      <button
+                        onClick={saveService}
+                        className="bg-green-500 text-white px-3 py-1 rounded"
+                      >
+                        Save
+                      </button>
+                      <button
+                        onClick={() => setEditingServiceIndex(null)}
+                        className="bg-red-500 text-white px-3 py-1 rounded"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <h3 className="text-xl font-bold">{service.title}</h3>
+                    <p>{service.description}</p>
+                    <p className="text-sm italic mt-1">Icon: {service.icon}</p>
+                  </>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default BankHeader;
+export default Header;
