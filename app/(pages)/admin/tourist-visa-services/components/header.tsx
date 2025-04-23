@@ -63,7 +63,7 @@ const Header = () => {
 
   const deleteService = (index: number) => {
     const updatedServices = [...formData.touristVisaServices.services];
-    updatedServices.splice(index, 1); // Remove by index
+    updatedServices.splice(index, 1);
     setFormData((prev) => ({
       ...prev,
       touristVisaServices: {
@@ -122,10 +122,10 @@ const Header = () => {
   if (!data && !editMode) return <div>Loading...</div>;
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt -6">
+    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-6">
       <details>
         <summary className="text-2xl font-bold mb-4 cursor-pointer text-primary hover:underline focus:outline-none ">
-          Hero Section
+          Header Section
         </summary>
         <div className="flex justify-between items-center mt-4">
           <h1 className="text-2xl font-bold">Tourist Visa Header</h1>

@@ -20,7 +20,7 @@ export default function Hero() {
     const fetchHeroData = async () => {
       try {
         const res = await fetch(
-          "/api/tourist-visa-services/hero?id=680005085419d4f5ed0cbbcd"
+          "/api/will-prep/hero?id=68094f2fa1579b47af017a94"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch hero data");
@@ -45,7 +45,7 @@ export default function Hero() {
     e.preventDefault();
 
     try {
-      const res = await fetch("/api/tourist-visa-services/hero", {
+      const res = await fetch("/api/health-insurance/hero", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -63,7 +63,7 @@ export default function Hero() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-6">
+    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg ">
       <details>
         <summary className="text-2xl font-bold mb-4 cursor-pointer text-primary hover:underline focus:outline-none ">
           Hero Section

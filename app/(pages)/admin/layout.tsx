@@ -2,11 +2,18 @@
 import Link from "next/link";
 import { useState } from "react";
 import { BsFillHospitalFill } from "react-icons/bs";
-import { FaCcVisa, FaMailBulk, FaServicestack } from "react-icons/fa";
+import {
+  FaCcVisa,
+  FaCopyright,
+  FaMailBulk,
+  FaPhone,
+  FaServicestack,
+} from "react-icons/fa";
 import {
   FiBarChart2,
   FiDollarSign,
   FiFolder,
+  FiGlobe,
   FiMenu,
   FiUserCheck,
   FiX,
@@ -92,7 +99,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
             isSidebarOpen={isSidebarOpen}
           />
           <NavItem
-            icon={<FaMailBulk size={24} />}
+            icon={<FaPhone size={24} />}
             text="Virtual Receptionist"
             href="/admin/virtual-receptionist"
             isSidebarOpen={isSidebarOpen}
@@ -101,6 +108,31 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
             icon={<FaCcVisa size={24} />}
             text="Tourist Visa Services"
             href="/admin/tourist-visa-services"
+            isSidebarOpen={isSidebarOpen}
+          />
+
+          <NavItem
+            icon={<FiGlobe size={24} />}
+            text="Golden Visa Services"
+            href="/admin/golden-visa"
+            isSidebarOpen={isSidebarOpen}
+          />
+          {/* <NavItem
+            icon={<FaCcVisa size={24} />}
+            text="pro services"
+            href="/admin/pro-services"
+            isSidebarOpen={isSidebarOpen}
+          /> */}
+          <NavItem
+            icon={<FaCcVisa size={24} />}
+            text="Will Services"
+            href="/admin/will-prepration"
+            isSidebarOpen={isSidebarOpen}
+          />
+          <NavItem
+            icon={<FaCopyright size={24} />}
+            text="Tradmark & Copyright"
+            href="/admin/trademark"
             isSidebarOpen={isSidebarOpen}
           />
         </nav>
