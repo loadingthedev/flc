@@ -20,7 +20,7 @@ export default function Hero() {
     const fetchHeroData = async () => {
       try {
         const res = await fetch(
-          "/api/tourist-visa-services/hero?id=680005085419d4f5ed0cbbcd"
+          "/api/trademark/hero?id=68095288a1579b47af017a95"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch hero data");
