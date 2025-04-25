@@ -322,7 +322,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </li>
           <li className="pl-2">
             <Link
-              href="#"
+              href="/will-prepration"
               className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
@@ -331,7 +331,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </li>
           <li className="pl-2">
             <Link
-              href="#"
+              href="trademark"
               className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
