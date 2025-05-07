@@ -85,6 +85,7 @@ export default function Hero() {
             className="w-full p-2 border border-gray-300 rounded"
             placeholder="Subtitle"
           />
+
           <textarea
             name="description"
             value={formData.description}

@@ -7,8 +7,8 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     await connectToDatabase();
-    const wllheader = await Willheader.findOne();
-    return NextResponse.json({ wllheader });
+    const willheader = await Willheader.findOne();
+    return NextResponse.json({ willheader });
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to fetch data" },

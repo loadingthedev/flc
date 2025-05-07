@@ -7,7 +7,7 @@ const page = () => {
     <div>
       <Hero />
       <Header />
-      <Business />
+      <Business />{" "}
     </div>
   );
 };
