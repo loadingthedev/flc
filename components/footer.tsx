@@ -16,7 +16,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
           </div>
 
           {/* 2nd block */}
-          <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
+          {/* <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
             <h3 className="text-sm font-medium">Product</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -60,7 +60,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* 3rd block */}
           <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
