@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <div className="bg-muted-foreground  w-full   h-auto flex flex-col md:flex-row justify-between items-center px-4 md:px-20">
@@ -15,9 +17,11 @@ export default function Hero() {
           Federal Tax Authority (FTA).
         </p>
         <div className="flex justify-center md:justify-start">
-          <button className="flex items-center gap-2 px-8 md:px-12 py-4 border-2 border-white rounded-none transition-all text-white hover:bg-primary hover:text-primary-foreground">
-            Get Started
-          </button>
+          <Link href="/contact">
+            <button className="flex items-center gap-2 px-8 md:px-12 py-4 border-2 border-white rounded-none transition-all text-white hover:bg-primary hover:text-primary-foreground">
+              Get Started
+            </button>
+          </Link>
         </div>
       </div>
       <div className="w-full md:w-1/2 mt-8 md:mt-0 md:pl-10 md:pt-40">

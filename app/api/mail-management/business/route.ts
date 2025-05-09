@@ -1,5 +1,4 @@
 import { connectToDatabase } from "@/app/models/mongodb";
-import { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
 import MailManagementBusiness from "../../../lib/mail-management/business";
 
@@ -8,8 +7,12 @@ export async function GET() {
   try {
     await connectToDatabase();
     const mailManagementData = await MailManagementBusiness.findOne();
-    return NextResponse.json({ MainManagementBusiness: mailManagementData });
+    if (!mailManagementData) {
+      return NextResponse.json({ error: "Data not found" }, { status: 404 });
+    }
+    return NextResponse.json({ mailManagementData }, { status: 200 });
   } catch (error) {
+    console.error("GET Error:", error);
     return NextResponse.json(
       { error: "Failed to fetch data" },
       { status: 500 }
@@ -17,64 +20,58 @@ export async function GET() {
   }
 }
 
-export async function handlePost(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "POST") {
+// POST: Add new Mail Management content
+export async function POST(req: NextRequest) {
+  try {
     await connectToDatabase();
+    const { sections } = await req.json(); // Assuming sections is an array of sections
 
-    const { sections } = req.body; // assuming sections is an array of sections
+    const newContent = new MailManagementBusiness({ sections });
+    const savedContent = await newContent.save();
 
-    try {
-      // Save new business content
-      const newContent = new MailManagementBusiness({
-        sections,
-      });
-
-      const savedContent = await newContent.save();
-      return res.status(201).json(savedContent);
-    } catch (error) {
-      console.error(error);
-      return res.status(500).json({ error: "Failed to save content" });
-    }
-  } else {
-    res.status(405).json({ error: "Method Not Allowed" });
+    return NextResponse.json(savedContent, { status: 201 });
+  } catch (error) {
+    console.error("POST Error:", error);
+    return NextResponse.json(
+      { error: "Failed to save content" },
+      { status: 500 }
+    );
   }
 }
 
 // PUT: Update a section (title or paragraphs)
-export async function handlePut(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "PUT") {
+export async function PUT(req: NextRequest) {
+  try {
     await connectToDatabase();
+    const { id, sectionId, updatedData } = await req.json();
 
-    const { id, sectionId, updatedData } = req.body; // sectionId to identify which section to update, updatedData contains the updated values
-
-    try {
-      const content = await MailManagementBusiness.findById(id);
-
-      if (!content) {
-        return res.status(404).json({ error: "Content not found" });
-      }
-
-      // Find the section to update
-      const section = content.sections.id(sectionId);
-      if (!section) {
-        return res.status(404).json({ error: "Section not found" });
-      }
-
-      // Update the section
-      section.title = updatedData.title || section.title;
-      section.paragraphs = updatedData.paragraphs || section.paragraphs;
-
-      await content.save();
-
-      return res.status(200).json(content);
-    } catch (error) {
-      console.error(error);
-      return res.status(500).json({ error: "Failed to update content" });
+    const content = await MailManagementBusiness.findById(id);
+    if (!content) {
+      return NextResponse.json({ error: "Content not found" }, { status: 404 });
     }
-  } else {
-    res.status(405).json({ error: "Method Not Allowed" });
+
+    // Find the section to update
+    const section = content.sections.id(sectionId);
+    if (!section) {
+      return NextResponse.json({ error: "Section not found" }, { status: 404 });
+    }
+
+    // Update the section
+    section.title = updatedData.title || section.title;
+    section.paragraphs = updatedData.paragraphs || section.paragraphs;
+
+    await content.save();
+
+    return NextResponse.json(content, { status: 200 });
+  } catch (error) {
+    console.error("PUT Error:", error);
+    return NextResponse.json(
+      { error: "Failed to update content" },
+      { status: 500 }
+    );
   }
 }
+
 // DELETE: Remove a section by its ID
 export async function DELETE(req: NextRequest) {
   try {
@@ -97,7 +94,7 @@ export async function DELETE(req: NextRequest) {
     section.remove();
     await doc.save();
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error("DELETE Error:", error);
     return NextResponse.json(

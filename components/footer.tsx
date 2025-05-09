@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Footer({ border = false }: { border?: boolean }) {
   return (
     <footer>
@@ -9,8 +7,8 @@ export default function Footer({ border = false }: { border?: boolean }) {
           className={`grid gap-10 py-8 sm:grid-cols-12 md:py-12 ${border ? "border-t [border-image:linear-gradient(to_right,transparent,theme(colors.slate.200),transparent)1]" : ""}`}
         >
           {/* 1st block */}
-          <div className="space-y-2 sm:col-span-12 lg:col-span-4">
-            <div className="text-sm text-card">
+          <div className="space-y-2 sm:col-span-12 lg:col-span-4 text-center">
+            <div className="text-sm text-card text-center">
               &copy; FLC.com - All rights reserved.
             </div>
           </div>
@@ -63,7 +61,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
           </div> */}
 
           {/* 3rd block */}
-          <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
+          {/* <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
             <h3 className="text-sm font-medium">Company</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -107,10 +105,10 @@ export default function Footer({ border = false }: { border?: boolean }) {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* 4th block */}
-          <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
+          {/* <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
             <h3 className="text-sm font-medium">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -138,10 +136,10 @@ export default function Footer({ border = false }: { border?: boolean }) {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* 5th block */}
-          <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
+          {/* <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
             <h3 className="text-sm font-medium">Social</h3>
             <ul className="flex gap-1">
               <li>
@@ -190,7 +188,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
 

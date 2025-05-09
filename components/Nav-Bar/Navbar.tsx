@@ -311,7 +311,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
             </Link>
           </li>
 
-          <li className="pl-2">
+          {/* <li className="pl-2">
             <Link
               href="#"
               className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
@@ -319,7 +319,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
             >
               Pro Services
             </Link>
-          </li>
+          </li> */}
           <li className="pl-2">
             <Link
               href="/will-prepration"

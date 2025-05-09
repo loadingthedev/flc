@@ -48,11 +48,3 @@ export async function PUT(req: Request) {
     );
   }
 }
-
-// Handle unsupported HTTP methods
-export async function handler(req: Request) {
-  return NextResponse.json(
-    { error: `Method ${req.method} Not Allowed` },
-    { status: 405 }
-  );
-}

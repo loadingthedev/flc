@@ -395,11 +395,7 @@ const Business = () => {
           </div>
         </div>
 
-        <Contact
-          title="Get VAT Services Today
-
-"
-        />
+        <Contact title="Get VAT Services Today" />
       </div>
     </div>
   );
