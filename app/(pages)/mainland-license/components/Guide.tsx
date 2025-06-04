@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaGlobe } from "react-icons/fa";
 
 const Guide = () => {
@@ -171,10 +172,11 @@ const Guide = () => {
               Do you need help in choosing a trade licence for your business?
               Contact us today so our team can assist you.
             </p>
-
-            <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all  text-white hover:bg-muted-foreground hover:text-primary-foreground">
-              Get Started
-            </button>
+            <Link href="/contact">
+              <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all  text-white hover:bg-muted-foreground hover:text-primary-foreground">
+                Get Started
+              </button>
+            </Link>
           </div>
         </div>
       </div>

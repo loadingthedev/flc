@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Header = () => {
   return (
     <div className="bg-muted-foreground py-24 width-full h-[600px] flex flex-col md:flex-row justify-center items-center pl-20 gap-20">
@@ -14,10 +16,11 @@ const Header = () => {
           from over 3,000 business activities and enjoy the <br />
           freedom to trade anywhere in the UAE and overseas.
         </p>
-
-        <button className="flex items-center gap-2 px-12 py-4 border-2 border-white rounded-none transition-all text-white hover:bg-primary hover:text-primary-foreground">
-          Get Started
-        </button>
+        <Link href="/contact">
+          <button className="flex items-center gap-2 px-12 py-4 border-2 border-white rounded-none transition-all text-white hover:bg-primary hover:text-primary-foreground">
+            Get Started
+          </button>
+        </Link>
       </div>
       <div className="md:w-1/2 mt-30 md:mb-0 md:pl-35 mt-20">
         <img

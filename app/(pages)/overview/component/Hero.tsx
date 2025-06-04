@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 const Hero = () => {
@@ -37,9 +38,11 @@ const Hero = () => {
               one.
             </p>
             <div className="flex justify-center md:justify-start">
-              <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
-                Get Started
-              </button>
+              <Link href="/contact">
+                <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
+                  Get Started
+                </button>
+              </Link>
             </div>
           </div>
         </div>

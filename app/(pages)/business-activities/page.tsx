@@ -1,18 +1,13 @@
-import ContactUs from "../shared/ContactUs";
 import FreeZoneAdvantages from "./component/Advantages";
 import Business from "./component/BusinessActivities";
-import Header from "./component/Header";
+import Hero from "./component/Hero";
 
 const BusinessActivities = () => {
   return (
     <div>
-      <Header />
-
+      <Hero />
       <Business />
-
       <FreeZoneAdvantages />
-
-      <ContactUs />
     </div>
   );
 };

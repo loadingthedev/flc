@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaGlobe } from "react-icons/fa";
 
 const Guide = () => {
@@ -56,10 +57,11 @@ const Guide = () => {
               drafted by first-tier legal counsel, so that the rights of the
               business owner and their shareholders are fully protected.
             </p>
-
-            <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all  text-white hover:bg-muted-foreground hover:text-primary-foreground">
-              Get Started
-            </button>
+            <Link href="/contact">
+              <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all  text-white hover:bg-muted-foreground hover:text-primary-foreground">
+                Get Started
+              </button>
+            </Link>
           </div>
           <div className="md:w-1/3">
             <img

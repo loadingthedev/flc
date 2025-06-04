@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaGlobe } from "react-icons/fa";
 
 const Residence = () => {
@@ -66,10 +67,11 @@ const Residence = () => {
               months. In the case where a Muslim expatriate has married more
               than one wife, he can only obtain one residence visa.
             </p>
-
-            <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all  text-white hover:bg-muted-foreground hover:text-primary-foreground">
-              Get Started
-            </button>
+            <Link href="/contact">
+              <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all  text-white hover:bg-muted-foreground hover:text-primary-foreground">
+                Get Started
+              </button>
+            </Link>
           </div>
           <div className="md:w-1/3">
             <img

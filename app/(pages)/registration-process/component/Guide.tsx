@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaGlobe } from "react-icons/fa";
 
 const Guide = () => {
@@ -79,9 +80,11 @@ const Guide = () => {
               registration process in UAE is easy. The entire process can take
               as little as seven working days.
             </p>
-            <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
-              Get Started
-            </button>
+            <Link href="/contact">
+              <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
+                Get Started
+              </button>
+            </Link>
           </div>
           <div className="w-full md:w-1/3 mt-8 md:mt-0">
             <img

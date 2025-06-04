@@ -13,7 +13,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, label }) => {
   return (
     <Link
       href={href}
-      className="text-primary font-Jost text-base border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-300 font-bold"
+      className="text-white font-Jost text-base  border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-300 font-bold"
       aria-label={label}
     >
       {label}
@@ -46,7 +46,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   };
 
   const renderTaxMenu = () => (
-    <div className="absolute right-0 mt-[-2] w-48 shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+    <div className="absolute right-0  w-48  bg-white ring-1 ring-black ring-opacity-5">
       <div className="py-1" role="menu" aria-orientation="vertical">
         <Link
           href="vat"
@@ -67,7 +67,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   );
 
   const renderBusinessSetupMenu = () => (
-    <div className="absolute right-0 mt-[-2] w-full md:w-[1000px] h-auto md:h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex flex-col md:flex-row">
+    <div className="absolute right-0 mt-[4%] w-full md:w-[1000px] h-auto md:h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex flex-col md:flex-row">
       <div className="hidden md:flex w-full md:w-1/3 bg-primary p-4 text-white flex-col items-center justify-center text-center">
         <h1 className="text-xl font-bold mb-2">
           Hey, We are First Legal Counsel
@@ -175,7 +175,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </li>
           <li className="pl-2">
             <Link
-              href="tags/business-activities"
+              href="/mainland-business-activities"
               className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
               role="menuitem"
             >
@@ -206,7 +206,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   );
 
   const renderServiceSetupMenu = () => (
-    <div className="absolute right-0 mt-[-2] w-[1000px] h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex">
+    <div className="absolute right-0 mt-[8%] w-[1000px] h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex">
       <div className="w-1/3 w-[333px] p-4 text-white flex flex-col items-center justify-top text-center">
         <ul className="text-justify">
           <li className="block px-5 py-2 mt-4 text-3xl text-primary transition-colors duration-300">
@@ -350,7 +350,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       onMouseLeave={handleMouseLeave}
     >
       <div
-        className="text-primary font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-700 font-lg flex items-center"
+        className="text-white font-Jost font-bold border-b-2 border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-700 font-lg flex items-center"
         aria-expanded={isActive}
         aria-haspopup="true"
       >
@@ -407,13 +407,13 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       >
         Vat & Tax Consultancy
       </Link>
-      <Link
+      {/* <Link
         href="#"
         className="block px-4 py-2 text-sm text-[#000000] hover:text-primary"
         onClick={onClose}
       >
         Corporate Tax
-      </Link>
+      </Link> */}
     </div>
   );
 
@@ -518,7 +518,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           <Link
             key={item.label}
             href={item.href}
-            className="text-primary hover:bg-blue-700 block px-3 py-2 rounded-md  text-bold"
+            className="text-white hover:bg-blue-700 block px-3 py-2  text-bold"
             onClick={onClose}
           >
             {item.label}
@@ -578,19 +578,19 @@ const Navbar = () => {
     menuType: "tax" | "businessSetup" | "serviceSetup";
     color?: string;
   }[] = [
-    { label: "TAX", menuType: "tax", color: "primary" },
-    { label: "BUSINESS SETUP", menuType: "businessSetup", color: "primary" },
-    { label: "SERVICE", menuType: "serviceSetup", color: "primary" },
+    { label: "TAX", menuType: "tax" },
+    { label: "BUSINESS SETUP", menuType: "businessSetup" },
+    { label: "SERVICE", menuType: "serviceSetup" },
   ];
 
   return (
-    <nav className="bg-white shadow-xl  fixed w-full top-0 z-50">
+    <nav className="bg-primary text-white   fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Logo />
 
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-6 text-primary ">
+            <div className="ml-10 flex items-center space-x-6 text-white ">
               {navigationItems.slice(0, -1).map((item) => (
                 <NavLink key={item.label} {...item} />
               ))}

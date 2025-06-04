@@ -1,6 +1,85 @@
+"use client";
+import React, { useState } from "react";
 import { FiMail, FiMessageSquare } from "react-icons/fi";
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    nationality: "",
+    help: "",
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  interface FormData {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    nationality: string;
+    help: string;
+    message: string;
+  }
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { id, value } = e.target as
+      | HTMLInputElement
+      | HTMLTextAreaElement
+      | HTMLSelectElement;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    try {
+      const response: Response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSuccessMessage("Your message has been sent successfully!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          nationality: "",
+          help: "",
+          message: "",
+        });
+      } else {
+        const errorData: { error?: string } = await response.json();
+        setErrorMessage(
+          errorData.error || "Failed to send your message. Please try again."
+        );
+      }
+    } catch (error: unknown) {
+      setErrorMessage("An unexpected error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="flex flex-col lg:flex-row gap-8 items-start px-4 sm:px-6 lg:px-8">
       <div className="py-20 max-w-5xl mx-auto">
@@ -8,7 +87,13 @@ const ContactUs = () => {
           <h2 className="text-4xl font-extrabold mb-6 text-start text-primary">
             Contact Us
           </h2>
-          <form>
+          {successMessage && (
+            <p className="text-green-600 font-medium mb-4">{successMessage}</p>
+          )}
+          {errorMessage && (
+            <p className="text-red-600 font-medium mb-4">{errorMessage}</p>
+          )}
+          <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="mb-4">
                 <label
@@ -20,7 +105,10 @@ const ContactUs = () => {
                 <input
                   type="text"
                   id="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
                   className="mt-2 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
+                  required
                 />
               </div>
               <div className="mb-4">
@@ -33,6 +121,8 @@ const ContactUs = () => {
                 <input
                   type="text"
                   id="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
                   className="mt-2 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
                 />
               </div>
@@ -46,7 +136,10 @@ const ContactUs = () => {
                 <input
                   type="email"
                   id="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="mt-2 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
+                  required
                 />
               </div>
               <div className="mb-4">
@@ -59,6 +152,8 @@ const ContactUs = () => {
                 <input
                   type="tel"
                   id="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   className="mt-2 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
                 />
               </div>
@@ -72,6 +167,8 @@ const ContactUs = () => {
                 <input
                   type="text"
                   id="nationality"
+                  value={formData.nationality}
+                  onChange={handleChange}
                   className="mt-2 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
                 />
               </div>
@@ -84,7 +181,10 @@ const ContactUs = () => {
                 </label>
                 <select
                   id="help"
+                  value={formData.help}
+                  onChange={handleChange}
                   className="mt-2 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
+                  required
                 >
                   <option value="">Select an option</option>
                   <option value="company-setup">Business Setup</option>
@@ -102,12 +202,18 @@ const ContactUs = () => {
               </label>
               <textarea
                 id="message"
+                value={formData.message}
+                onChange={handleChange}
                 className="mt-2 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
                 rows={4}
               ></textarea>
             </div>
-            <button className="flex items-center gap-2 px-12 py-4 my-8 border-2 border-primary rounded-lg transition-all text-white bg-primary hover:bg-primary-dark hover:border-primary-dark">
-              Get Started
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="flex items-center gap-2 px-12 py-4 my-8 border-2 border-primary rounded-lg transition-all text-white bg-primary hover:bg-primary-dark hover:border-primary-dark disabled:opacity-50"
+            >
+              {isSubmitting ? "Submitting..." : "Get Started"}
             </button>
           </form>
         </div>

@@ -1,4 +1,3 @@
-import ContactUs from "..//shared/ContactUs";
 import Business from "./component/Business";
 import Guide from "./component/Guide";
 import Header from "./component/Header";
@@ -9,7 +8,6 @@ export default function page() {
       <Header />
       <Business />
       <Guide />
-      <ContactUs />
     </div>
   );
 }

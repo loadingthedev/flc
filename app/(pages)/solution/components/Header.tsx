@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Header: React.FC = () => {
@@ -15,10 +16,12 @@ const Header: React.FC = () => {
           entrepreneurs from <br className="hidden md:block" /> 180 countries to
           set up their business in Dubai.
         </p>
-        <button className="items-center gap-2 px-6 md:px-8 py-3 md:py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
-          <span className="absolute inset-0 bg-primary transition-transform transform -translate-x-full hover:translate-x-0"></span>
-          <span className="relative z-10">Get Started</span>
-        </button>
+        <Link href="/contact">
+          <button className="items-center gap-2 px-6 md:px-8 py-3 md:py-4 mt-6 border-2  border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
+            <span className="absolute inset-0 bg-primary transition-transform transform -translate-x-full hover:translate-x-0"></span>
+            <span className="relative z-10">Get Started</span>
+          </button>
+        </Link>
       </div>
       <div className="w-full md:w-1/2 mt-10 md:mt-0 md:pl-10 flex justify-center md:justify-end">
         <img

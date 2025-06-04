@@ -1,4 +1,3 @@
-import ContactUs from "../shared/ContactUs";
 import Advantaages from "./component/Advantaages";
 import Header from "./component/Header";
 import Hero from "./component/Hero";
@@ -21,8 +20,6 @@ const UAEFreeZonePage = () => {
       </div>
 
       <Steps />
-
-      <ContactUs />
     </div>
   );
 };

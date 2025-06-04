@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaCheck, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function List() {
@@ -36,9 +37,11 @@ export default function List() {
             </ul>
           </div>
           <div className="text-center mt-20 md:mt-0 mx-20">
-            <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
-              Get Started
-            </button>
+            <Link href="/contact">
+              <button className="flex items-center gap-2 px-8 py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
+                Get Started
+              </button>
+            </Link>
           </div>
         </div>
       </div>

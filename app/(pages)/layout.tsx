@@ -30,7 +30,6 @@ export default function DefaultLayout({
   return (
     <>
       {!isAdminPage && <Navbar />}
-      {/* Show Navbar only if NOT on admin pages */}
       <main className="grow">{children}</main>
       {!isAdminPage && <Footer />}{" "}
     </>

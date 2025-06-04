@@ -1,4 +1,3 @@
-import ContactUs from "../shared/ContactUs";
 import Activities from "./components/activities";
 import Header from "./components/Header";
 import UAEResidence from "./components/UaeResidence";
@@ -10,7 +9,6 @@ const BusinessActivities = () => {
       <Header />
       <Activities />
       <UAEResidence />
-      <ContactUs />
     </div>
   );
 };

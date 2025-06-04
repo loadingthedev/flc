@@ -1,4 +1,3 @@
-import ContactUs from "../shared/ContactUs";
 import Steps from "./component/Grid";
 import Header from "./component/Header";
 import List from "./component/list";
@@ -11,7 +10,6 @@ export default function page() {
       <SubHero />
       <Steps />
       <List />
-      <ContactUs />
     </div>
   );
 }

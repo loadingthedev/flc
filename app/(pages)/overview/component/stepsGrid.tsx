@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   FaBuilding,
   FaGlobe,
@@ -44,9 +45,11 @@ export default function Steps() {
           </p>
         </div>
       </div>
-      <button className="flex items-center gap-2 px-12 py-4 my-16 border-2 border-white rounded-none transition-all text-white bg-primary hover:bg-muted-foreground hover:text-primary-foreground">
-        Get Started
-      </button>
+      <Link href="/contact">
+        <button className="flex items-center gap-2 px-12 py-4 my-16 border-2 border-white rounded-none transition-all text-white bg-primary hover:bg-muted-foreground hover:text-primary-foreground">
+          Get Started
+        </button>
+      </Link>
     </div>
   );
 }

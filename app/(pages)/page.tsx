@@ -1,22 +1,19 @@
 "use client";
 
-import BusinessCategories from "@/components/business-categories";
-import ClientInformation from "@/components/Cient";
+import RecentReviewsCarousel from "@/components/Cient";
 import ContactUs from "@/components/Contact";
-import HeroHome from "@/components/hero-home";
+import FlcHero from "@/components/Hero";
 import How from "@/components/How-to";
-import NewsAndInsights from "@/components/NewsLegal";
-import Services from "@/components/Services";
 
 export default function Home() {
   return (
     <>
-      <HeroHome />
-      <BusinessCategories />
-      <Services />
-      <NewsAndInsights />
+      <FlcHero />
+
+      {/* <Services /> */}
+      {/* <NewsAndInsights /> */}
       <How />
-      <ClientInformation />
+      <RecentReviewsCarousel />
       <ContactUs />
     </>
   );

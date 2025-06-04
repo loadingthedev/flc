@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 const Business = () => {
@@ -25,9 +26,11 @@ const Business = () => {
               Business setup in Dubai doesn’t have to be daunting with us by
               your side.
             </p>
-            <button className="items-center gap-2 px-6 md:px-8 py-3 md:py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
-              Get Started
-            </button>
+            <Link href="/contact">
+              <button className="items-center gap-2 px-6 md:px-8 py-3 md:py-4 mt-6 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
+                Get Started
+              </button>
+            </Link>
           </div>
         </div>
       </div>

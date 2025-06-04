@@ -1,4 +1,3 @@
-import ContactUs from "../shared/ContactUs";
 import Business from "./components/Business";
 import Guide from "./components/Guide";
 import Header from "./components/Header";
@@ -11,7 +10,6 @@ const Sponsor = () => {
       <Business />
       <Guide />
       <Sponsorship />
-      <ContactUs />
     </div>
   );
 };
