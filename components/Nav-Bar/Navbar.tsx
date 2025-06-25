@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaAngleDown, FaBars, FaTimes } from "react-icons/fa";
 import Logo from "./Logo";
 
+// NavLink Component
 interface NavLinkProps {
   href: string;
   label: string;
@@ -13,7 +14,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, label }) => {
   return (
     <Link
       href={href}
-      className="text-white font-Jost text-base  border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-300 font-bold"
+      className="text-white font-Jost text-base border-transparent hover:text-black hover:text-muted-foreground px-3 py-2 transition-colors duration-300 font-bold"
       aria-label={label}
     >
       {label}
@@ -21,53 +22,58 @@ const NavLink: React.FC<NavLinkProps> = ({ href, label }) => {
   );
 };
 
+// DropdownMenu Component
 interface DropdownMenuProps {
   label: string;
   isActive: boolean;
-  onToggle: () => void;
+  onOpen: () => void;
+  onClose: () => void;
   menuType: "tax" | "businessSetup" | "serviceSetup";
 }
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
   label,
   isActive,
-  onToggle,
+  onOpen,
+  onClose,
   menuType,
 }) => {
-  let closeTimeout: NodeJS.Timeout;
+  const closeTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = () => {
-    clearTimeout(closeTimeout);
-    onToggle();
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+      closeTimeout.current = null;
+    }
+    onOpen();
   };
 
   const handleMouseLeave = () => {
-    closeTimeout = setTimeout(onToggle, 300); // 300ms delay before closing
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+      closeTimeout.current = null;
+    }
+    closeTimeout.current = setTimeout(() => {
+      onClose();
+    }, 300);
   };
 
   const renderTaxMenu = () => (
-    <div className="absolute right-0  w-48  bg-white ring-1 ring-black ring-opacity-5">
+    <div className="absolute right-0 w-48 bg-white ring-1 ring-black ring-opacity-5">
       <div className="py-1" role="menu" aria-orientation="vertical">
         <Link
           href="vat"
-          className="block px-4 py-2 text-sm text-[#000000] hover:text-primary "
+          className="block px-4 py-2 text-sm text-[#000000] hover:text-primary"
           role="menuitem"
         >
           Vat & Tax Consultancy
         </Link>
-        {/* <Link
-          href="#"
-          className="block px-4 py-2 text-sm text-[#000000] hover:text-white hover:bg-[#000000]"
-          role="menuitem"
-        >
-          Corporate Tax
-        </Link> */}
       </div>
     </div>
   );
 
   const renderBusinessSetupMenu = () => (
-    <div className="absolute right-0 mt-[4%] w-full md:w-[1000px] h-auto md:h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-300 opacity-100 flex flex-col md:flex-row">
+    <div className="absolute right-0 mt-[4%] w-full md:w-[1000px] h-auto md:h-[400px] shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-opacity duration-500 opacity-100 flex flex-col md:flex-row">
       <div className="hidden md:flex w-full md:w-1/3 bg-primary p-4 text-white flex-col items-center justify-center text-center">
         <h1 className="text-xl font-bold mb-2">
           Hey, We are First Legal Counsel
@@ -77,7 +83,6 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           Business Setup Expert
         </p>
       </div>
-
       <div className="w-full md:w-1/3 p-4 text-primary text-justify flex flex-col items-center justify-center text-center md:overflow-auto overflow-auto">
         <ul className="text-justify">
           <li className="block px-5 py-2 mt-4 text-3xl text-primary transition-colors duration-300">
@@ -139,9 +144,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </li>
         </ul>
       </div>
-
       <div className="w-full md:w-1/3 p-4 text-primary text-justify flex flex-col items-center justify-center text-center">
-        <h3 className="text-3xl mb-4 px-32 text-justify"></h3>
         <ul className="text-left">
           <li className="block px-5 py-2 text-3xl text-primary transition-colors duration-300">
             MainLand
@@ -250,13 +253,11 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </li>
         </ul>
       </div>
-
       <div className="w-1/3 w-[333px] mt-3 p-4 text-primary text-justify flex flex-col items-center justify-top text-center">
         <ul className="text-justify">
           <li className="block px-5 py-2 text-3xl text-Primary transition-colors duration-300">
             Operational Services
           </li>
-
           <li className="pl-2">
             <Link
               href="legal-services"
@@ -286,7 +287,6 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </li>
         </ul>
       </div>
-
       <div className="w-1/3 w-[333px] p-3 text-primary text-justify flex flex-col items-center justify-top text-center">
         <ul className="text-justify">
           <li className="block px-5 py-2 mt-4 text-3xl text-Primary transition-colors duration-300">
@@ -310,16 +310,6 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
               Golden Visa UAE
             </Link>
           </li>
-
-          {/* <li className="pl-2">
-            <Link
-              href="#"
-              className="block px-4 py-2 text-sm text-[#000000] hover:text-primary transition-colors duration-300"
-              role="menuitem"
-            >
-              Pro Services
-            </Link>
-          </li> */}
           <li className="pl-2">
             <Link
               href="/will-prepration"
@@ -356,9 +346,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       >
         {label}
         <FaAngleDown
-          className={`ml-1 transform ${
-            isActive ? "" : "rotate-180"
-          } transition-transform duration-300`}
+          className={`ml-1 transform ${isActive ? "" : "rotate-180"} transition-transform duration-300`}
         />
       </div>
       {isActive &&
@@ -371,6 +359,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   );
 };
 
+// MobileMenu Component
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
@@ -407,13 +396,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       >
         Vat & Tax Consultancy
       </Link>
-      {/* <Link
-        href="#"
-        className="block px-4 py-2 text-sm text-[#000000] hover:text-primary"
-        onClick={onClose}
-      >
-        Corporate Tax
-      </Link> */}
     </div>
   );
 
@@ -468,28 +450,28 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     <div className="space-y-1 text-[#ffffff]">
       <Link
         href="/bank-account-opening"
-        className="block px-4 py-2 text-sm  hover:text-primary"
+        className="block px-4 py-2 text-sm hover:text-primary"
         onClick={onClose}
       >
         Bank Account Opening in UAE
       </Link>
       <Link
         href="/accounting-services"
-        className="block px-4 py-2 text-sm  hover:text-primary"
+        className="block px-4 py-2 text-sm hover:text-primary"
         onClick={onClose}
       >
         Accounting Services
       </Link>
       <Link
         href="/compliance-services"
-        className="block px-4 py-2 text-sm  hover:text-primary"
+        className="block px-4 py-2 text-sm hover:text-primary"
         onClick={onClose}
       >
         Compliance Services
       </Link>
       <Link
         href="health-insurance"
-        className="block px-4 py-2 text-sm  hover:text-primary"
+        className="block px-4 py-2 text-sm hover:text-primary"
         onClick={onClose}
       >
         Health Insurance
@@ -518,13 +500,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           <Link
             key={item.label}
             href={item.href}
-            className="text-white hover:bg-blue-700 block px-3 py-2  text-bold"
+            className="text-white hover:bg-blue-700 block px-3 py-2 text-bold"
             onClick={onClose}
           >
             {item.label}
           </Link>
         ))}
-
         {dropdownItems.map((item) => (
           <div key={item.menuType}>
             <div onClick={() => handleDropdown(item.menuType)}>
@@ -543,12 +524,17 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   );
 };
 
+// Navbar Component
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  const handleDropdown = (key: string) => {
-    setActiveDropdown(activeDropdown === key ? null : key);
+  const handleOpenDropdown = (key: string) => {
+    setActiveDropdown(key);
+  };
+
+  const handleCloseDropdown = () => {
+    setActiveDropdown(null);
   };
 
   const closeMenu = () => {
@@ -563,7 +549,6 @@ const Navbar = () => {
         setActiveDropdown(null);
       }
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -584,31 +569,28 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-primary text-white   fixed w-full top-0 z-50">
+    <nav className="bg-primary text-white fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Logo />
-
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-6 text-white ">
               {navigationItems.slice(0, -1).map((item) => (
                 <NavLink key={item.label} {...item} />
               ))}
-
               {dropdownItems.map((item) => (
                 <DropdownMenu
                   key={item.menuType}
                   label={item.label}
                   isActive={activeDropdown === item.menuType}
-                  onToggle={() => handleDropdown(item.menuType)}
+                  onOpen={() => handleOpenDropdown(item.menuType)}
+                  onClose={handleCloseDropdown}
                   menuType={item.menuType}
                 />
               ))}
-
               <NavLink key="join-us" href="/join-us" label="JOIN US" />
             </div>
           </div>
-
           <div className="md:hidden">
             <div
               onMouseEnter={() => setIsMenuOpen(true)}
