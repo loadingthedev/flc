@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="bg-muted-foreground w-full h-auto flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 md:px-10 py-10">
+    <div className="bg-muted-foreground w-full h-auto flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 md:px-10 ">
       <div className="text-center md:text-left md:w-1/2">
         <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 text-white mt-10 md:mt-20">
           FREE ZONE BUSINESS ACTIVITIES
@@ -23,11 +23,11 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-      <div className="w-full md:w-1/2 mt-8 md:mt-0 md:pl-10">
+      <div className="w-full md:w-1/2 mt-16 md:mt-24 md:pl-10 md:pt-12">
         <img
           src="https://virtuzone.com/wp-content/uploads/2021/10/1.-Business-Activities-1.png.webp"
           alt="UAE Free Zone"
-          className="w-full h-auto mx-auto"
+          className="w-[auto] h-[auto]"
         />
       </div>
     </div>

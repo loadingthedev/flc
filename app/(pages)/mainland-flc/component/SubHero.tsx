@@ -15,9 +15,9 @@ const SubHero = () => {
         </h2>
         <p className="text-center mt-8 ">
           Working throughout Dubai requires a DED trade licence. FLC has the
-          only officially recognised solution called VirtuFit, and it won’t cost
-          you an arm and a leg, <br /> literally. Work officially. Protect
-          yourself and your customers with the only insurable solution in Dubai.
+          only officially recognised solution called FLC , and it won’t cost you
+          an arm and a leg, <br /> literally. Work officially. Protect yourself
+          and your customers with the only insurable solution in Dubai.
         </p>
         <div className="flex items-center justify-center mt-8">
           <img

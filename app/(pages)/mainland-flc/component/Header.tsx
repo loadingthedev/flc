@@ -29,7 +29,7 @@ const Header = () => {
       </div>
       <div className="md:w-1/2 mt-10 md:mt-20 md:mb-0 md:pl-8">
         <img
-          src="https://virtuzone.com/wp-content/uploads/2021/10/7.-VirtuFit.png.webp"
+          src="https://virtuzone.com/wp-content/uploads/2021/10/7.-FLC .png.webp"
           alt="UAE Free Zone"
           className="w-full md:w-[600px] h-auto md:h-[520px]"
         />
