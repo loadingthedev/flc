@@ -108,17 +108,19 @@ const ContactUsSection = () => {
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
                 <FaPhone className="text-accent text-xl" />
-                <span className="text-foreground">+1 (555) 123-4567</span>
+                {/* <span className="text-foreground">+1 (555) 123-4567</span> */}
               </div>
               <div className="flex items-center space-x-4">
                 <FaEnvelope className="text-accent text-xl" />
-                <span className="text-foreground">contact@example.com</span>
+                <span className="text-foreground">
+                  offie@firstlegalcounsel.com
+                </span>
               </div>
               <div className="flex items-center space-x-4">
                 <FaMapMarkerAlt className="text-accent text-xl" />
-                <span className="text-foreground">
+                {/* <span className="text-foreground">
                   123 Innovation Street, San Francisco, CA 94103
-                </span>
+                </span> */}
               </div>
             </div>
             <div className="mt-8">
