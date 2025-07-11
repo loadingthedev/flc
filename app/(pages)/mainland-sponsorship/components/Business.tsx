@@ -87,8 +87,8 @@ const Business = () => {
           complete peace of mind.
         </p>
         <p className="text-white text-lg text-justify  text-white mb-4 mt-8 ml-60">
-          By partnering with Virtuzones service agents, there’s no need to spend
-          time searching for and building a rapport with an individual. Instead,
+          By partnering with FLCservice agents, there’s no need to spend time
+          searching for and building a rapport with an individual. Instead,
           we’ll provide a premier <br /> corporate nominee to act as your 51%
           local sponsor in Dubai.
         </p>
