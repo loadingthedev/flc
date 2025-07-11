@@ -107,7 +107,7 @@ const FreeZoneAdvantages = () => {
                 alt={advantage.title}
                 className="w-16 h-16 rounded-full mx-auto mb-4"
               />
-              <p className="text-2xl text-primary font-bold">
+              <p className="text-xl text-primary font-bold">
                 {advantage.title}
               </p>
               <p className="text-justify mt-8">{advantage.description}</p>

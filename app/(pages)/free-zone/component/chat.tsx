@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Chat = () => {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,9 +15,11 @@ const Chat = () => {
               consultation to learn how we can help with your business setup.
             </p>
           </div>
-          <button className="flex items-center gap-2 px-8 py-4 mt-20 ml-5 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
-            Talk to an expert
-          </button>
+          <Link href={"/contact"}>
+            <button className="flex items-center gap-2 px-8 py-4 mt-20 ml-5 border-2 bg-primary border-white rounded-none transition-all text-white hover:bg-muted-foreground hover:text-primary-foreground">
+              Talk to an expert
+            </button>
+          </Link>
         </div>
       </div>
     </div>

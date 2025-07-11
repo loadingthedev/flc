@@ -113,7 +113,7 @@ const ContactUsSection = () => {
               <div className="flex items-center space-x-4">
                 <FaEnvelope className="text-accent text-xl" />
                 <span className="text-foreground">
-                  offie@firstlegalcounsel.com
+                  office@firstlegalcounsel.com
                 </span>
               </div>
               <div className="flex items-center space-x-4">

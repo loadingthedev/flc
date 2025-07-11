@@ -232,7 +232,7 @@ const ContactUs = () => {
             <FiMail className="text-primary text-2xl" />
             <span className="text-lg font-medium">
               {" "}
-              offie@firstlegalcounsel.com
+              office@firstlegalcounsel.com
             </span>
           </div>
           <div className="flex items-center gap-4 text-foreground">

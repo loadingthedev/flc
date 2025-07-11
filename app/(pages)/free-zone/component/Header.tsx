@@ -2,11 +2,10 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="bg-muted-foreground  w-full   h-auto flex flex-col md:flex-row justify-between items-center px-8 md:px-40 mt-16 md:mt-0">
-      <div className="md:ml-20 text-center md:text-left">
+    <div className="bg-muted-foreground  w-8xl   h-auto flex flex-col md:flex-row justify-between items-center px-8 md:px-40 mt-16 md:mt-0 ">
+      <div className="md:ml-20 text-center md:text-left py-2">
         <h1 className="text-2xl md:text-4xl font-bold mb-4 text-white mt-10 md:mt-20">
-          Explore top UAE free zones and <br className="hidden md:block" />
-          their unique benefits for your business
+          Explore top UAE free zones and their unique benefits for your business
         </h1>
         <p className="text-white text-lg md:text-xl mb-4">
           With over 40 free zone jurisdictions in the UAE, selecting the right{" "}

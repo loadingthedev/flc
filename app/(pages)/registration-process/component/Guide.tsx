@@ -49,10 +49,10 @@ const Guide = () => {
             <h2 className="text-3xl mt-4 mb-4 font-bold px-4 md:px-0">
               The company registration process
             </h2>
-            <p className="px-4 md:px-0">
+            <p className="px-4 md:px-0 mb-2">
               Here is a brief outline of company registration in Dubai:
             </p>
-            <ul className="list-disc list-inside px-4 md:px-0">
+            <ul className="list-inside px-4 md:px-0">
               <li>I. Determine the business activity of your company</li>
               <li>
                 II. Work out if you need a local sponsor or not. (You will not

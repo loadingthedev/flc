@@ -59,7 +59,7 @@ export const How = () => {
                   Step 1 <FaArrowRight className="ml-auto text-blue-500" />
                 </h3>
                 <p className="text-start">
-                  <a href="#step1" className="underline text-blue-500">
+                  <a href="/contact" className="underline text-blue-500">
                     Speak with one of our experts.
                   </a>{" "}
                   - We’ll guide you through the entire process and answer all

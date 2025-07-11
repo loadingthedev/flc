@@ -7,7 +7,7 @@ export default function Business() {
       <div className="max-w-7xl mx-auto my-20 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center my-10 gap-10">
           <div className="md:w-1/2 mt-8 md:mt-0">
-            <h2 className="text-3xl font-bold text-primary mb-4">
+            <h2 className="text-2xl font-bold text-primary mb-4 ml-6">
               Why Choose UAE Free Zones for Your Business?
             </h2>
             <ul className="list-disc ml-5 text-lg space-y-6 my-8">
