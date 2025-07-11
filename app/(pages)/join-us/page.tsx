@@ -4,7 +4,6 @@ import FAQSection from "./component/FAQSection";
 import FeaturesSection from "./component/FeaturesSection";
 import HeroSection from "./component/HeroSection";
 import TestimonialsSection from "./component/TestimonialsSection";
-import TimelineSection from "./component/TimelineSection";
 
 const JoinUsPage = () => {
   return (
@@ -20,7 +19,7 @@ const JoinUsPage = () => {
       <FeaturesSection />
       <TestimonialsSection />
       <FAQSection />
-      <TimelineSection />
+      {/* <TimelineSection /> */}
       <ContactUsSection />
     </div>
   );

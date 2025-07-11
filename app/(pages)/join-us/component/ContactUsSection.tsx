@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const ContactUsSection = () => {
   const [formData, setFormData] = useState({
@@ -106,10 +106,10 @@ const ContactUsSection = () => {
               Contact Information
             </h3>
             <div className="space-y-6">
-              <div className="flex items-center space-x-4">
+              {/* <div className="flex items-center space-x-4">
                 <FaPhone className="text-accent text-xl" />
-                {/* <span className="text-foreground">+1 (555) 123-4567</span> */}
-              </div>
+                <span className="text-foreground">+1 (555) 123-4567</span>
+              </div> */}
               <div className="flex items-center space-x-4">
                 <FaEnvelope className="text-accent text-xl" />
                 <span className="text-foreground">
@@ -118,9 +118,10 @@ const ContactUsSection = () => {
               </div>
               <div className="flex items-center space-x-4">
                 <FaMapMarkerAlt className="text-accent text-xl" />
-                {/* <span className="text-foreground">
-                  123 Innovation Street, San Francisco, CA 94103
-                </span> */}
+                <span className="text-foreground">
+                  6th Floor, Meydan Free Zone GrandStand, Meydan Rd, Nad Al
+                  sheba 1, Dubai UAE{" "}
+                </span>
               </div>
             </div>
             <div className="mt-8">
