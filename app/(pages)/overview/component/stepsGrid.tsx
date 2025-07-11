@@ -5,7 +5,7 @@ import {
   FaLightbulb,
   FaShoppingBag,
 } from "react-icons/fa";
-
+//Did some changes
 export default function Steps() {
   return (
     <div className="bg-white p-6  rounded text-center flex flex-col items-center mt-20 max-w-6xl mx-auto">
