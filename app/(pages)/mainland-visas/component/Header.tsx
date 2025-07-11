@@ -8,8 +8,7 @@ const Header = () => {
           UAE MAINLAND VISAS
         </h1>
         <p className="text-5xl font-bold text-white mt-4 mb-8">
-          UAE VISA
-          <br /> REQUIREMENTS
+          UAE VISA REQUIREMENTS
         </p>
 
         <p className="text-white text-xl mb-8">

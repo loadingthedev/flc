@@ -3,18 +3,18 @@ import { FaGlobe } from "react-icons/fa";
 
 const Guide = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center my-12 ">
-      <div className="mt-8 md:mt-0 ">
+    <div className="flex flex-col items-center my-12">
+      <div className="w-full max-w-7xl mt-8 md:mt-0 flex flex-col items-center">
         <div className="flex justify-center mb-4">
-          <div className="rounded-full bg-red p-2 w-12 h-12 flex items-center justify-center ml-12 mt-8">
+          <div className="rounded-full bg-red p-2 w-12 h-12 flex items-center justify-center mt-8">
             <FaGlobe color="red" size={100} />
           </div>
         </div>
-        <h2 className="text-3xl text-center font-bold text-primary mb-4 ml-20 mt-8">
+        <h2 className="text-3xl text-center font-bold text-primary  mt-8">
           Types of mainland trade licence
         </h2>
-        <div className=" flex flex-col md:flex-row items-center ml-40 mt-20 ">
-          <div className=" max-w-7xl mt-8 md:mt-30 md:pl-20">
+        <div className="w-full flex flex-col items-center mt-10">
+          <div className="w-full mt-8 md:mt-10 px-4">
             <h2 className="text-3xl mt-4 mb-4 font-bold ">
               Professional trade licence
             </h2>
@@ -92,7 +92,7 @@ const Guide = () => {
               converting natural materials or incorporating natural resources
               into their end products.
             </p>
-            <p className="text-md mb-8">
+            <p className="text-md mb-4">
               This business licence is issued by the DED but additional
               approvals might be required from the Ministry of Finance, Ministry
               of Economy, the Ministry of Energy and Infrastructure and other
@@ -135,7 +135,7 @@ const Guide = () => {
                 applicable).
               </li>
             </ul>
-            <p className="text-md mb-8">
+            <p className="text-md mb-4 mt-4">
               Depending on the legal form of a business, it is also a
               requirement to complete and sign a Memorandum of association (MoA)
               or a local service agent agreement (LSA). The memorandum of

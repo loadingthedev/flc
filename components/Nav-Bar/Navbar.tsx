@@ -151,7 +151,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           Mainland Visas
         </Link>
         <Link
-          href="/mainland-virtuefit"
+          href="/mainland-flc"
           className="block px-3 py-2 rounded hover:bg-primary/10 hover:text-primary text-[#222] transition-all"
         >
           FLC
