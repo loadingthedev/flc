@@ -12,7 +12,7 @@ const Business = () => {
             </div>
           </div>
           <h2 className="text-3xl text-center font-bold text-primary mb-4 mt-8">
-            Setting Up Your UAE Company Starts with Virtuzone
+            Setting Up Your UAE Company Starts with FLC
           </h2>
           <div className="flex flex-col md:flex-row items-center ml-40 mt-20 ">
             <div className="md:w-1/3">

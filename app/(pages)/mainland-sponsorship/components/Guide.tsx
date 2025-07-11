@@ -16,8 +16,8 @@ const Guide = () => {
         <p className="text-lg mb-8 text-center">
           Corporate sponsorship offers the same advantages as dealing with an
           individual sponsor, while <br /> providing services that are designed
-          to address the challenges that can arise. With Virtuzone’s <br />{" "}
-          corporate sponsorship service, you’ll benefit from:
+          to address the challenges that can arise. With FLC ’s <br /> corporate
+          sponsorship service, you’ll benefit from:
         </p>
         <div className="flex flex-col md:flex-row items-center ml-40 mt-20 ">
           <div className="md:w-1/2 mt-8 md:mt-30 md:pl-20">

@@ -43,7 +43,7 @@ export default function Business() {
                 the UAE.
               </li>
             </ul>
-            <strong className="text-3xl">Why Virtuzone?</strong>
+            <strong className="text-3xl">Why FLC ?</strong>
             <p className="text-md my-8 ">
               Setting up a business in a UAE free zone offers unique benefits,
               from tax advantages to streamlined operations. With over 40

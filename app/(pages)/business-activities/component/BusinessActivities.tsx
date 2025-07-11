@@ -34,7 +34,7 @@ const Business = () => {
               <br /> <br />
               The categories below outline some of the most popular business
               activities you can choose from when setting up your UAE free zone
-              company with Virtuzone.
+              company with FLC .
             </p>
             <div className="flex justify-center md:justify-start mt-2">
               <Link href="/contact">

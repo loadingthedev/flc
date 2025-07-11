@@ -113,7 +113,7 @@ const Business = () => {
               </p>
               <p className="mb-4">That’s where we can help.</p>
               <p className="mb-4">
-                Our Virtuzone process is simple. That’s why we’re the partner of
+                Our FLC process is simple. That’s why we’re the partner of
                 choice for more entrepreneurs choosing to start a business in
                 the UAE. Conditions aside, we help foreign investors continue to
                 flock to the country.
@@ -448,7 +448,7 @@ const Business = () => {
                 Before collating your business plan and applying for a tourist
                 visa UAE, get in touch with one of our company formation experts
                 in Dubai. We’ll show you how easy establishing a business in the
-                UAE can be with the Virtuzone process.
+                UAE can be with the FLC process.
               </p>
             </div>
           </div>

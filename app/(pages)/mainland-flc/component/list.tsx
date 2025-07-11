@@ -11,7 +11,7 @@ export default function List() {
           </div>
         </div>
         <h2 className="text-3xl font-bold text-primary mb-10 mt-8">
-          Setting Up Your UAE Company Starts with Virtuzone
+          Setting Up Your UAE Company Starts with FLC
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-center mt-20 gap-80 mx-auto shadow-md my-25 rounded-lg">
           <div className="mt-8 md:mt-0 md:pl-20 mx-10">

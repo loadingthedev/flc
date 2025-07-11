@@ -14,8 +14,8 @@ export default function Steps() {
         Steps to Set Up a Company in a UAE Free Zone
       </h2>
       <p className="text-center text-primary text-xl mb-8">
-        Starting a business in Dubai is simple with Virtuzone. We can help you
-        set up in a free zone, on <br />
+        Starting a business in Dubai is simple with FLC . We can help you set up
+        in a free zone, on <br />
         mainland or offshore.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-10">

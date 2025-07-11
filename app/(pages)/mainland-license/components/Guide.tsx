@@ -161,12 +161,11 @@ const Guide = () => {
             </p>
 
             <p className="text-md mb-8">
-              As the leading corporate service provider in the UAE, Virtuzone
-              can help you start your company with the right Dubai mainland
-              licence, ensuring you are positioned for future growth and
-              success. FLC also provides value-added business support services
-              that can help your company start strong and thrive in a
-              competitive market.
+              As the leading corporate service provider in the UAE, FLC can help
+              you start your company with the right Dubai mainland licence,
+              ensuring you are positioned for future growth and success. FLC
+              also provides value-added business support services that can help
+              your company start strong and thrive in a competitive market.
             </p>
             <p className="text-md mb-8">
               Do you need help in choosing a trade licence for your business?
