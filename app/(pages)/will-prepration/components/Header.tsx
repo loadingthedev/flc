@@ -20,7 +20,7 @@ const Header = () => {
       .then((res) => res.json())
       .then((response) => {
         console.log("Fetched data:", response);
-        setData(response.wllheader);
+        setData(response.willheader);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
