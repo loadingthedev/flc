@@ -1,9 +1,9 @@
 "use client";
 
-import RecentReviewsCarousel from "@/components/Cient";
 import ContactUs from "@/components/Contact";
 import FlcHero from "@/components/Hero";
 import How from "@/components/How-to";
+import RecentReviewsCarousel from "@/components/testimonial";
 import Script from "next/script";
 
 export default function Home() {

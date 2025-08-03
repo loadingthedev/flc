@@ -3,48 +3,38 @@ import Image from "next/image";
 
 export default function LargeTestimonial() {
   return (
-    <section>
-      <div className="mx-auto max-w-2xl px-4 sm:px-6">
-        <div className="py-12 md:py-20">
-          <div className="space-y-3 text-center">
-            <div className="relative inline-flex">
-              <svg
-                className="absolute -left-6 -top-2 -z-10"
-                width={40}
-                height={49}
-                viewBox="0 0 40 49"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M22.7976 -0.000136375L39.9352 23.4746L33.4178 31.7234L13.7686 11.4275L22.7976 -0.000136375ZM9.34947 17.0206L26.4871 40.4953L19.9697 48.7441L0.320491 28.4482L9.34947 17.0206Z"
-                  fill="#D1D5DB"
-                />
-              </svg>
-              <Image
-                className="rounded-full"
-                src={TestimonialImg}
-                width={48}
-                height={48}
-                alt="Large testimonial"
-              />
+    <section className="bg-gradient-to-br from-white to-gray-100 dark:from-gray-950 dark:to-gray-900 py-14 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-2xl mx-auto">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 sm:p-10 text-center relative">
+          {/* Quotation Icon */}
+          <div className="absolute top-6 left-6 text-4xl text-gray-200 dark:text-gray-700 opacity-50 select-none">
+            &ldquo;
+          </div>
+
+          {/* Testimonial Text */}
+          <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 font-medium leading-relaxed z-10 relative">
+            FLC has transformed the way I manage tasks.{" "}
+            <span className="text-gray-500 dark:text-gray-400 italic">
+              It’s intuitive, fast, and reliable. I can’t imagine working
+              without it anymore.
+            </span>
+          </p>
+
+          {/* User Profile */}
+          <div className="mt-8 flex flex-col items-center space-y-2">
+            <Image
+              src={TestimonialImg}
+              width={64}
+              height={64}
+              alt="Testimonial avatar"
+              className="rounded-full border-4 border-white dark:border-gray-700 shadow-md"
+            />
+            <div className="text-sm text-gray-800 dark:text-gray-100 font-semibold">
+              Mary Sullivan
             </div>
-            <p className="text-2xl font-bold text-gray-900">
-              FLC has simplified my life in more ways than one.{" "}
-              <em className="italic text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-                eum, neque vitae ipsum pariatur similique quis exercitationem
-                eos. Nesciunt quo sint optio, rem perferendis est eum sapiente
-                modi id maiores.
-              </em>
-              ,
-            </p>
-            <div className="text-sm font-medium text-gray-500">
-              <span className="text-gray-700">Mary Sullivan</span>{" "}
-              <span className="text-gray-400">/</span>{" "}
-              <a className="text-blue-500" href="#0">
-                CTO at Google
-              </a>
+            <div className="text-xs text-gray-500 dark:text-gray-400">
+              CTO at{" "}
+              <span className="text-blue-600 dark:text-blue-400">Google</span>
             </div>
           </div>
         </div>
