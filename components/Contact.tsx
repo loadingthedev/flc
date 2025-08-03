@@ -134,7 +134,7 @@ const ContactUs = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-foreground">
                 <FiMail className="text-primary text-xl" />
-                <span>support@example.com</span>
+                <span>office@firstlegalcounsel.com</span>
               </div>
               <div className="flex items-center gap-3 text-foreground">
                 <FiMessageSquare className="text-primary text-xl" />
