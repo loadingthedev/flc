@@ -23,8 +23,9 @@ export default function Home() {
   window.__CHAT_WIDGET_CONFIG__ = {
     token: "lil-c7dfc4f1-aa6b-44b3-986a-0b93f186c22e",
     botName: "FLCLegal",
-    primaryColor: "#093145",
+    primaryColor: "#000000",
     position: "bottom-right", // or "bottom-right"
+   
     url: "https://linkinlegal-chat.vercel.app",
   };
   `}
