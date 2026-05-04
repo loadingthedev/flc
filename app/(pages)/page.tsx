@@ -21,7 +21,7 @@ export default function Home() {
       <Script id="ll-chat-widget-config" strategy="afterInteractive">
         {`
   window.__CHAT_WIDGET_CONFIG__ = {
-    token: "lil-c7dfc4f1-aa6b-44b3-986a-0b93f186c22e",
+    token: "lil-1a1fb7bb-1582-4055-a98d-0274b159f6da",
     botName: "FLCLegal",
     primaryColor: "#000000",
     position: "bottom-right", // or "bottom-right"
